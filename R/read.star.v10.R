@@ -19,6 +19,7 @@
 #' star <- read.star.v10("STAR_2019_HKE_5.xlsx")
 #' }
 #'
+#' @importFrom uuid UUIDgenerate
 #' @importFrom XLConnect loadWorkbook readWorksheet readTable setMissingValue
 #'
 #' @export
@@ -27,9 +28,17 @@ read.star.v10 <- function(file)
 {
   w <- loadWorkbook(file)
   setMissingValue(w, "NA")
+
   Dimensions <- readTable(w, "Metadata", "Dimensions")
   From_TimeSeries <-
     readWorksheet(w, "Metadata", region="J20:J21",
                   header=FALSE, useCachedValues=TRUE, simplify=TRUE)
-  w
+
+  Assessment_ID <- as.character(UUIDgenerate())
+
+  Metadata <- as.list(data.frame(
+    Assessment_ID
+  ))
+
+  Metadata
 }
