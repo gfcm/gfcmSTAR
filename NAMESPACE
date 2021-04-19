@@ -2,6 +2,8 @@
 
 export(comma2period)
 export(read.star.v10)
+export(readTableLogical)
+export(readTableTranspose)
 importFrom(XLConnect,loadWorkbook)
 importFrom(XLConnect,readTable)
 importFrom(XLConnect,readWorksheet)
