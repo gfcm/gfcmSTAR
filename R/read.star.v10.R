@@ -8,8 +8,9 @@
 #' List containing \code{Metadata} (list) and \code{TimeSeries} (data frame).
 #'
 #' @seealso
-#' \code{\link[XLConnect]{readWorksheetFromFile}} is the underlying function to
-#' read data from Excel worksheets.
+#' \code{\link[XLConnect]{loadWorkbook}}, \code{\link[XLConnect]{readTable}},
+#' and \code{\link[XLConnect]{readWorksheet}} are the underlying functions to
+#' read data from Excel workbooks.
 #'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'
@@ -18,9 +19,17 @@
 #' star <- read.star.v10("STAR_2019_HKE_5.xlsx")
 #' }
 #'
+#' @importFrom XLConnect loadWorkbook readWorksheet readTable setMissingValue
+#'
 #' @export
 
 read.star.v10 <- function(file)
 {
-  pi
+  w <- loadWorkbook(file)
+  setMissingValue(w, "NA")
+  Dimensions <- readTable(w, "Metadata", "Dimensions")
+  From_TimeSeries <-
+    readWorksheet(w, "Metadata", region="J20:J21",
+                  header=FALSE, useCachedValues=TRUE, simplify=TRUE)
+  w
 }

@@ -2,3 +2,7 @@
 
 export(comma2period)
 export(read.star.v10)
+importFrom(XLConnect,loadWorkbook)
+importFrom(XLConnect,readTable)
+importFrom(XLConnect,readWorksheet)
+importFrom(XLConnect,setMissingValue)

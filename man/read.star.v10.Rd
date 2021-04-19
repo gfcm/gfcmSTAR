@@ -22,8 +22,9 @@ star <- read.star.v10("STAR_2019_HKE_5.xlsx")
 
 }
 \seealso{
-\code{\link[XLConnect]{readWorksheetFromFile}} is the underlying function to
-read data from Excel worksheets.
+\code{\link[XLConnect]{loadWorkbook}}, \code{\link[XLConnect]{readTable}},
+and \code{\link[XLConnect]{readWorksheet}} are the underlying functions to
+read data from Excel workbooks.
 
 \code{\link{gfcmSTAR-package}} gives an overview of the package.
 }
