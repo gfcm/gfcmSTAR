@@ -5,7 +5,7 @@
 \title{Read STAR Template Version 1.0}
 \usage{
 read.star.v10(file, atype = "Standard", refyear = 2019, repyear = 2021,
-  countries = NA_character_)
+  countries = NA)
 }
 \arguments{
 \item{file}{name of Excel file.}

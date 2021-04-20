@@ -30,7 +30,7 @@
 #' @export
 
 read.star.v10 <- function(file, atype="Standard", refyear=2019, repyear=2021,
-                          countries=NA_character_)
+                          countries=NA)
 {
   atype <- match.arg(atype, c("Standard", "Benchmark"))
 
@@ -46,8 +46,9 @@ read.star.v10 <- function(file, atype="Standard", refyear=2019, repyear=2021,
   VPA_Model <- readTableLogical(w, "Metadata", "VPA_Model")
   Forecast_Included <- readTableLogical(w, "Metadata", "Forecast_Included")
   Reference_Points <- readTable(w, "Metadata", "Reference_Points")
-  From_TimeSeries <- readWorksheet(w, "Metadata", region="J20:J21", header=FALSE,
-                                   useCachedValues=TRUE, simplify=TRUE)
+  From_TimeSeries <-
+    readWorksheet(w, "Metadata", region="J20:J21", header=FALSE,
+                  useCachedValues=TRUE, simplify=TRUE)
   Dimensions <- readTable(w, "Metadata", "Dimensions")
   Summary_Information <- readTableTranspose(w, "Summary", "Summary_Information")
   Summary_Table <- readTable(w, "Summary", "Summary_Table", colTypes="numeric")
