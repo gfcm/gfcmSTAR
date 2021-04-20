@@ -51,7 +51,8 @@ read.star.v10 <- function(file, atype="Standard", refyear=2019, repyear=2021,
                                    useCachedValues=TRUE, simplify=TRUE)
   Dimensions <- readTable(w, "Metadata", "Dimensions")
   Summary_Information <- readTableTranspose(w, "Summary", "Summary_Information")
-  Summary_Table <- readTable(w, "Summary", "Summary_Table")
+  Summary_Table <- readTable(w, "Summary", "Summary_Table", colTypes="numeric")
+  Summary_Table$Year <- as.integer(Summary_Table$Year)
   Advice_Export <- readTable(w, "Advice", "Advice_Export", useCachedValues=TRUE)
   Advice_Export[Advice_Export==""] <- NA_character_
 
@@ -141,6 +142,7 @@ read.star.v10 <- function(file, atype="Standard", refyear=2019, repyear=2021,
     Advice_Levels, Advice_Refpts, Advice_Quant_Status, Advice_Stock_Status,
     GSA_Names, Countries, Template_Version, Excel_Filename
   ))
+  TimeSeries <- data.frame(Assessment_ID, Summary_Table, stringsAsFactors=FALSE)
 
-  Metadata
+  list(Metadata=Metadata, TimeSeries=TimeSeries)
 }
