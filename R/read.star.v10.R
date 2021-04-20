@@ -6,8 +6,7 @@
 #' @param atype assessment type, \code{"Standard"} or \code{"Benchmark"}.
 #' @param refyear reference year.
 #' @param repyear reporting year.
-#' @param gsa.names GSA names.
-#' @param countries Countries, comma-separated.
+#' @param countries countries, separated by comma and space.
 #'
 #' @return
 #' List containing \code{Metadata} (list) and \code{TimeSeries} (data frame).
@@ -31,7 +30,7 @@
 #' @export
 
 read.star.v10 <- function(file, atype="Standard", refyear=2019, repyear=2021,
-                          gsa.names=NA_character_, countries=NA_character_)
+                          countries=NA_character_)
 {
   atype <- match.arg(atype, c("Standard", "Benchmark"))
 
@@ -119,7 +118,7 @@ read.star.v10 <- function(file, atype="Standard", refyear=2019, repyear=2021,
   Advice_Quant_Status <-
     as.character(comma2period(Advice_Export$Quantitative.Status))
   Advice_Stock_Status <- as.character(Advice_Export$Stock.Status)
-  GSA_Names <- as.character(gsa.names)
+  GSA_Names <- as.character(gsa.names(GSA))
   Countries <- as.character(countries)
 
   Template_Version <- as.character("1.0.0")

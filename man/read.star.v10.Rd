@@ -5,7 +5,7 @@
 \title{Read STAR Template Version 1.0}
 \usage{
 read.star.v10(file, atype = "Standard", refyear = 2019, repyear = 2021,
-  gsa.names = NA_character_, countries = NA_character_)
+  countries = NA_character_)
 }
 \arguments{
 \item{file}{name of Excel file.}
@@ -16,9 +16,7 @@ read.star.v10(file, atype = "Standard", refyear = 2019, repyear = 2021,
 
 \item{repyear}{reporting year.}
 
-\item{gsa.names}{GSA names.}
-
-\item{countries}{Countries, comma-separated.}
+\item{countries}{countries, separated by comma and space.}
 }
 \value{
 List containing \code{Metadata} (list) and \code{TimeSeries} (data frame).
