@@ -4,18 +4,48 @@
 \alias{write.star}
 \title{Write STAR Object to Files}
 \usage{
-write.star(x, mfile = "metadata.csv", tfile = "timeseries.csv", ...)
+write.star(star, dir = NULL, mfile = "metadata.csv",
+  tfile = "timeseries.csv", quote = TRUE, row.names = FALSE,
+  fileEncoding = "UTF-8", dos = TRUE, ...)
 }
 \arguments{
-\item{x}{a STAR object, list containing \code{Metadata} and
+\item{star}{a STAR object, list containing \code{Metadata} and
 \code{TimeSeries}.}
+
+\item{dir}{an optional directory name.}
 
 \item{mfile}{a filename for the metadata.}
 
 \item{tfile}{a filename for the time series.}
 
+\item{quote}{whether to quote strings.}
+
+\item{row.names}{whether to include row names.}
+
+\item{fileEncoding}{character encoding for output file.}
+
+\item{dos}{whether to ensure resulting CSV files have Dos line endings.}
+
 \item{\dots}{passed to \code{write.csv}.}
 }
+\value{
+No return value, called for side effects.
+}
 \description{
-Write a STAR object to files.
+Write a STAR object to CSV files.
+}
+\note{
+The resulting CSV file has Dos line endings, as specified in the RFC 4180
+standard (IETF 2005).
+}
+\references{
+IETF (2005).
+Common format and Mime type for Comma-Separated Values (CSV) files.
+\href{https://tools.ietf.org/html/rfc4180}{\emph{IETF RFC} 4180}.
+}
+\seealso{
+\code{\link{write.csv}} is the underlying function used to write a table to a
+file.
+
+\code{\link{read.tar.v10}} reads from an Excel template into a STAR object.
 }
