@@ -6,9 +6,10 @@
 
 ## Write
 
-write.star <- function(star, file="", ...)
+write.star <- function(star, mfile="metadata.csv", tfile="timeseries.csv", ...)
 {
-  metadata <- data.frame(Field=names(star$Metadata),
-                         Value=unlist(star$Metadata), row.names=NULL)
-  write.csv(metadata, file=file, ...)
+  metadata <- as.data.frame(star$Metadata, stringsAsFactors=FALSE)
+  timeseries <- star$TimeSeries
+  write.csv(metadata, file=mfile, ...)
+  write.csv(timeseries, file=tfile, ...)
 }

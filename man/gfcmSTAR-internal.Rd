@@ -18,7 +18,7 @@ readTableLogical(...)
 
 readTableTranspose(..., rownames = 1)
 
-write.star(star, file = "", ...)
+write.star(star, mfile = "metadata.csv", tfile = "timeseries.csv", ...)
 }
 \description{
 These functions are called by user-level functions. The functionality is
