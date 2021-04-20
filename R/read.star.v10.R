@@ -140,8 +140,8 @@ read.star.v10 <- function(file, atype="Standard", refyear=2019, repyear=2021,
     Exploitation_Unit, Effort_Unit,
     Fbar_First_Age, Fbar_Last_Age, Fbar_First_Length, Fbar_Last_Length,
     Advice_Levels, Advice_Refpts, Advice_Quant_Status, Advice_Stock_Status,
-    GSA_Names, Countries, Template_Version, Excel_Filename
-  ))
+    GSA_Names, Countries, Template_Version, Excel_Filename,
+    stringsAsFactors=FALSE))
   TimeSeries <- data.frame(Assessment_ID, Summary_Table, stringsAsFactors=FALSE)
 
   list(Metadata=Metadata, TimeSeries=TimeSeries)
