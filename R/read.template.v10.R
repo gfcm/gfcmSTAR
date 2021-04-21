@@ -31,7 +31,7 @@
 #' @examples
 #' \dontrun{
 #' # Import
-#' star <- read.star.v10("STAR_2019_HKE_5.xlsx")
+#' star <- read.template.v10("STAR_2019_HKE_5.xlsx")
 #'
 #' # Coerce metadata to list or data frame:
 #' star$Metadata                 # simple.list (default)
@@ -45,8 +45,8 @@
 #'
 #' @export
 
-read.star.v10 <- function(file, atype="Standard", refyear=2019, repyear=2021,
-                          countries=NA)
+read.template.v10 <- function(file, atype="Standard", refyear=2019,
+                              repyear=2021, countries=NA)
 {
   atype <- match.arg(atype, c("Standard", "Benchmark"))
 

@@ -38,5 +38,6 @@ Write a STAR object to CSV files.
 \code{\link{write.csv}} is the underlying function used to write a table to a
 file.
 
-\code{\link{read.star.v10}} reads from an Excel template into a STAR object.
+\code{\link{read.template.v10}} reads from an Excel template into a STAR
+object.
 }

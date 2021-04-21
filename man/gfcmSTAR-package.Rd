@@ -12,7 +12,7 @@ General Fisheries Commission for the Mediterranean.
 \details{
 \emph{Read from Excel into R:}
 \tabular{ll}{
-  \code{\link{read.star.v10}} \tab version 1.0
+  \code{\link{read.template.v10}} \tab version 1.0
 }
 \emph{Export from R to CSV files:}
 \tabular{ll}{
