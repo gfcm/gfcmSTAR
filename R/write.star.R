@@ -49,8 +49,11 @@ write.star <- function(star, dir=TRUE, mfile="metadata.csv",
     dir <- "."
   if(dir != ".")
   {
-    message("Creating directory '", dir, "'")
-    md(dir)
+    if(!dir.exists(dir))
+    {
+      message("Creating directory '", dir, "'")
+      dir.create(dir, recursive=TRUE)
+    }
     mfile <- file.path(dir, mfile)
     tfile <- file.path(dir, tfile)
   }

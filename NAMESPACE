@@ -2,7 +2,6 @@
 
 export(comma2period)
 export(gsa.names)
-export(md)
 export(read.template.v10)
 export(readTableLogical)
 export(readTableTranspose)
