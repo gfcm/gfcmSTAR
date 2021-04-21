@@ -10,8 +10,14 @@
 #' @param countries countries, separated by comma and space.
 #'
 #' @return
-#' STAR object, a list containing \code{Metadata} (list) and \code{TimeSeries}
-#' (data frame).
+#' STAR object, a list containing \code{Metadata} (simple list) and
+#' \code{TimeSeries} (data frame).
+#'
+#' @note
+#' The purpose of having \code{Metadata} as class
+#' \code{c("simple.list", "list")} is to have it display in a compact and
+#' readable format in the console. It is easy to convert to a normal list or
+#' data frame - see examples below.
 #'
 #' @seealso
 #' \code{\link[XLConnect]{loadWorkbook}}, \code{\link[XLConnect]{readTable}},
@@ -24,7 +30,13 @@
 #'
 #' @examples
 #' \dontrun{
+#' # Import
 #' star <- read.star.v10("STAR_2019_HKE_5.xlsx")
+#'
+#' # Coerce metadata to list or data frame:
+#' star$Metadata                 # simple.list (default)
+#' unclass(star$Metadata)        # list
+#' as.data.frame(star$Metadata)  # data.frame
 #' }
 #'
 #' @importFrom stats na.omit quantile
@@ -146,6 +158,7 @@ read.star.v10 <- function(file, atype="Standard", refyear=2019, repyear=2021,
     Advice_Levels, Advice_Refpts, Advice_Quant_Status, Advice_Stock_Status,
     GSA_Names, Countries, Template_Version, Excel_Filename,
     stringsAsFactors=FALSE))
+  class(Metadata) <- c("simple.list", "list")
   TimeSeries <- data.frame(Assessment_ID, Summary_Table, stringsAsFactors=FALSE)
 
   list(Metadata=Metadata, TimeSeries=TimeSeries)

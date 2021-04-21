@@ -19,16 +19,28 @@ read.star.v10(file, atype = "Standard", refyear = 2019, repyear = 2021,
 \item{countries}{countries, separated by comma and space.}
 }
 \value{
-STAR object, a list containing \code{Metadata} (list) and \code{TimeSeries}
-(data frame).
+STAR object, a list containing \code{Metadata} (simple list) and
+\code{TimeSeries} (data frame).
 }
 \description{
 Read the results found in an Excel STAR template version 1.0 into a STAR
 object.
 }
+\note{
+The purpose of having \code{Metadata} as class
+\code{c("simple.list", "list")} is to have it display in a compact and
+readable format in the console. It is easy to convert to a normal list or
+data frame - see examples below.
+}
 \examples{
 \dontrun{
+# Import
 star <- read.star.v10("STAR_2019_HKE_5.xlsx")
+
+# Coerce metadata to list or data frame:
+star$Metadata                 # simple.list (default)
+unclass(star$Metadata)        # list
+as.data.frame(star$Metadata)  # data.frame
 }
 
 }
