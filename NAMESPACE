@@ -2,6 +2,7 @@
 
 export(comma2period)
 export(gsa.names)
+export(mkdir)
 export(read.star.v10)
 export(readTableLogical)
 export(readTableTranspose)
