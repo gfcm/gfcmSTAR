@@ -1,6 +1,7 @@
 #' Read STAR Template Version 1.0
 #'
-#' Import the results found in an Excel STAR template version 1.0.
+#' Read the results found in an Excel STAR template version 1.0 into a STAR
+#' object.
 #'
 #' @param file name of Excel file.
 #' @param atype assessment type, \code{"Standard"} or \code{"Benchmark"}.
@@ -9,12 +10,15 @@
 #' @param countries countries, separated by comma and space.
 #'
 #' @return
-#' List containing \code{Metadata} (list) and \code{TimeSeries} (data frame).
+#' STAR object, a list containing \code{Metadata} (list) and \code{TimeSeries}
+#' (data frame).
 #'
 #' @seealso
 #' \code{\link[XLConnect]{loadWorkbook}}, \code{\link[XLConnect]{readTable}},
 #' and \code{\link[XLConnect]{readWorksheet}} are the underlying functions to
 #' read data from Excel workbooks.
+#'
+#' \code{\link{write.star}} writes a STAR object to CSV files.
 #'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'

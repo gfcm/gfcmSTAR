@@ -19,10 +19,12 @@ read.star.v10(file, atype = "Standard", refyear = 2019, repyear = 2021,
 \item{countries}{countries, separated by comma and space.}
 }
 \value{
-List containing \code{Metadata} (list) and \code{TimeSeries} (data frame).
+STAR object, a list containing \code{Metadata} (list) and \code{TimeSeries}
+(data frame).
 }
 \description{
-Import the results found in an Excel STAR template version 1.0.
+Read the results found in an Excel STAR template version 1.0 into a STAR
+object.
 }
 \examples{
 \dontrun{
@@ -34,6 +36,8 @@ star <- read.star.v10("STAR_2019_HKE_5.xlsx")
 \code{\link[XLConnect]{loadWorkbook}}, \code{\link[XLConnect]{readTable}},
 and \code{\link[XLConnect]{readWorksheet}} are the underlying functions to
 read data from Excel workbooks.
+
+\code{\link{write.star}} writes a STAR object to CSV files.
 
 \code{\link{gfcmSTAR-package}} gives an overview of the package.
 }

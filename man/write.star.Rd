@@ -47,5 +47,5 @@ Common format and Mime type for Comma-Separated Values (CSV) files.
 \code{\link{write.csv}} is the underlying function used to write a table to a
 file.
 
-\code{\link{read.tar.v10}} reads from an Excel template into a STAR object.
+\code{\link{read.star.v10}} reads from an Excel template into a STAR object.
 }
