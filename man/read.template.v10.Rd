@@ -27,13 +27,14 @@ Read the results found in an Excel STAR template version 1.0 into a STAR
 object.
 }
 \note{
-The purpose of having \code{Metadata} as class
+The purpose of storing \code{Metadata} as class
 \code{c("simple.list", "list")} is to have it display in a compact and
 readable format in the console. It is easy to convert to a normal list or
 data frame - see examples below.
 }
 \examples{
 \dontrun{
+
 # Import
 star <- read.template.v10("STAR_2019_HKE_5.xlsx")
 
@@ -45,9 +46,8 @@ as.data.frame(star$Metadata)  # data.frame
 
 }
 \seealso{
-\code{\link[XLConnect]{loadWorkbook}}, \code{\link[XLConnect]{readTable}},
-and \code{\link[XLConnect]{readWorksheet}} are the underlying functions to
-read data from Excel workbooks.
+\code{\link[XLConnect]{loadWorkbook}} and \code{\link[XLConnect]{readTable}}
+are the underlying functions used to read data from Excel STAR templates.
 
 \code{\link{write.star}} writes a STAR object to CSV files.
 
