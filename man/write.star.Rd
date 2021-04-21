@@ -24,7 +24,7 @@ write.star(star, dir = NULL, mfile = "metadata.csv",
 
 \item{fileEncoding}{character encoding for output file.}
 
-\item{dos}{whether to ensure resulting CSV files have Dos line endings.}
+\item{dos}{whether to ensure the resulting CSV files have Dos line endings.}
 
 \item{\dots}{passed to \code{write.csv}.}
 }
@@ -33,15 +33,6 @@ No return value, called for side effects.
 }
 \description{
 Write a STAR object to CSV files.
-}
-\note{
-The resulting CSV file has Dos line endings, as specified in the RFC 4180
-standard (IETF 2005).
-}
-\references{
-IETF (2005).
-Common format and Mime type for Comma-Separated Values (CSV) files.
-\href{https://tools.ietf.org/html/rfc4180}{\emph{IETF RFC} 4180}.
 }
 \seealso{
 \code{\link{write.csv}} is the underlying function used to write a table to a
