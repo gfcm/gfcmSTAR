@@ -4,14 +4,25 @@
 #'
 #' @param star a STAR object, list containing \code{Metadata} and
 #'        \code{TimeSeries}.
-#' @param dir an optional directory name.
+#' @param dir an optional directory name to write the CSV files into, or a
+#'        logical value. See details.
 #' @param mfile a filename for the metadata.
 #' @param tfile a filename for the time series.
 #' @param quote whether to quote strings.
 #' @param row.names whether to include row names.
 #' @param fileEncoding character encoding for output file.
 #' @param dos whether to ensure the resulting CSV files have Dos line endings.
+#' @param quiet whether to suppress messages.
 #' @param \dots passed to \code{write.csv}.
+#'
+#' @details
+#' The special value \code{dir = TRUE} can be used as shorthand for the prefix
+#' of the original Excel template filename. For example, if
+#' \code{star$Metadata$Excel_Filename} is \code{"STAR_2019_HKE_5.xlsx"}, then a
+#' directory called \file{STAR_2019_HKE_5} will be created and used.
+#'
+#' The special value \code{dir = FALSE} can be used as shorthand for the current
+#' directory, the same as \code{dir = "."}.
 #'
 #' @return No return value, called for side effects.
 #'
@@ -22,27 +33,39 @@
 #' \code{\link{read.template.v10}} reads from an Excel template into a STAR
 #' object.
 #'
+#' @importFrom tools file_path_sans_ext
 #' @importFrom utils write.csv
 #'
 #' @export
 
-write.star <- function(star, dir=NULL, mfile="metadata.csv",
+write.star <- function(star, dir=TRUE, mfile="metadata.csv",
                        tfile="timeseries.csv", quote=TRUE, row.names=FALSE,
-                       fileEncoding="UTF-8", dos=TRUE, ...)
+                       fileEncoding="UTF-8", dos=TRUE, quiet=FALSE, ...)
 {
   ## 1  Create and prepend directory
-  dir <- if(is.null(dir)) "." else dir
-  md(dir)
-  mfile <- file.path(dir, mfile)
-  tfile <- file.path(dir, tfile)
+  if(identical(dir, TRUE))
+    dir <- file_path_sans_ext(star$Metadata$Excel_Filename)
+  if(identical(dir, FALSE))
+    dir <- "."
+  if(dir != ".")
+  {
+    message("Creating directory '", dir, "'")
+    md(dir)
+    mfile <- file.path(dir, mfile)
+    tfile <- file.path(dir, tfile)
+  }
 
   ## 2  Extract metadata and timeseries
   metadata <- as.data.frame(star$Metadata, stringsAsFactors=FALSE)
   timeseries <- star$TimeSeries
 
   ## 3  Write CSV files
+  if(!quiet)
+    message("Writing ", mfile)
   write.csv(metadata, file=mfile, quote=quote, row.names=row.names,
             fileEncoding=fileEncoding, ...)
+  if(!quiet)
+    message("Writing ", tfile)
   write.csv(timeseries, file=tfile, quote=quote, row.names=row.names,
             fileEncoding=fileEncoding, ...)
 

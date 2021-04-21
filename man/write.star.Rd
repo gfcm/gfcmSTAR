@@ -4,15 +4,16 @@
 \alias{write.star}
 \title{Write STAR Object to Files}
 \usage{
-write.star(star, dir = NULL, mfile = "metadata.csv",
+write.star(star, dir = TRUE, mfile = "metadata.csv",
   tfile = "timeseries.csv", quote = TRUE, row.names = FALSE,
-  fileEncoding = "UTF-8", dos = TRUE, ...)
+  fileEncoding = "UTF-8", dos = TRUE, quiet = FALSE, ...)
 }
 \arguments{
 \item{star}{a STAR object, list containing \code{Metadata} and
 \code{TimeSeries}.}
 
-\item{dir}{an optional directory name.}
+\item{dir}{an optional directory name to write the CSV files into, or a
+logical value. See details.}
 
 \item{mfile}{a filename for the metadata.}
 
@@ -26,6 +27,8 @@ write.star(star, dir = NULL, mfile = "metadata.csv",
 
 \item{dos}{whether to ensure the resulting CSV files have Dos line endings.}
 
+\item{quiet}{whether to suppress messages.}
+
 \item{\dots}{passed to \code{write.csv}.}
 }
 \value{
@@ -33,6 +36,15 @@ No return value, called for side effects.
 }
 \description{
 Write a STAR object to CSV files.
+}
+\details{
+The special value \code{dir = TRUE} can be used as shorthand for the prefix
+of the original Excel template filename. For example, if
+\code{star$Metadata$Excel_Filename} is \code{"STAR_2019_HKE_5.xlsx"}, then a
+directory called \file{STAR_2019_HKE_5} will be created and used.
+
+The special value \code{dir = FALSE} can be used as shorthand for the current
+directory, the same as \code{dir = "."}.
 }
 \seealso{
 \code{\link{write.csv}} is the underlying function used to write a table to a
