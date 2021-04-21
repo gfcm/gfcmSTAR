@@ -80,7 +80,7 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
   Assessment_Type <- as.character(atype)
   Reference_Year <- as.integer(refyear)
   Reporting_Year <- as.integer(repyear)
-  Validation_Status <- as.character(Assessment_Information$Validation)
+  Validation_Status <- as.character(Assessment_Information$Validation_Status)
   Year_Benchmarked <- as.integer(Assessment_Information$Year_Benchmarked)
   Assessment_Method <- as.character(Assessment_Information$Assessment_Method)
   Expert_Group <- as.character(Assessment_Information$Expert_Group)
@@ -139,7 +139,7 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
   Countries <- as.character(countries)
 
   Template_Version <- as.character("1.0.0")
-  Excel_Filename <- as.character(file)
+  Excel_Filename <- as.character(basename(file))
 
   ## 4  Assemble list
   Metadata <- as.list(data.frame(
