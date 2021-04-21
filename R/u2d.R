@@ -4,7 +4,7 @@
 
 ## Ensure text file has DOS line endings
 
-unix2dos <- function(file)
+u2d <- function(file)
 {
   txt <- readLines(file)
   con <- file(file, open="wb")

@@ -2,11 +2,11 @@
 
 export(comma2period)
 export(gsa.names)
-export(mkdir)
+export(md)
 export(read.star.v10)
 export(readTableLogical)
 export(readTableTranspose)
-export(unix2dos)
+export(u2d)
 export(write.star)
 importFrom(XLConnect,loadWorkbook)
 importFrom(XLConnect,readTable)

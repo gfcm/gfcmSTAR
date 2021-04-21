@@ -31,7 +31,7 @@ write.star <- function(star, dir=NULL, mfile="metadata.csv",
 {
   ## 1  Create and prepend directory
   dir <- if(is.null(dir)) "." else dir
-  mkdir(dir)
+  md(dir)
   mfile <- file.path(dir, mfile)
   tfile <- file.path(dir, tfile)
 
@@ -48,7 +48,7 @@ write.star <- function(star, dir=NULL, mfile="metadata.csv",
   ## 4  Ensure Dos line endings
   if(dos)
   {
-    unix2dos(mfile)
-    unix2dos(tfile)
+    u2d(mfile)
+    u2d(tfile)
   }
 }
