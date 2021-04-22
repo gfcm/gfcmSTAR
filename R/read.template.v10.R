@@ -41,7 +41,7 @@
 #'
 #' @importFrom stats na.omit quantile
 #' @importFrom uuid UUIDgenerate
-#' @importFrom XLConnect loadWorkbook readWorksheet readTable setMissingValue
+#' @importFrom XLConnect loadWorkbook readTable setMissingValue
 #'
 #' @export
 
@@ -62,9 +62,6 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
   VPA_Model <- readTableLogical(w, "Metadata", "VPA_Model")
   Forecast_Included <- readTableLogical(w, "Metadata", "Forecast_Included")
   Reference_Points <- readTable(w, "Metadata", "Reference_Points")
-  From_TimeSeries <-
-    readWorksheet(w, "Metadata", region="J20:J21", header=FALSE,
-                  useCachedValues=TRUE, simplify=TRUE)
   Dimensions <- readTable(w, "Metadata", "Dimensions")
   Summary_Information <- readTableTranspose(w, "Summary", "Summary_Information")
   Summary_Table <- readTable(w, "Summary", "Summary_Table", colTypes="numeric")
@@ -107,8 +104,9 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
   Blim <- if(identical(Reference_Points$Reference.Point[2],"Blim"))
             as.numeric(Reference_Points$Value[2]) else NA_real_
 
-  Current_F <- as.numeric(From_TimeSeries[1])
-  Current_B <- as.numeric(From_TimeSeries[2])
+  Current_F <- mean(tail(na.omit(Summary_Table$Fishing),
+                         if(VPA_Model) 3 else 1))
+  Current_B <- mean(tail(na.omit(Summary_Table$Stock1), if(VPA_Model) 3 else 1))
   B0.33 <- as.numeric(quantile(na.omit(Summary_Table$Stock1), 0.33,
                                names=FALSE))
   B0.66 <- as.numeric(quantile(na.omit(Summary_Table$Stock1), 0.66,
