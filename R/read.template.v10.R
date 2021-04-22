@@ -55,7 +55,7 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
   w <- loadWorkbook(file)
   setMissingValue(w, "NA")
 
-  ## 2  Read tables and worksheets
+  ## 2  Read tables
   Assessment_Information <-
     readTableTranspose(w, "Metadata", "Assessment_Information")
   Advice_Table <- readTableTranspose(w, "Metadata", "Advice_Table",
