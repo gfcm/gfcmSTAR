@@ -49,7 +49,7 @@ write.star <- function(star, dir=TRUE, mfile="metadata.csv",
     dir <- file_path_sans_ext(star$Metadata$Excel_Filename)
   if(identical(dir, FALSE))
     dir <- "."
-  if(dir != ".")
+  if(!is.null(dir) || dir != "" || dir != ".")
   {
     if(!dir.exists(dir))
     {
