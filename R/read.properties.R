@@ -10,11 +10,11 @@
 #' @note
 #' To download Excel SharePoint properties:
 #' \enumerate{
-#'   \item Starting in Teams, navigate to STAR folder.
-#'   \item Select \sQuote{Open in SharePoint}.
-#'   \item In SharePoint, select \sQuote{Export to Excel}.
-#'   \item Save file with a descriptive filename, such as
-#'         \file{properties_WGSAD_Western Mediterranean.xlsx}.
+#' \item Starting in Teams, navigate to STAR folder.
+#' \item Select \sQuote{Open in SharePoint}.
+#' \item In SharePoint, select \sQuote{Export to Excel}.
+#' \item Save file with a descriptive filename, such as
+#'       \file{WGSAD_Western_Mediterranean.xlsx}.
 #' }
 #'
 #' @seealso
@@ -29,16 +29,14 @@
 #' @examples
 #' \dontrun{
 #'
-#' read.properties("properties_WGSAD_Western Mediterranean.xlsx")
+#' read.properties("WGSAD_Western_Mediterranean.xlsx")
 #'
-#' read.properties("properties_WGSAD_Western Mediterranean.xlsx",
-#'                 template="STAR_2019_HKE_5.xlsx")
+#' read.properties("WGSAD_Western_Mediterranean.xlsx", "STAR_2019_HKE_5.xlsx")
 #' }
 #'
 #' @importFrom XLConnect getTables loadWorkbook readTable
 #'
 #' @export
-
 
 read.properties <- function(file, template=NULL)
 {
