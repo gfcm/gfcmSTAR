@@ -35,6 +35,14 @@
 #'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'
+#' @examples
+#' \dontrun{
+#'
+#' write.star(star)
+#'
+#' write.star(star, dir="output")
+#' }
+#'
 #' @importFrom tools file_path_sans_ext
 #' @importFrom utils write.csv
 #'

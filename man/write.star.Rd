@@ -47,6 +47,15 @@ directory called \file{STAR_2019_HKE_5} will be created and used.
 The special value \code{dir = FALSE} can be used as shorthand for
 \code{dir = "."} to write into the current directory.
 }
+\examples{
+\dontrun{
+
+write.star(star)
+
+write.star(star, dir="output")
+}
+
+}
 \seealso{
 \code{\link{write.csv}} is the underlying function used to write a table to a
 CSV file.
