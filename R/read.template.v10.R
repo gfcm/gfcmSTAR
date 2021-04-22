@@ -41,6 +41,7 @@
 #'
 #' @importFrom stats na.omit quantile
 #' @importFrom uuid UUIDgenerate
+#' @importFrom utils tail
 #' @importFrom XLConnect loadWorkbook readTable setMissingValue
 #'
 #' @export
