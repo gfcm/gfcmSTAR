@@ -10,12 +10,13 @@ Tools that support the Stock Assessment Results (STAR) framework of the
 General Fisheries Commission for the Mediterranean.
 }
 \details{
-\emph{Read Excel template into R:}
+\emph{Import:}
 \tabular{ll}{
-  \code{\link{read.template.v10}} \tab version 1.0
+  \code{\link{read.template.v10}} \tab read STAR template v1.0\cr
+  \code{\link{read.template.v10}} \tab read SharePoint properties
 }
-\emph{Write R object to CSV files:}
+\emph{Export:}
 \tabular{ll}{
-  \code{\link{write.star}} \tab \code{metadata.csv} and \code{timeseries.csv}
+  \code{\link{write.star}} \tab write STAR object to CSV files
 }
 }
