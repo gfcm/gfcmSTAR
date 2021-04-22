@@ -9,11 +9,11 @@ write.star(star, dir = TRUE, mfile = "metadata.csv",
   fileEncoding = "UTF-8", dos = TRUE, quiet = FALSE, ...)
 }
 \arguments{
-\item{star}{a STAR object, list containing \code{Metadata} and
+\item{star}{STAR object, a list containing \code{Metadata} and
 \code{TimeSeries}.}
 
 \item{dir}{an optional directory name to write the CSV files into, or a
-logical value. See details.}
+logical value. See details below.}
 
 \item{mfile}{a filename for the metadata.}
 
@@ -25,7 +25,8 @@ logical value. See details.}
 
 \item{fileEncoding}{character encoding for output file.}
 
-\item{dos}{whether to ensure the resulting CSV files have Dos line endings.}
+\item{dos}{whether to ensure the resulting CSV files have Dos line endings
+(CRLF).}
 
 \item{quiet}{whether to suppress messages.}
 
@@ -39,17 +40,18 @@ Write a STAR object to CSV files.
 }
 \details{
 The special value \code{dir = TRUE} can be used as shorthand for the prefix
-of the original Excel template filename. For example, if
+of the original Excel filename. For example, if
 \code{star$Metadata$Excel_Filename} is \code{"STAR_2019_HKE_5.xlsx"}, then a
 directory called \file{STAR_2019_HKE_5} will be created and used.
 
-The special value \code{dir = FALSE} can be used as shorthand for the current
-directory, the same as \code{dir = "."}.
+The special value \code{dir = FALSE} can be used as shorthand for
+\code{dir = "."} to write into the current directory.
 }
 \seealso{
 \code{\link{write.csv}} is the underlying function used to write a table to a
-file.
+CSV file.
 
-\code{\link{read.template.v10}} reads from an Excel template into a STAR
-object.
+\code{\link{read.template.v10}} reads an Excel template into a STAR object.
+
+\code{\link{gfcmSTAR-package}} gives an overview of the package.
 }
