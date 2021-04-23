@@ -21,7 +21,7 @@
 #' @source \url{http://www.fao.org/gfcm/data/maps/gsas/en/}
 #'
 #' @seealso
-#' \code{\link{gsa.names}} converts comma-separated GSA codes to GSA full names.
+#' \code{\link{gsa.names}} converts comma-separated GSA codes to full GSA names.
 #'
 #' \code{\link{lookup.species}} is a data frame containing species codes and
 #' names.
