@@ -13,7 +13,7 @@ General Fisheries Commission for the Mediterranean.
 \emph{Import:}
 \tabular{ll}{
   \code{\link{read.template.v10}} \tab read STAR template v1.0\cr
-  \code{\link{read.template.v10}} \tab read SharePoint properties
+  \code{\link{read.properties}}   \tab read SharePoint properties
 }
 \emph{Export:}
 \tabular{ll}{
