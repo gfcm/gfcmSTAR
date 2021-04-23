@@ -27,6 +27,6 @@
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'
 #' @examples
-#' lookup.species
+#' head(lookup.species)
 
 NA

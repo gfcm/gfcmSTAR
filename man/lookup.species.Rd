@@ -22,7 +22,7 @@ lookup.species
 Reference table of GFCM species.
 }
 \examples{
-lookup.species
+head(lookup.species)
 }
 \seealso{
 \code{\link{lookup.gsa}} is a data frame containing GSA codes and names.
