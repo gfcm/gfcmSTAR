@@ -19,4 +19,8 @@ General Fisheries Commission for the Mediterranean.
 \tabular{ll}{
   \code{\link{write.star}} \tab write STAR object to CSV files
 }
+\emph{Lookup tables:}
+\tabular{ll}{
+  \code{\link{lookup.gsa}} \tab geographical subareas (GSA)
+}
 }

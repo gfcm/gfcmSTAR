@@ -5,6 +5,7 @@ Title: Tools to Work with GFCM STAR
 Authors@R: c(person("Arni", "Magnusson", role=c("aut","cre"), email="thisisarni@gmail.com"))
 Imports: stats, tools, utils,
   uuid, XLConnect
+LazyData: yes
 Description: Tools that support the Stock Assessment Results (STAR) framework of
   the General Fisheries Commission for the Mediterranean.
 License: GPL-3
