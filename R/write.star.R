@@ -18,13 +18,11 @@
 #' @param \dots passed to \code{write.csv}.
 #'
 #' @details
-#' The special value \code{dir = TRUE} can be used as shorthand for the prefix
-#' of the original Excel filename. For example, if
-#' \code{star$Metadata$Excel_Filename} is \code{"STAR_2019_HKE_5.xlsx"}, then a
-#' directory called \file{STAR_2019_HKE_5} will be created and used.
+#' The special value \code{dir = TRUE} can be used as shorthand for
+#' \code{combo(star$Metadata)}, which can produce a suitable directory name.
 #'
-#' The special value \code{dir = FALSE} can be used as shorthand for
-#' \code{dir = "."} to write into the current directory.
+#' The special value \code{dir = FALSE} is equivalent to \code{dir = "."} which
+#' will write the CSV files into the current directory.
 #'
 #' The \code{topdir} argument can be used to organize the output from multiple
 #' STAR objects in one top directory. For example, \preformatted{
@@ -59,7 +57,6 @@
 #' write.star(star, topdir="csv")
 #' }
 #'
-#' @importFrom tools file_path_sans_ext
 #' @importFrom utils write.csv
 #'
 #' @export
@@ -70,7 +67,7 @@ write.star <- function(star, dir=TRUE, topdir=NULL, mfile="metadata.csv",
 {
   ## 1  Construct path
   if(identical(dir, TRUE))
-    dir <- file_path_sans_ext(star$Metadata$Excel_Filename)
+    dir <- combo(star$Metadata)
   if(identical(dir, FALSE) || is.null(dir) || is.na(dir) || dir == "")
     dir <- "."
   if(is.logical(topdir) || is.null(topdir) || is.na(topdir) || topdir == "")

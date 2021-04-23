@@ -37,7 +37,8 @@ combo <- function(metadata, suffix=NULL)
   sciname <- metadata$Scientific_Name
   gsa <- metadata$GSA
 
-  species <- lookup.species$Alpha[lookup.species$Scientific == sciname]
+  lookup <- gfcmSTAR::lookup.species
+  species <- lookup$Alpha[lookup$Scientific == sciname]
   gsa <- gsub(",", "_", gsa)
 
   out <- paste("STAR", refyear, species, gsa, sep="_")
