@@ -19,6 +19,11 @@ General Fisheries Commission for the Mediterranean.
 \tabular{ll}{
   \code{\link{write.star}} \tab write STAR object to CSV files
 }
+\emph{Format strings:}
+\tabular{ll}{
+  \code{\link{combo}}     \tab combine reference year, species, and GSA\cr
+  \code{\link{gsa.names}} \tab convert GSA codes to full GSA names
+}
 \emph{Lookup tables:}
 \tabular{ll}{
   \code{\link{lookup.gsa}}     \tab geographical subareas (GSA)\cr

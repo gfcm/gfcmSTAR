@@ -10,6 +10,8 @@
 #' @seealso
 #' \code{\link{lookup.gsa}} is a data frame containing GSA codes and names.
 #'
+#' \code{\link{combo}} combines reference year, species, and GSA.
+#'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'
 #' @examples
