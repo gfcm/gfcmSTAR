@@ -97,19 +97,13 @@ write.star <- function(star, dir=TRUE, topdir=NULL, mfile="metadata.csv",
   timeseries <- star$TimeSeries
 
   ## 4  Write CSV files
+  eol <- if(dos && Sys.info()[["sysname"]] != "Windows") "\r\n" else "\n"
   if(!quiet)
     message("Writing '", mfile, "'")
-  write.csv(metadata, file=mfile, quote=quote, row.names=row.names,
+  write.csv(metadata, file=mfile, quote=quote, eol=eol, row.names=row.names,
             fileEncoding=fileEncoding, ...)
   if(!quiet)
     message("Writing '", tfile, "'")
-  write.csv(timeseries, file=tfile, quote=quote, row.names=row.names,
+  write.csv(timeseries, file=tfile, quote=quote, eol=eol, row.names=row.names,
             fileEncoding=fileEncoding, ...)
-
-  ## 5  Ensure Dos line endings
-  if(dos)
-  {
-    u2d(mfile)
-    u2d(tfile)
-  }
 }
