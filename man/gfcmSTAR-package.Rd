@@ -21,6 +21,7 @@ General Fisheries Commission for the Mediterranean.
 }
 \emph{Lookup tables:}
 \tabular{ll}{
-  \code{\link{lookup.gsa}} \tab geographical subareas (GSA)
+  \code{\link{lookup.gsa}}     \tab geographical subareas (GSA)\cr
+  \code{\link{lookup.species}} \tab species
 }
 }
