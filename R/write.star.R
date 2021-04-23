@@ -4,8 +4,9 @@
 #'
 #' @param star STAR object, a list containing \code{Metadata} and
 #'        \code{TimeSeries}.
-#' @param dir an optional directory name to write the CSV files into, or a
-#'        logical value. See details below.
+#' @param dir an optional directory to write the CSV files into, or a logical
+#'        value. See details below.
+#' @param topdir an optional directory containing \code{dir}. See details below.
 #' @param mfile a filename for the metadata.
 #' @param tfile a filename for the time series.
 #' @param quote whether to quote strings.
@@ -25,6 +26,19 @@
 #' The special value \code{dir = FALSE} can be used as shorthand for
 #' \code{dir = "."} to write into the current directory.
 #'
+#' The \code{topdir} argument can be used to organize the output from multiple
+#' STAR objects in one top directory. For example, \preformatted{
+#' write.star(read.template.v10("STAR_2019_HKE_4.xlsx"), topdir="csv")
+#' write.star(read.template.v10("STAR_2019_HKE_5.xlsx"), topdir="csv")} will
+#' produce four files in the following directory structure: \preformatted{
+#' csv/
+#'     STAR_2019_HKE_4/
+#'         metadata.csv
+#'         timeseries.csv
+#'     STAR_2019_HKE_5/
+#'         metadata.csv
+#'         timeseries.csv}
+#'
 #' @return No return value, called for side effects.
 #'
 #' @seealso
@@ -40,7 +54,9 @@
 #'
 #' write.star(star)
 #'
-#' write.star(star, dir="output")
+#' write.star(star, dir="hake_5")
+#'
+#' write.star(star, topdir="csv")
 #' }
 #'
 #' @importFrom tools file_path_sans_ext
@@ -48,42 +64,49 @@
 #'
 #' @export
 
-write.star <- function(star, dir=TRUE, mfile="metadata.csv",
+write.star <- function(star, dir=TRUE, topdir=NULL, mfile="metadata.csv",
                        tfile="timeseries.csv", quote=TRUE, row.names=FALSE,
                        fileEncoding="UTF-8", dos=TRUE, quiet=FALSE, ...)
 {
-  ## 1  Create and prepend directory
+  ## 1  Construct path
   if(identical(dir, TRUE))
     dir <- file_path_sans_ext(star$Metadata$Excel_Filename)
-  if(identical(dir, FALSE))
+  if(identical(dir, FALSE) || is.null(dir) || is.na(dir) || dir == "")
     dir <- "."
-  if(!is.null(dir) || dir != "" || dir != ".")
+  if(is.logical(topdir) || is.null(topdir) || is.na(topdir) || topdir == "")
+    topdir <- "."
+  path <- if(topdir == ".") dir
+          else if(dir == ".") topdir
+          else file.path(topdir, dir)
+
+  ## 2  Create directory
+  if(path != ".")
   {
-    if(!dir.exists(dir))
+    if(!dir.exists(path))
     {
       if(!quiet)
-        message("Creating directory '", dir, "'")
-      dir.create(dir, recursive=TRUE)
+        message("Creating directory '", path, "'")
+      dir.create(path, recursive=TRUE)
     }
-    mfile <- file.path(dir, mfile)
-    tfile <- file.path(dir, tfile)
+    mfile <- file.path(path, mfile)
+    tfile <- file.path(path, tfile)
   }
 
-  ## 2  Extract metadata and timeseries
+  ## 3  Extract metadata and timeseries
   metadata <- as.data.frame(star$Metadata, stringsAsFactors=FALSE)
   timeseries <- star$TimeSeries
 
-  ## 3  Write CSV files
+  ## 4  Write CSV files
   if(!quiet)
-    message("Writing ", mfile)
+    message("Writing '", mfile, "'")
   write.csv(metadata, file=mfile, quote=quote, row.names=row.names,
             fileEncoding=fileEncoding, ...)
   if(!quiet)
-    message("Writing ", tfile)
+    message("Writing '", tfile, "'")
   write.csv(timeseries, file=tfile, quote=quote, row.names=row.names,
             fileEncoding=fileEncoding, ...)
 
-  ## 4  Ensure Dos line endings
+  ## 5  Ensure Dos line endings
   if(dos)
   {
     u2d(mfile)

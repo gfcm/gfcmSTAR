@@ -4,7 +4,7 @@
 \alias{write.star}
 \title{Write STAR Object to Files}
 \usage{
-write.star(star, dir = TRUE, mfile = "metadata.csv",
+write.star(star, dir = TRUE, topdir = NULL, mfile = "metadata.csv",
   tfile = "timeseries.csv", quote = TRUE, row.names = FALSE,
   fileEncoding = "UTF-8", dos = TRUE, quiet = FALSE, ...)
 }
@@ -12,8 +12,10 @@ write.star(star, dir = TRUE, mfile = "metadata.csv",
 \item{star}{STAR object, a list containing \code{Metadata} and
 \code{TimeSeries}.}
 
-\item{dir}{an optional directory name to write the CSV files into, or a
-logical value. See details below.}
+\item{dir}{an optional directory to write the CSV files into, or a logical
+value. See details below.}
+
+\item{topdir}{an optional directory containing \code{dir}. See details below.}
 
 \item{mfile}{a filename for the metadata.}
 
@@ -46,13 +48,28 @@ directory called \file{STAR_2019_HKE_5} will be created and used.
 
 The special value \code{dir = FALSE} can be used as shorthand for
 \code{dir = "."} to write into the current directory.
+
+The \code{topdir} argument can be used to organize the output from multiple
+STAR objects in one top directory. For example, \preformatted{
+write.star(read.template.v10("STAR_2019_HKE_4.xlsx"), topdir="csv")
+write.star(read.template.v10("STAR_2019_HKE_5.xlsx"), topdir="csv")} will
+produce four files in the following directory structure: \preformatted{
+csv/
+    STAR_2019_HKE_4/
+        metadata.csv
+        timeseries.csv
+    STAR_2019_HKE_5/
+        metadata.csv
+        timeseries.csv}
 }
 \examples{
 \dontrun{
 
 write.star(star)
 
-write.star(star, dir="output")
+write.star(star, dir="hake_5")
+
+write.star(star, topdir="csv")
 }
 
 }
