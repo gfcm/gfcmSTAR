@@ -8,6 +8,7 @@
 #' @param refyear reference year.
 #' @param repyear reporting year.
 #' @param countries countries, separated by comma and space.
+#' @param quiet whether to supress messages.
 #'
 #' @return
 #' STAR object, a list containing \code{Metadata} (simple list) and
@@ -49,11 +50,13 @@
 #' @export
 
 read.template.v10 <- function(file, atype="Standard", refyear=2019,
-                              repyear=2021, countries=NA)
+                              repyear=2021, countries=NA, quiet=TRUE)
 {
   atype <- match.arg(atype, c("Standard", "Benchmark"))
 
   ## 1  Load workbook
+  if(!quiet)
+    message("Reading template '", file, "'")
   w <- loadWorkbook(file)
   setMissingValue(w, "NA")
 

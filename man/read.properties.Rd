@@ -4,12 +4,14 @@
 \alias{read.properties}
 \title{Read Properties}
 \usage{
-read.properties(file, template = NULL)
+read.properties(file, template = NULL, quiet = TRUE)
 }
 \arguments{
 \item{file}{Excel file containing the SharePoint properties.}
 
 \item{template}{optional filename of an Excel STAR template.}
+
+\item{quiet}{whether to supress messages.}
 }
 \value{
 Data frame with SharePoint properties.

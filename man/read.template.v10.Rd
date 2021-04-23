@@ -5,7 +5,7 @@
 \title{Read STAR Template Version 1.0}
 \usage{
 read.template.v10(file, atype = "Standard", refyear = 2019,
-  repyear = 2021, countries = NA)
+  repyear = 2021, countries = NA, quiet = TRUE)
 }
 \arguments{
 \item{file}{name of Excel file.}
@@ -17,6 +17,8 @@ read.template.v10(file, atype = "Standard", refyear = 2019,
 \item{repyear}{reporting year.}
 
 \item{countries}{countries, separated by comma and space.}
+
+\item{quiet}{whether to supress messages.}
 }
 \value{
 STAR object, a list containing \code{Metadata} (simple list) and

@@ -4,6 +4,7 @@
 #'
 #' @param file Excel file containing the SharePoint properties.
 #' @param template optional filename of an Excel STAR template.
+#' @param quiet whether to supress messages.
 #'
 #' @return Data frame with SharePoint properties.
 #'
@@ -38,9 +39,11 @@
 #'
 #' @export
 
-read.properties <- function(file, template=NULL)
+read.properties <- function(file, template=NULL, quiet=TRUE)
 {
   ## 1  Load workbook
+  if(!quiet)
+    message("Reading properties '", file, "'")
   w <- loadWorkbook(file)
 
   ## 2  Read table
