@@ -82,14 +82,15 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
 
   ## 2  Read tables
   Assessment_Information <-
-    readTableTranspose(w, "Metadata", "Assessment_Information")
-  Advice_Table <- readTableTranspose(w, "Metadata", "Advice_Table",
-                                     useCachedValues=TRUE)
-  VPA_Model <- readTableLogical(w, "Metadata", "VPA_Model")
-  Forecast_Included <- readTableLogical(w, "Metadata", "Forecast_Included")
+    readTable.transpose(w, "Metadata", "Assessment_Information")
+  Advice_Table <- readTable.transpose(w, "Metadata", "Advice_Table",
+                                      useCachedValues=TRUE)
+  VPA_Model <- readTable.logical(w, "Metadata", "VPA_Model")
+  Forecast_Included <- readTable.logical(w, "Metadata", "Forecast_Included")
   Reference_Points <- readTable(w, "Metadata", "Reference_Points")
   Dimensions <- readTable(w, "Metadata", "Dimensions")
-  Summary_Information <- readTableTranspose(w, "Summary", "Summary_Information")
+  Summary_Information <-
+    readTable.transpose(w, "Summary", "Summary_Information")
   Summary_Table <- readTable(w, "Summary", "Summary_Table", colTypes="numeric")
   Summary_Table$Year <- as.integer(Summary_Table$Year)
   Advice_Export <- readTable(w, "Advice", "Advice_Export", useCachedValues=TRUE)

@@ -6,7 +6,7 @@
 
 ## Read transposed table as a list
 
-readTableTranspose <- function(..., rownames=1)
+readTable.transpose <- function(..., rownames=1)
 {
   x <- readTable(..., rownames=rownames)
   x <- as.list(as.data.frame(t(x), stringsAsFactors=FALSE))

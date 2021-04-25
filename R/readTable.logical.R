@@ -6,7 +6,7 @@
 
 ## Read yes/no flag and return TRUE/FALSE
 
-readTableLogical <- function(...)
+readTable.logical <- function(...)
 {
   readTable(...)[[1]] == "Yes"
 }
