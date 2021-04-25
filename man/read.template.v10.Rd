@@ -71,6 +71,9 @@ are the underlying functions used to read data from Excel STAR templates.
 \code{\link{combo}} is used to construct the \code{Assessment} metadata
 field.
 
+\code{\link{template.version}} detects the STAR template version of an Excel
+file.
+
 \code{\link{write.star}} writes a STAR object to CSV files.
 
 \code{\link{gfcmSTAR-package}} gives an overview of the package.
