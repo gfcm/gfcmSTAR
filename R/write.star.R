@@ -26,9 +26,9 @@
 #'
 #' The \code{topdir} argument can be used to organize the output from multiple
 #' STAR objects in one top directory. For example, \preformatted{
-#' write.star(read.template.v10("STAR_2019_HKE_4.xlsx"), topdir="csv")
-#' write.star(read.template.v10("STAR_2019_HKE_5.xlsx"), topdir="csv")} will
-#' produce four files in the following directory structure: \preformatted{
+#' write.star(read.template("STAR_2019_HKE_4.xlsx"), topdir="csv")
+#' write.star(read.template("STAR_2019_HKE_5.xlsx"), topdir="csv")} will produce
+#' four files in the following directory structure: \preformatted{
 #' csv/
 #'     STAR_2019_HKE_4/
 #'         metadata.csv
@@ -43,7 +43,7 @@
 #' \code{\link{write.csv}} is the underlying function used to write a table to a
 #' CSV file.
 #'
-#' \code{\link{read.template.v10}} reads an Excel template into a STAR object.
+#' \code{\link{read.template}} reads an Excel template into a STAR object.
 #'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'

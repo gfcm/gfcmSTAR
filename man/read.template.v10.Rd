@@ -64,6 +64,9 @@ as.data.frame(star$Metadata)  # data.frame
 
 }
 \seealso{
+\code{\link{read.template}} calls \code{read.template.v10} when the Excel
+STAR template is of version 1.0.
+
 \code{\link[XLConnect]{loadWorkbook}} and \code{\link[XLConnect]{readTable}}
 are the underlying functions used to read data from Excel STAR templates.
 

@@ -8,7 +8,7 @@
 #' @return String containing version number.
 #'
 #' @seealso
-#' \code{\link{read.template.v10}} reads an Excel template into a STAR object.
+#' \code{\link{read.template}} reads an Excel template into a STAR object.
 #'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'
