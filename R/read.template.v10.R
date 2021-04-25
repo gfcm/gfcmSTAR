@@ -8,7 +8,15 @@
 #' @param refyear reference year.
 #' @param repyear reporting year.
 #' @param countries countries, separated by comma and space.
+#' @param suffix optional string passed to \code{combo} to construct a unique
+#'        \code{Assessment} field.
 #' @param quiet whether to supress messages.
+#'
+#' @details
+#' The purpose of \code{suffix} is to distinguish between stock assessments that
+#' have the same Reference Year, Species, and GSA. The suffix will be appended
+#' with an underscore separator to create a unique \code{Assessment} metadata
+#' field for the STAR object. See examples below.
 #'
 #' @return
 #' STAR object, a list containing \code{Metadata} (simple list) and
@@ -26,6 +34,9 @@
 #'
 #' \code{\link{read.properties}} reads SharePoint properties from an Excel file.
 #'
+#' \code{\link{combo}} is used to construct the \code{Assessment} metadata
+#' field.
+#'
 #' \code{\link{write.star}} writes a STAR object to CSV files.
 #'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
@@ -35,6 +46,12 @@
 #'
 #' # Import
 #' star <- read.template.v10("STAR_2019_HKE_5.xlsx")
+#'
+#' # Passing a suffix
+#' read.template.v10("STAR_2019_HKE_5.xlsx")$Metadata$Assessment
+#' read.template.v10("STAR_2019_HKE_5.xlsx", suffix="a4")$Metadata$Assessment
+#' read.template.v10("STAR_2019_HKE_5.xlsx", suffix="sam")$Metadata$Assessment
+#' read.template.v10("STAR_2019_HKE_5.xlsx", suffix="something_special")
 #'
 #' # Coerce metadata to list or data frame:
 #' star$Metadata                 # simple.list (default)
@@ -50,7 +67,7 @@
 #' @export
 
 read.template.v10 <- function(file, atype="Standard", refyear=2019,
-                              repyear=2021, countries=NA, quiet=TRUE)
+                              repyear=2021, countries=NA, suffix="", quiet=TRUE)
 {
   atype <- match.arg(atype, c("Standard", "Benchmark"))
 
@@ -145,9 +162,15 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
   Template_Version <- as.character("1.0.0")
   Excel_Filename <- as.character(basename(file))
 
-  ## 4  Assemble list
+  ## 4  Construct Assessment field
+  Assessment <- combo(list(
+    Metadata=data.frame(Reference_Year, Scientific_Name, GSA)), "_", suffix)
+  Assessment <- gsub("__", "_", Assessment)  # no double underscores
+  Assessment <- gsub("_$", "", Assessment)   # no trailing underscore
+
+  ## 5  Assemble list
   Metadata <- as.list(data.frame(
-    Assessment_ID, Scientific_Name, GSA,
+    Assessment_ID, Assessment, Scientific_Name, GSA,
     Assessment_Type, Reference_Year, Reporting_Year, Validation_Status,
     Year_Benchmarked, Assessment_Method, Expert_Group, Contact_Person,
     Status_Fref, Status_Btarget, Status_Bthreshold, Status_Blimit,

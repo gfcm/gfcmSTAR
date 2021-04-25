@@ -5,7 +5,7 @@
 \title{Read STAR Template Version 1.0}
 \usage{
 read.template.v10(file, atype = "Standard", refyear = 2019,
-  repyear = 2021, countries = NA, quiet = TRUE)
+  repyear = 2021, countries = NA, suffix = "", quiet = TRUE)
 }
 \arguments{
 \item{file}{name of Excel file.}
@@ -18,6 +18,9 @@ read.template.v10(file, atype = "Standard", refyear = 2019,
 
 \item{countries}{countries, separated by comma and space.}
 
+\item{suffix}{optional string passed to \code{combo} to construct a unique
+\code{Assessment} field.}
+
 \item{quiet}{whether to supress messages.}
 }
 \value{
@@ -27,6 +30,12 @@ STAR object, a list containing \code{Metadata} (simple list) and
 \description{
 Read the results found in an Excel STAR template version 1.0 into a STAR
 object.
+}
+\details{
+The purpose of \code{suffix} is to distinguish between stock assessments that
+have the same Reference Year, Species, and GSA. The suffix will be appended
+with an underscore separator to create a unique \code{Assessment} metadata
+field for the STAR object. See examples below.
 }
 \note{
 The purpose of storing \code{Metadata} as class
@@ -40,6 +49,12 @@ data frame - see examples below.
 # Import
 star <- read.template.v10("STAR_2019_HKE_5.xlsx")
 
+# Passing a suffix
+read.template.v10("STAR_2019_HKE_5.xlsx")$Metadata$Assessment
+read.template.v10("STAR_2019_HKE_5.xlsx", suffix="a4")$Metadata$Assessment
+read.template.v10("STAR_2019_HKE_5.xlsx", suffix="sam")$Metadata$Assessment
+read.template.v10("STAR_2019_HKE_5.xlsx", suffix="something_special")
+
 # Coerce metadata to list or data frame:
 star$Metadata                 # simple.list (default)
 unclass(star$Metadata)        # list
@@ -52,6 +67,9 @@ as.data.frame(star$Metadata)  # data.frame
 are the underlying functions used to read data from Excel STAR templates.
 
 \code{\link{read.properties}} reads SharePoint properties from an Excel file.
+
+\code{\link{combo}} is used to construct the \code{Assessment} metadata
+field.
 
 \code{\link{write.star}} writes a STAR object to CSV files.
 
