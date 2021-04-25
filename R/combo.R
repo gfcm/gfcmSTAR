@@ -2,20 +2,21 @@
 #'
 #' Create a string that combines Reference Year, Species Code, and GSA.
 #'
-#' @param metadata STAR Metadata object.
-#' @param \dots optional strings to \code{\link{paste0}} after the combo, e.g. a
-#'        file extension (including the period) or assessment method.
+#' @param star STAR object containing \code{Metadata}.
+#' @param \dots optional strings to \code{\link{paste0}} after the combo. See
+#'        examples below.
 #'
 #' @return
 #' String with the format \code{"STAR_2019_HKE_5"} followed by optional strings
-#' passed as \dots.
+#' passed by user.
 #'
 #' @note
-#' When a stock assessment covers multiple GSAs, they are separated by
-#' underscores. An extreme example is \code{"STAR_2019_HKE_8_9_10_11.1_11.2"}.
+#' When a stock assessment covers multiple GSAs, they are combined in a compact
+#' format. For example GSA \code{"8,9,10,11.1,11.2"} becomes \code{"891011"}.
 #'
 #' @seealso
-#' \code{\link{lookup.species}} is a data frame containing species codes and names.
+#' \code{\link{lookup.species}} is a data frame containing species codes and
+#' names.
 #'
 #' \code{\link{gsa.names}} converts comma-separated GSA codes to full GSA names.
 #'
@@ -24,26 +25,29 @@
 #' @examples
 #' \dontrun{
 #'
-#' combo(star$Metadata)
+#' combo(star)
 #'
-#' combo(star$Metadata, ".xlsx")
+#' combo(star, ".xlsx")
 #'
-#' combo(star$Metadata, "_", star$Metadata$Assessment_Method)
+#' combo(star, "_", star$Metadata$Assessment_Method)
 #' }
 #'
 #' @export
 
-combo <- function(metadata, ...)
+combo <- function(star, ...)
 {
   ## 1  Extract Reference Year, Species, and GSA
-  refyear <- metadata$Reference_Year
-  sciname <- metadata$Scientific_Name
-  gsa <- metadata$GSA
+  refyear <- star$Metadata$Reference_Year
+  sciname <- star$Metadata$Scientific_Name
+  gsa <- star$Metadata$GSA
 
-  ## 2  Convert to Species Code and underscore-separated GSA
+  ## 2  Convert to Species Code and compact GSA format
   lookup <- gfcmSTAR::lookup.species
   species <- lookup$Alpha[lookup$Scientific == sciname]
-  gsa <- gsub(",", "_", gsa)
+  gsa <- unlist(strsplit(gsa, ","))       # split 8 9 10 11.1 11.2
+  gsa <- gsa[order(as.numeric(gsa))]      # sort 8 < 9 < 10 < 11.1 < 11.2
+  gsa <- paste(gsa, collapse="")          # paste 891011.111.2
+  gsa <- gsub("11\\.111\\.2", "11", gsa)  # simplify 891011
 
   ## 3  Construct combo
   out <- paste("STAR", refyear, species, gsa, sep="_")
