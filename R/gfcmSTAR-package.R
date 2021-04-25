@@ -13,9 +13,9 @@
 #' @details
 #' \emph{Import:}
 #' \tabular{ll}{
-#'   \code{\link{read.template.v10}}  \tab read STAR template v1.0\cr
-#'   \code{\link{read.properties}}    \tab read SharePoint properties\cr
-#'   \code{\link{template.version}}   \tab detect STAR template version
+#'   \code{\link{read.template.v10}} \tab read STAR template v1.0\cr
+#'   \code{\link{read.properties}}   \tab read SharePoint properties\cr
+#'   \code{\link{template.version}}  \tab detect STAR template version
 #' }
 #' \emph{Export:}
 #' \tabular{ll}{
