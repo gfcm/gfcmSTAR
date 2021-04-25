@@ -13,10 +13,11 @@
 #' @param quiet whether to supress messages.
 #'
 #' @details
-#' The purpose of \code{suffix} is to distinguish between stock assessments that
-#' have the same Reference Year, Species, and GSA. The suffix will be appended
-#' with an underscore separator to create a unique \code{Assessment} metadata
-#' field for the STAR object. See examples below.
+#' A \code{suffix} is required when there are stock assessments that have the
+#' same Reference Year, Species, and GSA. It is used to distinguish each
+#' assessment by appending the suffix with an underscore separator to create a
+#' unique \code{Assessment} metadata field for the STAR object. See examples
+#' below.
 #'
 #' @return
 #' STAR object, a list containing \code{Metadata} (simple list) and
