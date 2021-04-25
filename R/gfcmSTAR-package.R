@@ -4,7 +4,7 @@
 #'
 #' @aliases gfcmSTAR
 #'
-#' @title Tools to Work with GFCM STAR
+#' @title Tools to Work with GFCM Stock Assessment Results (STAR)
 #'
 #' @description
 #' Tools that support the Stock Assessment Results (STAR) framework of the
