@@ -7,7 +7,7 @@
 #'        examples below.
 #'
 #' @return
-#' String with the format \code{"STAR_2019_HKE_5"} followed by optional strings
+#' String in the format \code{"STAR_2019_HKE_5"} followed by optional strings
 #' passed by user.
 #'
 #' @note

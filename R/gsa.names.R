@@ -5,7 +5,7 @@
 #' @param gsa comma-separated GSA codes.
 #'
 #' @return
-#' String with the format \code{"1 - Northern Alboran Sea, 2 - Alboran Island"}.
+#' String in the format \code{"1 - Northern Alboran Sea, 2 - Alboran Island"}.
 #'
 #' @seealso
 #' \code{\link{lookup.gsa}} is a data frame containing GSA codes and names.

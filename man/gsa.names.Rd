@@ -10,7 +10,7 @@ gsa.names(gsa)
 \item{gsa}{comma-separated GSA codes.}
 }
 \value{
-String with the format \code{"1 - Northern Alboran Sea, 2 - Alboran Island"}.
+String in the format \code{"1 - Northern Alboran Sea, 2 - Alboran Island"}.
 }
 \description{
 Convert comma-separated GSA codes to a series of full GSA names.
