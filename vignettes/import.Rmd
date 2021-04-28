@@ -1,0 +1,37 @@
+---
+title: "Importing STAR templates"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Importing STAR templates}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(gfcmSTAR)
+setwd("~/git/gfcm-devops/StockAssessmentResults/uploads/2021/WGSAD_Western_Mediterranean")
+files <- dir()
+for(i in 1:length(files))
+{
+  cat("Reading", files[i], "...")
+  x <- try(read.template.v10(files[i]))
+  cat("done\n")
+}
+```
+
+STAR_2019_DPS_5.xlsx does not specify whether the model used is VPA type.
+
+STAR 2.1.2 should change formula from
+
+if(vpa_type="Yes") then X else Y
+
+to
+
+if(vpa_type="Yes") then X else if(vpa_type="No") then Y else Error
