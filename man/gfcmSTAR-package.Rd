@@ -31,4 +31,9 @@ General Fisheries Commission for the Mediterranean.
   \code{\link{lookup.gsa}}     \tab geographical subareas (GSA)\cr
   \code{\link{lookup.species}} \tab species
 }
+\emph{Quality control:}
+\tabular{ll}{
+  \code{\link{qc}}      \tab all quality checks\cr
+  \code{\link{qc.xlsx}} \tab Excel file extension
+}
 }
