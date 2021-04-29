@@ -1,6 +1,6 @@
 #' Excel File Extension
 #'
-#' Assert that a filename has a \file{xlsx} file extension.
+#' Assert that a file has a \file{xlsx} file extension.
 #'
 #' @param file filename of a STAR template.
 #' @param stop whether to stop if test fails.
