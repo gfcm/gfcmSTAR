@@ -10,23 +10,26 @@
 #' \code{stop = TRUE}) or FALSE and a warning message (if \code{stop = FALSE}).
 #'
 #' @seealso
-#' \code{\link{qc.xlsx}} checks if a filename has a \file{xlsx} extension.
+#' The checks are run in the following order:
+#'
+#' \code{\link{qc.xlsx}} checks if file has an \file{xlsx} extension.
 #'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'
 #' @examples
 #' \dontrun{
-#' qc("STAR_2019_HKE_5.xlsx")
+#' qc.all("STAR_2019_HKE_5.xlsx")
 #' }
 #'
 #' @export
 
-qc <- function(file, stop=TRUE)
+qc.all <- function(file, stop=TRUE)
 {
   ## Start with success TRUE and later flip it to FALSE if any test fails
-  success <- TRUE
+  x <- TRUE
 
-  success <- success && qc.xlsx(file, stop=stop)
+  x <- x && qc.xlsx(file, stop=stop)
+  success <- x
 
   success
 }

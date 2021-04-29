@@ -33,7 +33,7 @@ General Fisheries Commission for the Mediterranean.
 }
 \emph{Quality control:}
 \tabular{ll}{
-  \code{\link{qc}}      \tab run all quality checks\cr
+  \code{\link{qc.all}} \tab run all quality checks\cr
   \code{\link{qc.xlsx}} \tab file extension
 }
 }

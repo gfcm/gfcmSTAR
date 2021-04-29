@@ -1,17 +1,18 @@
 #' Excel File Extension
 #'
-#' Assert that a file has a \file{xlsx} file extension.
+#' Assert that a file has an \file{xlsx} file extension.
 #'
 #' @param file filename of a STAR template.
 #' @param stop whether to stop if test fails.
 #' @param quiet whether to suppress messages.
 #'
 #' @return
-#' \code{TRUE} if file extension is \file{xlsx}, otherwise an error message (if
-#' \code{stop = TRUE}) or FALSE and a warning message (if \code{stop = FALSE}).
+#' \code{TRUE} if test succeeds, otherwise an error message
+#' (if \code{stop = TRUE}) or \code{FALSE} and a warning message
+#' (if \code{stop = FALSE}).
 #'
 #' @seealso
-#' \code{\link{qc}} runs all \code{qc.*} tests.
+#' \code{\link{qc.all}} runs all \code{qc.*} tests.
 #'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'
@@ -26,26 +27,20 @@
 
 qc.xlsx <- function(file, stop=TRUE, quiet=FALSE)
 {
-  if(!is.character(file))
-    stop("'file' argument must be a filename")
-  if(!file.exists(file))
-    stop("file '", file, "' does not exist")
-
+  ## 1  Preamble
   if(!quiet)
     message("Checking '", file, "' with qc.xlsx ... ", appendLF=FALSE)
+
+  ## 2  Test
   success <- file_ext(file) == "xlsx"
 
+  ## 3  Result
   if(!success)
   {
     msg <- paste0("'", file, "' does not have file extension 'xlsx'")
-    if(stop)
-      stop(msg)
-    else
-      warning(msg)
+    if(stop) stop(msg) else warning(msg)
   }
-
   if(!quiet)
     message("OK")
-
   success
 }

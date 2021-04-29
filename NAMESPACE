@@ -3,7 +3,7 @@
 export(combo)
 export(comma2period)
 export(gsa.names)
-export(qc)
+export(qc.all)
 export(qc.xlsx)
 export(read.properties)
 export(read.template)
