@@ -38,7 +38,7 @@ qc.star <- function(file, stop=TRUE, quiet=FALSE)
   ## 3  Show result
   if(!success)
   {
-    if(!quiet) message("failed")
+    if(!quiet) message("ERROR")
     msg <- paste0("'", file, "' does not have a sheet called 'Metadata'")
     if(stop) stop(msg) else warning(msg)
   }

@@ -35,7 +35,7 @@ qc.exists <- function(file, stop=TRUE, quiet=FALSE)
   ## 3  Result
   if(!success)
   {
-    if(!quiet) message("failed")
+    if(!quiet) message("ERROR")
     msg <- paste0("file '", file, "' does not exist")
     if(stop) stop(msg) else warning(msg)
   }

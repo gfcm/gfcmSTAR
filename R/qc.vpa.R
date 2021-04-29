@@ -39,7 +39,7 @@ qc.vpa <- function(file, stop=TRUE, quiet=FALSE)
   ## 3  Show result
   if(!success)
   {
-    if(!quiet) message("failed")
+    if(!quiet) message("ERROR")
     msg <- "VPA_Model must be either \"Yes\" or \"No\""
     if(stop) stop(msg) else warning(msg)
   }
