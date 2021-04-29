@@ -1,6 +1,6 @@
-#' Excel File Extension
+#' STAR Template
 #'
-#' Assert that a file has an \file{xlsx} file extension.
+#' Assert that a file is a STAR template and contains a \code{Metadata} sheet.
 #'
 #' @param file filename of a STAR template.
 #' @param stop whether to stop if test fails.
@@ -18,30 +18,31 @@
 #'
 #' @examples
 #' \dontrun{
-#' qc.xlsx("STAR_2019_HKE_5.xlsx")
+#' qc.star("STAR_2019_HKE_5.xlsx")
 #' }
 #'
-#' @importFrom tools file_ext
+#' @importFrom XLConnect getSheets
 #'
 #' @export
 
-qc.xlsx <- function(file, stop=TRUE, quiet=FALSE)
+qc.star <- function(file, stop=TRUE, quiet=FALSE)
 {
   ## 1  Preamble
   if(!quiet)
-    message("* checking '", file, "' with qc.xlsx ... ", appendLF=FALSE)
+    message("* checking '", file, "' with qc.star ... ", appendLF=FALSE)
 
   ## 2  Test
-  success <- file_ext(file) == "xlsx"
+  w <- loadWorkbook(file)
+  success <- "Metadata" %in% getSheets(w)
 
-  ## 3  Result
+  ## 3  Show result
   if(!success)
   {
     if(!quiet) message("failed")
-    msg <- paste0("'", file, "' does not have file extension 'xlsx'")
+    msg <- paste0("'", file, "' does not have a sheet called 'Metadata'")
     if(stop) stop(msg) else warning(msg)
   }
-  if(!quiet)
+  else if(!quiet)
     message("OK")
   success
 }

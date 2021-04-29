@@ -4,6 +4,7 @@
 #'
 #' @param file filename of a STAR template.
 #' @param stop whether to stop if test fails.
+#' @param quiet whether to suppress messages.
 #'
 #' @return
 #' \code{TRUE} if all tests succeed, otherwise an error message (if
@@ -12,7 +13,13 @@
 #' @seealso
 #' The checks are run in the following order:
 #'
-#' \code{\link{qc.xlsx}} checks if file has an \file{xlsx} extension.
+#' \code{\link{qc.exists}} checks if file exists.
+#'
+#' \code{\link{qc.xlsx}} checks if file extension is \file{xlsx}.
+#'
+#' \code{\link{qc.star}} checks if file is a STAR template.
+#'
+#' \code{\link{qc.vpa}} checks if \code{VPA_Model} is \code{Yes} or \code{No}.
 #'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'
@@ -23,12 +30,15 @@
 #'
 #' @export
 
-qc.all <- function(file, stop=TRUE)
+qc.all <- function(file, stop=TRUE, quiet=FALSE)
 {
   ## Start with success TRUE and later flip it to FALSE if any test fails
   x <- TRUE
 
-  x <- x && qc.xlsx(file, stop=stop)
+  x <- x && qc.exists(file, stop=stop, quiet=quiet)
+  x <- x && qc.xlsx(file, stop=stop, quiet=quiet)
+  x <- x && qc.star(file, stop=stop, quiet=quiet)
+  x <- x && qc.vpa(file, stop=stop, quiet=quiet)
   success <- x
 
   success

@@ -4,12 +4,14 @@
 \alias{qc.all}
 \title{Quality Check}
 \usage{
-qc.all(file, stop = TRUE)
+qc.all(file, stop = TRUE, quiet = FALSE)
 }
 \arguments{
 \item{file}{filename of a STAR template.}
 
 \item{stop}{whether to stop if test fails.}
+
+\item{quiet}{whether to suppress messages.}
 }
 \value{
 \code{TRUE} if all tests succeed, otherwise an error message (if
@@ -27,7 +29,13 @@ qc.all("STAR_2019_HKE_5.xlsx")
 \seealso{
 The checks are run in the following order:
 
-\code{\link{qc.xlsx}} checks if file has an \file{xlsx} extension.
+\code{\link{qc.exists}} checks if file exists.
+
+\code{\link{qc.xlsx}} checks if file extension is \file{xlsx}.
+
+\code{\link{qc.star}} checks if file is a STAR template.
+
+\code{\link{qc.vpa}} checks if \code{VPA_Model} is \code{Yes} or \code{No}.
 
 \code{\link{gfcmSTAR-package}} gives an overview of the package.
 }

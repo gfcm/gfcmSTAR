@@ -1,6 +1,6 @@
-#' Excel File Extension
+#' File Exists
 #'
-#' Assert that a file has an \file{xlsx} file extension.
+#' Assert that a file exists.
 #'
 #' @param file filename of a STAR template.
 #' @param stop whether to stop if test fails.
@@ -18,30 +18,28 @@
 #'
 #' @examples
 #' \dontrun{
-#' qc.xlsx("STAR_2019_HKE_5.xlsx")
+#' qc.exists("STAR_2019_HKE_5.xlsx")
 #' }
-#'
-#' @importFrom tools file_ext
 #'
 #' @export
 
-qc.xlsx <- function(file, stop=TRUE, quiet=FALSE)
+qc.exists <- function(file, stop=TRUE, quiet=FALSE)
 {
   ## 1  Preamble
   if(!quiet)
-    message("* checking '", file, "' with qc.xlsx ... ", appendLF=FALSE)
+    message("* checking '", file, "' with qc.exists ... ", appendLF=FALSE)
 
   ## 2  Test
-  success <- file_ext(file) == "xlsx"
+  success <- is.character(file) && file.exists(file)
 
   ## 3  Result
   if(!success)
   {
     if(!quiet) message("failed")
-    msg <- paste0("'", file, "' does not have file extension 'xlsx'")
+    msg <- paste0("file '", file, "' does not exist")
     if(stop) stop(msg) else warning(msg)
   }
-  if(!quiet)
+  else if(!quiet)
     message("OK")
   success
 }
