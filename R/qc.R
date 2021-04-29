@@ -23,5 +23,10 @@
 
 qc <- function(file, stop=TRUE)
 {
-  qc.xlsx(file, stop=stop)
+  ## Start with success TRUE and later flip it to FALSE if any test fails
+  success <- TRUE
+
+  success <- success && qc.xlsx(file, stop=stop)
+
+  success
 }
