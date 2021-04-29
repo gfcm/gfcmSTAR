@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 library(gfcmSTAR)
 setwd("~/git/gfcm-devops/StockAssessmentResults/uploads/2021/WGSAD_Western_Mediterranean")
 files <- dir()
-for(i in 1:length(files))
+for(i in 1:2) # length(files))
 {
   cat("Reading", files[i], "...")
   x <- try(read.template.v10(files[i]))
