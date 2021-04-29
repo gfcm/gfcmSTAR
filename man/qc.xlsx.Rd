@@ -4,12 +4,14 @@
 \alias{qc.xlsx}
 \title{Excel File Extension}
 \usage{
-qc.xlsx(file, stop = TRUE)
+qc.xlsx(file, stop = TRUE, quiet = FALSE)
 }
 \arguments{
 \item{file}{filename of a STAR template.}
 
 \item{stop}{whether to stop if test fails.}
+
+\item{quiet}{whether to suppress messages.}
 }
 \value{
 \code{TRUE} if file extension is \file{xlsx}, otherwise an error message (if
@@ -19,7 +21,9 @@ qc.xlsx(file, stop = TRUE)
 Assert that a filename has a \file{xlsx} file extension.
 }
 \examples{
+\dontrun{
 qc.xlsx("STAR_2019_HKE_5.xlsx")
+}
 
 }
 \seealso{

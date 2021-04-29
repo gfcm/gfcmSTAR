@@ -4,6 +4,7 @@
 #'
 #' @param file filename of a STAR template.
 #' @param stop whether to stop if test fails.
+#' @param quiet whether to suppress messages.
 #'
 #' @return
 #' \code{TRUE} if file extension is \file{xlsx}, otherwise an error message (if
@@ -15,14 +16,23 @@
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'
 #' @examples
+#' \dontrun{
 #' qc.xlsx("STAR_2019_HKE_5.xlsx")
+#' }
 #'
 #' @importFrom tools file_ext
 #'
 #' @export
 
-qc.xlsx <- function(file, stop=TRUE)
+qc.xlsx <- function(file, stop=TRUE, quiet=FALSE)
 {
+  if(!is.character(file))
+    stop("'file' argument must be a filename")
+  if(!file.exists(file))
+    stop("file '", file, "' does not exist")
+
+  if(!quiet)
+    message("Checking '", file, "' with qc.xlsx ... ", appendLF=FALSE)
   success <- file_ext(file) == "xlsx"
 
   if(!success)
@@ -33,6 +43,9 @@ qc.xlsx <- function(file, stop=TRUE)
     else
       warning(msg)
   }
+
+  if(!quiet)
+    message("OK")
 
   success
 }
