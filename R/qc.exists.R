@@ -26,6 +26,8 @@
 qc.exists <- function(file, stop=TRUE, quiet=FALSE)
 {
   ## 1  Preamble
+  if(!is.character(file) || length(file)!=1)
+    file <- as.character(substitute(file))
   if(!quiet)
     message("* checking '", file, "' with qc.exists ... ", appendLF=FALSE)
 
