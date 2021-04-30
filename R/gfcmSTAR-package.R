@@ -34,7 +34,7 @@
 #' }
 #' \emph{Quality control:}
 #' \tabular{ll}{
-#'   \code{\link{qc.all}}    \tab run all quality checks\cr
+#'   \code{\link{qc}}        \tab run all quality checks\cr
 #'   \code{\link{qc.exists}} \tab file exists\cr
 #'   \code{\link{qc.star}}   \tab file is a STAR template\cr
 #'   \code{\link{qc.vpa}}    \tab \code{VPA_Model} is \code{Yes} or \code{No}\cr

@@ -28,7 +28,7 @@ qc.star("STAR_2019_HKE_5.xlsx")
 
 }
 \seealso{
-\code{\link{qc.all}} runs all \code{qc.*} tests.
+\code{\link{qc}} runs all \code{qc.*} tests.
 
 \code{\link{gfcmSTAR-package}} gives an overview of the package.
 }

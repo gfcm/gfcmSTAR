@@ -25,12 +25,12 @@
 #'
 #' @examples
 #' \dontrun{
-#' qc.all("STAR_2019_HKE_5.xlsx")
+#' qc("STAR_2019_HKE_5.xlsx")
 #' }
 #'
 #' @export
 
-qc.all <- function(file, stop=TRUE, quiet=FALSE)
+qc <- function(file, stop=TRUE, quiet=FALSE)
 {
   ## Start with success TRUE and later flip it to FALSE if any test fails
   s <- TRUE

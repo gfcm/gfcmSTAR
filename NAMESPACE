@@ -3,7 +3,7 @@
 export(combo)
 export(comma2period)
 export(gsa.names)
-export(qc.all)
+export(qc)
 export(qc.exists)
 export(qc.star)
 export(qc.vpa)
