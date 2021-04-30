@@ -43,7 +43,7 @@ qc.vpa <- function(file, stop=TRUE, quiet=FALSE)
     msg <- "VPA_Model must be either \"Yes\" or \"No\""
     if(stop) stop(msg) else warning(msg)
   }
-  if(!quiet)
+  else if(!quiet)
     message("OK")
   success
 }

@@ -41,7 +41,7 @@ qc.xlsx <- function(file, stop=TRUE, quiet=FALSE)
     msg <- paste0("'", file, "' does not have file extension 'xlsx'")
     if(stop) stop(msg) else warning(msg)
   }
-  if(!quiet)
+  else if(!quiet)
     message("OK")
   success
 }
