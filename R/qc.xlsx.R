@@ -2,7 +2,7 @@
 #'
 #' Assert that a file has an \file{xlsx} file extension.
 #'
-#' @param file filename of a STAR template.
+#' @param file filename of an Excel STAR template.
 #' @param stop whether to stop if test fails.
 #' @param quiet whether to suppress messages.
 #'

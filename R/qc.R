@@ -1,8 +1,8 @@
 #' Quality Check
 #'
-#' Run all quality checks on a STAR template.
+#' Run all quality checks on an Excel STAR template.
 #'
-#' @param file filename of a STAR template.
+#' @param file filename of an Excel STAR template.
 #' @param stop whether to stop if test fails.
 #' @param quiet whether to suppress messages.
 #'

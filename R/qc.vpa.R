@@ -3,7 +3,7 @@
 #' Assert that a STAR template's table object \code{VPA_Model} is either
 #' \code{"Yes"} or \code{"No"}.
 #'
-#' @param file filename of a STAR template.
+#' @param file filename of an Excel STAR template.
 #' @param stop whether to stop if test fails.
 #' @param quiet whether to suppress messages.
 #'

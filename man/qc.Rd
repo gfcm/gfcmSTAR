@@ -7,7 +7,7 @@
 qc(file, stop = TRUE, quiet = FALSE)
 }
 \arguments{
-\item{file}{filename of a STAR template.}
+\item{file}{filename of an Excel STAR template.}
 
 \item{stop}{whether to stop if test fails.}
 
@@ -18,7 +18,7 @@ qc(file, stop = TRUE, quiet = FALSE)
 \code{stop = TRUE}) or FALSE and a warning message (if \code{stop = FALSE}).
 }
 \description{
-Run all quality checks on a STAR template.
+Run all quality checks on an Excel STAR template.
 }
 \examples{
 \dontrun{

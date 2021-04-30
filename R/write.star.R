@@ -43,7 +43,7 @@
 #' \code{\link{write.csv}} is the underlying function used to write a table to a
 #' CSV file.
 #'
-#' \code{\link{read.template}} reads an Excel template into a STAR object.
+#' \code{\link{read.template}} reads an Excel STAR template into a STAR object.
 #'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'

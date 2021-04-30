@@ -7,7 +7,7 @@
 qc.xlsx(file, stop = TRUE, quiet = FALSE)
 }
 \arguments{
-\item{file}{filename of a STAR template.}
+\item{file}{filename of an Excel STAR template.}
 
 \item{stop}{whether to stop if test fails.}
 

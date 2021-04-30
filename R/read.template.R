@@ -24,8 +24,8 @@
 #' in the version-specific help pages, listed below.
 #'
 #' @seealso
-#' \code{\link{read.template.v10}} reads an Excel template of version 1.0 into a
-#' STAR object.
+#' \code{\link{read.template.v10}} reads an Excel STAR template of version 1.0
+#' into a STAR object.
 #'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'

@@ -43,7 +43,7 @@ read.properties("WGSAD_Western_Mediterranean.xlsx", "STAR_2019_HKE_5.xlsx")
 are the underlying functions used to read SharePoint properties from an Excel
 file.
 
-\code{\link{read.template}} reads an Excel template into a STAR object.
+\code{\link{read.template}} reads an Excel STAR template into a STAR object.
 
 \code{\link{gfcmSTAR-package}} gives an overview of the package.
 }
