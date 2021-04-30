@@ -33,13 +33,12 @@
 qc.all <- function(file, stop=TRUE, quiet=FALSE)
 {
   ## Start with success TRUE and later flip it to FALSE if any test fails
-  x <- TRUE
+  s <- TRUE
 
-  x <- x && qc.exists(file, stop=stop, quiet=quiet)
-  x <- x && qc.xlsx(file, stop=stop, quiet=quiet)
-  x <- x && qc.star(file, stop=stop, quiet=quiet)
-  x <- x && qc.vpa(file, stop=stop, quiet=quiet)
-  success <- x
+  s <- s && qc.exists(file, stop=stop, quiet=quiet)
+  s <- s && qc.xlsx(file, stop=stop, quiet=quiet)
+  s <- s && qc.star(file, stop=stop, quiet=quiet)
+  s <- s && qc.vpa(file, stop=stop, quiet=quiet)
 
-  success
+  s
 }
