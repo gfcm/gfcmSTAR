@@ -14,22 +14,32 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+Load package and specify directory:
+
+```{r}
 library(gfcmSTAR)
-setwd("~/git/gfcm-devops/StockAssessmentResults/uploads/2021/WGSAD_Western_Mediterranean")
-files <- dir()
-for(i in 1:length(files))
-{
-  qc(files[i], stop=FALSE)
-}
+dir <- file.path("~/git/gfcm-devops/StockAssessmentResults/uploads",
+                 "2021/WGSAD_Western_Mediterranean")
 ```
 
-STAR_2019_DPS_5.xlsx does not specify whether the model used is VPA type.
+Import all files:
 
-STAR 2.1.2 should change formula from
+```{r}
+cluster <- import.dir(dir)
+cbind(sapply(cluster, class))
+```
 
-if(vpa_type="Yes") then X else Y
+Exclude files that have errors:
 
-to
+```{r}
+cluster.ok <- cluster[sapply(cluster, class) != "try-error"]
+```
 
-if(vpa_type="Yes") then X else if(vpa_type="No") then Y else Error
+Check that the `Assessment` fields are unique:
+
+```{r}
+peek <- function(star) star$Metadata$Assessment
+assessment <- sapply(cluster.ok, peek)
+cbind(assessment)
+any(duplicated(assessment))
+```
