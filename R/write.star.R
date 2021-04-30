@@ -69,7 +69,7 @@ write.star <- function(star, dir=TRUE, topdir=NULL, mfile="metadata.csv",
 {
   ## 1  Construct path
   if(identical(dir, TRUE))
-    dir <- combo(star$Metadata)
+    dir <- star$Metadata$Assessment
   if(identical(dir, FALSE) || is.null(dir) || is.na(dir) || dir == "")
     dir <- "."
   if(is.logical(topdir) || is.null(topdir) || is.na(topdir) || topdir == "")
