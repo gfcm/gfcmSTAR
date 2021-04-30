@@ -27,6 +27,9 @@
 #' \code{\link{read.template.v10}} reads an Excel STAR template of version 1.0
 #' into a STAR object.
 #'
+#' \code{\link{import.dir}} imports all Excel STAR templates from a directory
+#' into a list.
+#'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'
 #' @examples
