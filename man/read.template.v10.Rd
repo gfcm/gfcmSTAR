@@ -78,7 +78,5 @@ field.
 \code{\link{template.version}} detects the STAR template version of an Excel
 file.
 
-\code{\link{write.star}} writes a STAR object to CSV files.
-
 \code{\link{gfcmSTAR-package}} gives an overview of the package.
 }
