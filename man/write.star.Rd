@@ -6,7 +6,8 @@
 \usage{
 write.star(star, dir = TRUE, topdir = NULL, mfile = "metadata.csv",
   tfile = "timeseries.csv", quote = TRUE, row.names = FALSE,
-  fileEncoding = "UTF-8", dos = TRUE, quiet = FALSE, ...)
+  fileEncoding = "UTF-8", dos = TRUE, quiet = FALSE, force = FALSE,
+  ...)
 }
 \arguments{
 \item{star}{STAR object, a list containing \code{Metadata} and
@@ -31,6 +32,8 @@ value. See details below.}
 (CRLF).}
 
 \item{quiet}{whether to suppress messages.}
+
+\item{force}{whether to overwrite existing files.}
 
 \item{\dots}{passed to \code{write.csv}.}
 }

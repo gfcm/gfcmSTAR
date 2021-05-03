@@ -15,6 +15,7 @@
 #' @param dos whether to ensure the resulting CSV files have Dos line endings
 #'        (CRLF).
 #' @param quiet whether to suppress messages.
+#' @param force whether to overwrite existing files.
 #' @param \dots passed to \code{write.csv}.
 #'
 #' @details
@@ -65,7 +66,8 @@
 
 write.star <- function(star, dir=TRUE, topdir=NULL, mfile="metadata.csv",
                        tfile="timeseries.csv", quote=TRUE, row.names=FALSE,
-                       fileEncoding="UTF-8", dos=TRUE, quiet=FALSE, ...)
+                       fileEncoding="UTF-8", dos=TRUE, quiet=FALSE, force=FALSE,
+                       ...)
 {
   ## 1  Construct path
   if(identical(dir, TRUE))
@@ -99,10 +101,16 @@ write.star <- function(star, dir=TRUE, topdir=NULL, mfile="metadata.csv",
   eol <- if(dos && Sys.info()[["sysname"]] != "Windows") "\r\n" else "\n"
   if(!quiet)
     message("Writing '", mfile, "'")
-  write.csv(metadata, file=mfile, quote=quote, eol=eol, row.names=row.names,
-            fileEncoding=fileEncoding, ...)
+  if(file.exists(mfile) && !force)
+    warning("file '", mfile, "' exists; pass force=TRUE to overwrite")
+  else
+    write.csv(metadata, file=mfile, quote=quote, eol=eol, row.names=row.names,
+              fileEncoding=fileEncoding, ...)
   if(!quiet)
     message("Writing '", tfile, "'")
-  write.csv(timeseries, file=tfile, quote=quote, eol=eol, row.names=row.names,
-            fileEncoding=fileEncoding, ...)
+  if(file.exists(tfile) && !force)
+    warning("file '", tfile, "' exists; pass force=TRUE to overwrite")
+  else
+    write.csv(timeseries, file=tfile, quote=quote, eol=eol, row.names=row.names,
+              fileEncoding=fileEncoding, ...)
 }
