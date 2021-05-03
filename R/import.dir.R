@@ -3,8 +3,13 @@
 #' Import all Excel STAR templates from a directory to a list.
 #'
 #' @param dir directory name.
+#' @param pattern regular expression to select filenames to include.
 #' @param exclude filenames to exclude.
 #' @param \dots passed to \code{read.template}.
+#'
+#' @details
+#' The default \code{pattern} selects all filenames ending with \file{xls} or
+#' \file{xlsx}.
 #'
 #' @return List of STAR objects.
 #'
@@ -20,9 +25,9 @@
 #'
 #' @export
 
-import.dir <- function(dir, exclude=NULL, ...)
+import.dir <- function(dir, pattern="\\.xlsx?$", exclude=NULL, ...)
 {
-  files <- dir(dir, full.names=TRUE)
+  files <- dir(dir, pattern=pattern, full.names=TRUE)
   files <- files[!(basename(files) %in% exclude)]
 
   out <- lapply(files, function(file) try(read.template(file=file, ...)))

@@ -4,10 +4,12 @@
 \alias{import.dir}
 \title{Import Directory}
 \usage{
-import.dir(dir, exclude = NULL, ...)
+import.dir(dir, pattern = "\\\\.xlsx?$", exclude = NULL, ...)
 }
 \arguments{
 \item{dir}{directory name.}
+
+\item{pattern}{regular expression to select filenames to include.}
 
 \item{exclude}{filenames to exclude.}
 
@@ -18,6 +20,10 @@ List of STAR objects.
 }
 \description{
 Import all Excel STAR templates from a directory to a list.
+}
+\details{
+The default \code{pattern} selects all filenames ending with \file{xls} or
+\file{xlsx}.
 }
 \examples{
 \dontrun{
