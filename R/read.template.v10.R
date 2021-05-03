@@ -10,6 +10,7 @@
 #' @param countries countries, separated by comma and space.
 #' @param suffix optional string passed to \code{combo} to construct a unique
 #'        \code{Assessment} field.
+#' @param prop SharePoint properties from \code{read.properties}.
 #' @param quiet whether to supress messages.
 #'
 #' @details
@@ -72,7 +73,8 @@
 #' @export
 
 read.template.v10 <- function(file, atype="Standard", refyear=2019,
-                              repyear=2021, countries=NA, suffix="", quiet=TRUE)
+                              repyear=2021, countries=NA, suffix="", prop=NULL,
+                              quiet=TRUE)
 {
   atype <- match.arg(atype, c("Standard", "Benchmark"))
 
@@ -167,6 +169,19 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
 
   Template_Version <- as.character("1.0.0")
   Excel_Filename <- as.character(basename(file))
+  if(is.null(prop))
+  {
+    SharePoint_Folder <- NA_character_
+    Person_Modified <- NA_character_
+    Time_Modified <- as.POSIXct(NA)
+  }
+  else
+  {
+    SharePoint_Folder <- as.character(prop$Path[prop$Name==Excel_Filename])
+    Person_Modified <- as.character(prop$Modified.By[prop$Name==Excel_Filename])
+    Time_Modified <- as.POSIXct(prop$Modified[prop$Name==Excel_Filename])
+  }
+  Time_Imported <- as.POSIXct(Sys.time())
 
   ## 4  Construct Assessment field
   Assessment <- combo(list(
@@ -189,7 +204,9 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
     Exploitation_Unit, Effort_Unit,
     Fbar_First_Age, Fbar_Last_Age, Fbar_First_Length, Fbar_Last_Length,
     Advice_Levels, Advice_Refpts, Advice_Quant_Status, Advice_Stock_Status,
-    GSA_Names, Countries, Template_Version, Excel_Filename,
+    GSA_Names, Countries, Template_Version,
+    SharePoint_Folder, Excel_Filename, Person_Modified,
+    Time_Modified, Time_Imported,
     stringsAsFactors=FALSE))
   class(Metadata) <- c("simple.list", "list")
   TimeSeries <- data.frame(Assessment_ID, Summary_Table, stringsAsFactors=FALSE)

@@ -5,7 +5,8 @@
 \title{Read STAR Template Version 1.0}
 \usage{
 read.template.v10(file, atype = "Standard", refyear = 2019,
-  repyear = 2021, countries = NA, suffix = "", quiet = TRUE)
+  repyear = 2021, countries = NA, suffix = "", prop = NULL,
+  quiet = TRUE)
 }
 \arguments{
 \item{file}{name of Excel file.}
@@ -20,6 +21,8 @@ read.template.v10(file, atype = "Standard", refyear = 2019,
 
 \item{suffix}{optional string passed to \code{combo} to construct a unique
 \code{Assessment} field.}
+
+\item{prop}{SharePoint properties from \code{read.properties}.}
 
 \item{quiet}{whether to supress messages.}
 }
