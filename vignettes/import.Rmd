@@ -18,21 +18,30 @@ Load package and specify directory:
 
 ```{r}
 library(gfcmSTAR)
-dir <- file.path("~/git/gfcm-devops/StockAssessmentResults/uploads",
-                 "2021/WGSAD_Western_Mediterranean")
+star.dir <- file.path("~/git/gfcm-devops/StockAssessmentResults/uploads",
+                      "2021/WGSAD_Western_Mediterranean")
+prop.file <- file.path("~/git/gfcm-devops/StockAssessmentResults/uploads",
+                       "2021/properties/WGSAD_Western_Mediterranean.xlsx")
 ```
 
-Import all files:
+Read SharePoint properties:
 
 ```{r}
-cluster <- import.dir(dir)
+prop <- read.properties(prop.file)
+```
+
+Import STAR templates:
+
+```{r}
+cluster <- import.dir(star.dir, prop=prop)
 cbind(sapply(cluster, class))
 ```
 
-Exclude files that have errors:
+Exclude STAR templates that have errors:
 
 ```{r}
 cluster.ok <- cluster[sapply(cluster, class) != "try-error"]
+cbind(sapply(cluster, class))
 ```
 
 Check that the `Assessment` fields are unique:
