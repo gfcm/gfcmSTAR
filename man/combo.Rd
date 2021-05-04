@@ -7,7 +7,8 @@
 combo(star, ...)
 }
 \arguments{
-\item{star}{STAR object containing \code{Metadata}.}
+\item{star}{STAR object, a list containing \code{Metadata} and
+\code{TimeSeries}.}
 
 \item{\dots}{optional strings to \code{\link{paste0}} after the combo. See
 examples below.}

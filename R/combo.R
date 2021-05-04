@@ -2,7 +2,8 @@
 #'
 #' Create a string that combines Reference Year, Species Code, and GSA.
 #'
-#' @param star STAR object containing \code{Metadata}.
+#' @param star STAR object, a list containing \code{Metadata} and
+#'        \code{TimeSeries}.
 #' @param \dots optional strings to \code{\link{paste0}} after the combo. See
 #'        examples below.
 #'
