@@ -40,7 +40,7 @@
 #'         metadata.csv
 #'         timeseries.csv}
 #'
-#' @return No return value, called for side effects.
+#' @return \code{TRUE} if CSV file(s) were created, otherwise \code{FALSE}.
 #'
 #' @note
 #' A vignette demonstrates the use of \code{write.star} to export a list of STAR
@@ -105,19 +105,32 @@ write.star <- function(star, dir=TRUE, topdir=NULL, mfile="metadata.csv",
   timeseries <- star$TimeSeries
 
   ## 4  Write CSV files
+  success <- TRUE
   eol <- if(dos && Sys.info()[["sysname"]] != "Windows") "\r\n" else "\n"
   if(!quiet)
     message("Writing '", mfile, "'")
   if(file.exists(mfile) && !force)
+  {
     warning("file '", mfile, "' exists; pass force=TRUE to overwrite")
+    success <- FALSE
+  }
   else
+  {
     write.csv(metadata, file=mfile, quote=quote, eol=eol, row.names=row.names,
               fileEncoding=fileEncoding, ...)
+  }
   if(!quiet)
     message("Writing '", tfile, "'")
   if(file.exists(tfile) && !force)
+  {
     warning("file '", tfile, "' exists; pass force=TRUE to overwrite")
+    success <- FALSE
+  }
   else
+  {
     write.csv(timeseries, file=tfile, quote=quote, eol=eol, row.names=row.names,
               fileEncoding=fileEncoding, ...)
+  }
+
+  invisible(success)
 }

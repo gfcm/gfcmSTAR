@@ -38,7 +38,7 @@ value. See details below.}
 \item{\dots}{passed to \code{write.csv}.}
 }
 \value{
-No return value, called for side effects.
+\code{TRUE} if CSV file(s) were created, otherwise \code{FALSE}.
 }
 \description{
 Write a STAR object to CSV files.
