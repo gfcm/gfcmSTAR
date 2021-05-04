@@ -12,7 +12,7 @@ gfcmSTAR can be installed from GitHub using the `install_github` command:
 
 ```R
 library(remotes)
-install_github("gfcm/gfcmSTAR")
+install_github("gfcm/gfcmSTAR", build_vignettes=TRUE)
 ```
 
 Usage
