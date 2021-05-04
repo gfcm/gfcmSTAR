@@ -13,6 +13,12 @@
 #'
 #' @return List of STAR objects.
 #'
+#' @note
+#' A vignette demonstrates the use of \code{import.dir} to import STAR templates:
+#' \preformatted{
+#' vignette("import", "gfcmSTAR")
+#' }
+#'
 #' @seealso
 #' \code{\link{read.template}} reads an Excel STAR template into a STAR object.
 #'

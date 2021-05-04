@@ -42,6 +42,13 @@
 #'
 #' @return No return value, called for side effects.
 #'
+#' @note
+#' A vignette demonstrates the use of \code{write.star} to export a list of STAR
+#' objects to CSV files:
+#' \preformatted{
+#' vignette("export", "gfcmSTAR")
+#' }
+#'
 #' @seealso
 #' \code{\link{write.csv}} is the underlying function used to write a table to a
 #' CSV file.

@@ -25,6 +25,12 @@ Import all Excel STAR templates from a directory to a list.
 The default \code{pattern} selects all filenames ending with \file{xls} or
 \file{xlsx}.
 }
+\note{
+A vignette demonstrates the use of \code{import.dir} to import STAR templates:
+\preformatted{
+vignette("import", "gfcmSTAR")
+}
+}
 \examples{
 \dontrun{
 cluster <- import.dir("STAR")

@@ -41,5 +41,20 @@
 #'   \code{\link{qc.vpa}}    \tab \code{VPA_Model} is \code{Yes} or \code{No}\cr
 #'   \code{\link{qc.xlsx}}   \tab file extension is \file{xlsx}
 #' }
+#'
+#' @note
+#' \code{browseVignettes("gfcmSTAR")} shows the vignettes, found in the
+#' \file{gfcmSTAR/doc} directory.
+#'
+#' @author Arni Magnusson.
+#'
+#' @references
+#' \url{https://github.com/gfcm/star}
+#'
+#' \url{https://github.com/gfcm/gfcmSTAR}
+#'
+#' @seealso
+#' The \pkg{gfcmSTAR} package uses \pkg{XLConnect} to read STAR templates, as it
+#' supports Excel table objects.
 
 NA
