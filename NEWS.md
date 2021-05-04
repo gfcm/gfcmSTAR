@@ -1,5 +1,7 @@
 # gfcmSTAR 1.0.1 (2021-05-04)
 
+* Added function set.classes().
+
 * Renamed import.dir() to import.many.templates().
 
 * Added argument 'pattern' in import.many.templates().
@@ -8,10 +10,14 @@
 
 * Added argument 'force' in write.star().
 
+* Renamed metadata field Rec_Unit to Recruitment_Unit in read.template().
+
 * Added metadata fields in read.template(): SharePoint_Folder, Person_Modified,
   Time_Modified, Time_Imported.
 
-* Added vignette on exporting a list of STAR objects to CSV files.
+* Changed write.star() so it returns TRUE or FALSE.
+
+* Added export.Rmd vignette on exporting a list of STAR objects to CSV files.
 
 ---
 
