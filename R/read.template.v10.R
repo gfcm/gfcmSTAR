@@ -133,7 +133,7 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
                                names=FALSE))
 
   Type_Confint <- as.character(Summary_Information$Type_of_confidence_intervals)
-  Rec_Unit <- as.character(Summary_Information$Recruitment_Unit)
+  Recruitment_Unit <- as.character(Summary_Information$Recruitment_Unit)
   Recruitment_Age <- as.integer(Dimensions$Age[1])
   Recruitment_Length <- as.numeric(Dimensions$Length[1])
   Stock1_Indicator <- as.character(Summary_Information$Stock_Size_Indicator_1)
@@ -188,7 +188,7 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
     VPA_Model, Forecast_Included,
     Fmsy, F0.1, E0.4, Bmsy, Bpa, Blim, Fref_Basis, Fref_Value,
     Current_F, Current_B, B0.33, B0.66,
-    Type_Confint, Rec_Unit, Recruitment_Age, Recruitment_Length,
+    Type_Confint, Recruitment_Unit, Recruitment_Age, Recruitment_Length,
     Stock1_Indicator, Stock1_Unit, Stock2_Indicator, Stock2_Unit, Catches_Unit,
     Exploitation_Unit, Effort_Unit,
     Fbar_First_Age, Fbar_Last_Age, Fbar_First_Length, Fbar_Last_Length,
