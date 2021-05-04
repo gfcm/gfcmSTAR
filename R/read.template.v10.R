@@ -24,12 +24,6 @@
 #' STAR object, a list containing \code{Metadata} (simple list) and
 #' \code{TimeSeries} (data frame).
 #'
-#' @note
-#' The purpose of storing \code{Metadata} as class
-#' \code{c("simple.list", "list")} is to have it display in a compact and
-#' readable format in the console. It is easy to convert to a normal list or
-#' data frame - see examples below.
-#'
 #' @seealso
 #' \code{\link{read.template}} calls \code{read.template.v10} when the Excel
 #' STAR template is of version 1.0.
@@ -58,11 +52,6 @@
 #' read.template.v10("STAR_2019_HKE_5.xlsx", suffix="a4")$Metadata$Assessment
 #' read.template.v10("STAR_2019_HKE_5.xlsx", suffix="sam")$Metadata$Assessment
 #' read.template.v10("STAR_2019_HKE_5.xlsx", suffix="something_special")
-#'
-#' # Coerce metadata to list or data frame:
-#' star$Metadata                 # simple.list (default)
-#' unclass(star$Metadata)        # list
-#' as.data.frame(star$Metadata)  # data.frame
 #' }
 #'
 #' @importFrom stats na.omit quantile

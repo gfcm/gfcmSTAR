@@ -11,6 +11,12 @@
 #' \code{TimeSeries} (data frame).
 #'
 #' @note
+#' The purpose of storing \code{Metadata} as class
+#' \code{c("simple.list", "list")} is to have it display in a compact and
+#' readable format in the console. It is easy to convert to a normal list or
+#' data frame - see examples below.
+#'
+#' @section STAR Version:
 #' The user can either use the general \code{read.template} function or
 #' version-specific functions, such as read.template.v10, to the same effect.
 #'
@@ -37,6 +43,11 @@
 #' @examples
 #' \dontrun{
 #' star <- read.template("STAR_2019_HKE_5.xlsx")
+#'
+#' # Coerce metadata to list or data frame:
+#' star$Metadata                 # simple.list (default)
+#' unclass(star$Metadata)        # list
+#' as.data.frame(star$Metadata)  # data.frame
 #' }
 #'
 #' @export

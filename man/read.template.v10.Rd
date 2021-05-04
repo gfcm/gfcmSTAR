@@ -41,12 +41,6 @@ assessment by appending the suffix with an underscore separator to create a
 unique \code{Assessment} metadata field for the STAR object. See examples
 below.
 }
-\note{
-The purpose of storing \code{Metadata} as class
-\code{c("simple.list", "list")} is to have it display in a compact and
-readable format in the console. It is easy to convert to a normal list or
-data frame - see examples below.
-}
 \examples{
 \dontrun{
 
@@ -58,11 +52,6 @@ read.template.v10("STAR_2019_HKE_5.xlsx")$Metadata$Assessment
 read.template.v10("STAR_2019_HKE_5.xlsx", suffix="a4")$Metadata$Assessment
 read.template.v10("STAR_2019_HKE_5.xlsx", suffix="sam")$Metadata$Assessment
 read.template.v10("STAR_2019_HKE_5.xlsx", suffix="something_special")
-
-# Coerce metadata to list or data frame:
-star$Metadata                 # simple.list (default)
-unclass(star$Metadata)        # list
-as.data.frame(star$Metadata)  # data.frame
 }
 
 }
