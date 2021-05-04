@@ -1,6 +1,7 @@
-#' Import Directory
+#' Import Many Templates
 #'
-#' Import all Excel STAR templates from a directory to a list.
+#' Import many Excel STAR templates from a directory to a cluster (list of STAR
+#' objects).
 #'
 #' @param dir directory name.
 #' @param pattern regular expression to select filenames to include.
@@ -11,10 +12,11 @@
 #' The default \code{pattern} selects all filenames ending with \file{xls} or
 #' \file{xlsx}.
 #'
-#' @return List of STAR objects.
+#' @return A cluster (list of STAR objects).
 #'
 #' @note
-#' A vignette demonstrates the use of \code{import.dir} to import STAR templates:
+#' A vignette demonstrates the use of \code{import.many.templates} to import
+#' STAR templates:
 #' \preformatted{
 #' vignette("import", "gfcmSTAR")
 #' }
@@ -26,18 +28,18 @@
 #'
 #' @examples
 #' \dontrun{
-#' cluster <- import.dir("STAR")
+#' cluster <- import.many.templates("STAR")
 #' }
 #'
 #' @export
 
-import.dir <- function(dir, pattern="\\.xlsx?$", exclude=NULL, ...)
+import.many.templates <- function(dir, pattern="\\.xlsx?$", exclude=NULL, ...)
 {
   files <- dir(dir, pattern=pattern, full.names=TRUE)
   files <- files[!(basename(files) %in% exclude)]
 
-  out <- lapply(files, function(file) try(read.template(file=file, ...)))
-  names(out) <- basename(files)
+  cluster <- lapply(files, function(file) try(read.template(file=file, ...)))
+  names(cluster) <- basename(files)
 
-  out
+  cluster
 }

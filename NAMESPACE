@@ -3,7 +3,7 @@
 export(combo)
 export(comma2period)
 export(gsa.names)
-export(import.dir)
+export(import.many.templates)
 export(qc)
 export(qc.exists)
 export(qc.star)

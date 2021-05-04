@@ -1,6 +1,8 @@
 # gfcmSTAR 1.0.1 (2021-05-04)
 
-* Added argument 'pattern' in import.dir().
+* Renamed import.dir() to import.many.templates().
+
+* Added argument 'pattern' in import.many.templates().
 
 * Added argument 'prop' in read.template().
 

@@ -24,8 +24,8 @@
 #' in the version-specific help pages, listed below.
 #'
 #' @seealso
-#' \code{\link{import.dir}} imports all Excel STAR templates from a directory
-#' into a cluster (list).
+#' \code{\link{import.many.templates}} imports many Excel STAR templates from a
+#' directory into a cluster (list).
 #'
 #' \code{\link{read.template.v10}} reads an Excel STAR template of version 1.0
 #' into a STAR object.
