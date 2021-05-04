@@ -7,15 +7,21 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
+  collapse=TRUE,
+  comment="#>",
+  eval=FALSE
 )
 ```
 
-```{r, child=c('import.Rmd')}
+First run `import.Rmd` to get `cluster.ok`, a list of STAR objects.
+
+```{r, child="import.Rmd"}
 ```
+
+Then export into subdirectories, either inside the same directory as the STAR
+templates or inside the `mnt/star-templates` area:
 
 ```{r}
 ## topdir <- file.path(star.dir, "csv")

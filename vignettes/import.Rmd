@@ -7,14 +7,15 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
+  collapse=TRUE,
+  comment="#>",
+  eval=FALSE
 )
 ```
 
-Load package and specify directory:
+Load package and specify directories:
 
 ```{r}
 library(gfcmSTAR)
@@ -41,7 +42,7 @@ Exclude STAR templates that have errors:
 
 ```{r}
 cluster.ok <- cluster[sapply(cluster, class) != "try-error"]
-cbind(sapply(cluster, class))
+cbind(sapply(cluster.ok, class))
 ```
 
 Check that the `Assessment` fields are unique:
