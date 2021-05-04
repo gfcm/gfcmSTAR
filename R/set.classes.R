@@ -1,7 +1,7 @@
 #' Set Classes
 #'
-#' Convert metadata and time series fields in a STAR object to match the data
-#' types in the STAR database.
+#' Convert metadata and time series in a STAR object to match the data types in
+#' the STAR database.
 #'
 #' @param star STAR object, a list containing \code{Metadata} and
 #'        \code{TimeSeries}.
@@ -116,6 +116,8 @@ set.classes <- function(star)
   class(TimeSeries$Fishing) <- "numeric"
   class(TimeSeries$Fishing_Upper) <- "numeric"
 
-  ## 4  Output
-  list(Metadata=Metadata, TimeSeries=TimeSeries)
+  ## 4  Construct list
+  star <- list(Metadata=Metadata, TimeSeries=TimeSeries)
+
+  star
 }
