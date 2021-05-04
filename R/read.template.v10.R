@@ -84,93 +84,89 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
   Dimensions <- readTable(w, "Metadata", "Dimensions")
   Summary_Information <-
     readTable.transpose(w, "Summary", "Summary_Information")
-  Summary_Table <- readTable(w, "Summary", "Summary_Table", colTypes="numeric")
-  Summary_Table$Year <- as.integer(Summary_Table$Year)
+  Summary_Table <- readTable(w, "Summary", "Summary_Table")
   Advice_Export <- readTable(w, "Advice", "Advice_Export", useCachedValues=TRUE)
   Advice_Export[Advice_Export==""] <- NA_character_
 
   ## 3  Extract information
-  Assessment_ID <- as.character(UUIDgenerate())
-  Scientific_Name <- as.character(Advice_Export$Species)
-  GSA <- as.character(Advice_Export$GSA)
+  Assessment_ID <- UUIDgenerate()
+  Scientific_Name <- Advice_Export$Species
+  GSA <- Advice_Export$GSA
 
-  Assessment_Type <- as.character(atype)
-  Reference_Year <- as.integer(refyear)
-  Reporting_Year <- as.integer(repyear)
-  Validation_Status <- as.character(Assessment_Information$Validation_Status)
-  Year_Benchmarked <- as.integer(Assessment_Information$Year_Benchmarked)
-  Assessment_Method <- as.character(Assessment_Information$Assessment_Method)
-  Expert_Group <- as.character(Assessment_Information$Expert_Group)
-  Contact_Person <- as.character(Assessment_Information$Contact_Person)
+  Assessment_Type <- atype
+  Reference_Year <- refyear
+  Reporting_Year <- repyear
+  Validation_Status <- Assessment_Information$Validation_Status
+  Year_Benchmarked <- Assessment_Information$Year_Benchmarked
+  Assessment_Method <- Assessment_Information$Assessment_Method
+  Expert_Group <- Assessment_Information$Expert_Group
+  Contact_Person <- Assessment_Information$Contact_Person
 
-  Status_Fref <- as.numeric(Advice_Table$Quantitative_Status_F_Ftarget)
-  Status_Btarget <- as.numeric(Advice_Table$Quantitative_Status_B_Btarget)
-  Status_Bthreshold <- as.numeric(Advice_Table$Quantitative_Status_B_Bthreshold)
-  Status_Blimit <- as.numeric(Advice_Table$Quantitative_Status_B_Blimit)
-  Status_Text_F <- as.character(Advice_Table$Stock_Status_Text_Exploitation)
-  Status_Text_B <- as.character(Advice_Table$Stock_Status_Text_Stock_Size)
-  Scientific_Advice <- as.character(Advice_Table$Scientific_Advice)
-  WG_Comments <- as.character(Advice_Table$WG_Comments)
+  Status_Fref <- Advice_Table$Quantitative_Status_F_Ftarget
+  Status_Btarget <- Advice_Table$Quantitative_Status_B_Btarget
+  Status_Bthreshold <- Advice_Table$Quantitative_Status_B_Bthreshold
+  Status_Blimit <- Advice_Table$Quantitative_Status_B_Blimit
+  Status_Text_F <- Advice_Table$Stock_Status_Text_Exploitation
+  Status_Text_B <- Advice_Table$Stock_Status_Text_Stock_Size
+  Scientific_Advice <- Advice_Table$Scientific_Advice
+  WG_Comments <- Advice_Table$WG_Comments
 
-  Fref_Basis <- as.character(Reference_Points$Reference.Point[1])
-  Fref_Value <- as.numeric(Reference_Points$Value[1])
-  Fmsy <- if(identical(Fref_Basis,"Fmsy")) Fref_Value else NA_real_
-  F0.1 <- if(identical(Fref_Basis,"F0.1")) Fref_Value else NA_real_
-  E0.4 <- if(identical(Fref_Basis,"E0.4")) Fref_Value else NA_real_
+  Fref_Basis <- Reference_Points$Reference.Point[1]
+  Fref_Value <- Reference_Points$Value[1]
+  Fmsy <- if(identical(Fref_Basis,"Fmsy")) Fref_Value else NA
+  F0.1 <- if(identical(Fref_Basis,"F0.1")) Fref_Value else NA
+  E0.4 <- if(identical(Fref_Basis,"E0.4")) Fref_Value else NA
   Bmsy <- if(identical(Reference_Points$Reference.Point[2],"Bmsy"))
-            as.numeric(Reference_Points$Value[2]) else NA_real_
+            Reference_Points$Value[2] else NA
   Bpa <-  if(identical(Reference_Points$Reference.Point[3],"Bpa"))
-            as.numeric(Reference_Points$Value[3]) else NA_real_
+            Reference_Points$Value[3] else NA
   Blim <- if(identical(Reference_Points$Reference.Point[2],"Blim"))
-            as.numeric(Reference_Points$Value[2]) else NA_real_
+            Reference_Points$Value[2] else NA
 
   Current_F <- mean(tail(na.omit(Summary_Table$Fishing),
                          if(VPA_Model) 3 else 1))
   Current_B <- mean(tail(na.omit(Summary_Table$Stock1), if(VPA_Model) 3 else 1))
-  B0.33 <- as.numeric(quantile(na.omit(Summary_Table$Stock1), 0.33,
-                               names=FALSE))
-  B0.66 <- as.numeric(quantile(na.omit(Summary_Table$Stock1), 0.66,
-                               names=FALSE))
+  B0.33 <- quantile(na.omit(Summary_Table$Stock1), 0.33, names=FALSE)
+  B0.66 <- quantile(na.omit(Summary_Table$Stock1), 0.66, names=FALSE)
 
-  Type_Confint <- as.character(Summary_Information$Type_of_confidence_intervals)
-  Recruitment_Unit <- as.character(Summary_Information$Recruitment_Unit)
-  Recruitment_Age <- as.integer(Dimensions$Age[1])
-  Recruitment_Length <- as.numeric(Dimensions$Length[1])
-  Stock1_Indicator <- as.character(Summary_Information$Stock_Size_Indicator_1)
-  Stock1_Unit <- as.character(Summary_Information$Stock_Size_Unit_1)
-  Stock2_Indicator <- as.character(Summary_Information$Stock_Size_Indicator_2)
-  Stock2_Unit <- as.character(Summary_Information$Stock_Size_Unit_2)
-  Catches_Unit <- as.character(Summary_Information$Catches_Unit)
-  Exploitation_Unit <- as.character(Summary_Information$Fishing_Pressure_Type)
-  Effort_Unit <- as.character(Summary_Information$Fishing_Effort_Unit)
-  Fbar_First_Age <- as.integer(Dimensions$Age[2])
-  Fbar_Last_Age <- as.integer(Dimensions$Age[3])
-  Fbar_First_Length <- as.numeric(Dimensions$Length[2])
-  Fbar_Last_Length <- as.numeric(Dimensions$Length[3])
+  Type_Confint <- Summary_Information$Type_of_confidence_intervals
+  Recruitment_Unit <- Summary_Information$Recruitment_Unit
+  Recruitment_Age <- Dimensions$Age[1]
+  Recruitment_Length <- Dimensions$Length[1]
+  Stock1_Indicator <- Summary_Information$Stock_Size_Indicator_1
+  Stock1_Unit <- Summary_Information$Stock_Size_Unit_1
+  Stock2_Indicator <- Summary_Information$Stock_Size_Indicator_2
+  Stock2_Unit <- Summary_Information$Stock_Size_Unit_2
+  Catches_Unit <- Summary_Information$Catches_Unit
+  Exploitation_Unit <- Summary_Information$Fishing_Pressure_Type
+  Effort_Unit <- Summary_Information$Fishing_Effort_Unit
+  Fbar_First_Age <- Dimensions$Age[2]
+  Fbar_Last_Age <- Dimensions$Age[3]
+  Fbar_First_Length <- Dimensions$Length[2]
+  Fbar_Last_Length <- Dimensions$Length[3]
 
-  Advice_Levels <- as.character(comma2period(Advice_Export$Current.Levels))
-  Advice_Refpts <- as.character(comma2period(Advice_Export$Reference.Points))
-  Advice_Quant_Status <-
-    as.character(comma2period(Advice_Export$Quantitative.Status))
-  Advice_Stock_Status <- as.character(Advice_Export$Stock.Status)
-  GSA_Names <- as.character(gsa.names(GSA))
-  Countries <- as.character(countries)
+  Advice_Levels <- comma2period(Advice_Export$Current.Levels)
+  Advice_Refpts <- comma2period(Advice_Export$Reference.Points)
+  Advice_Quant_Status <- comma2period(Advice_Export$Quantitative.Status)
+  Advice_Stock_Status <- Advice_Export$Stock.Status
+  GSA_Names <- gsa.names(GSA)
+  Countries <- countries
 
-  Template_Version <- as.character("1.0.0")
-  Excel_Filename <- as.character(basename(file))
+  Template_Version <- "1.0.0"
+  Excel_Filename <- basename(file)
   if(is.null(prop))
   {
-    SharePoint_Folder <- NA_character_
-    Person_Modified <- NA_character_
-    Time_Modified <- as.POSIXct(NA)
+    SharePoint_Folder <- NA
+    Person_Modified <- NA
+    Time_Modified <- NA
   }
   else
   {
-    SharePoint_Folder <- as.character(prop$Path[prop$Name==Excel_Filename])
-    Person_Modified <- as.character(prop$Modified.By[prop$Name==Excel_Filename])
-    Time_Modified <- as.POSIXct(prop$Modified[prop$Name==Excel_Filename])
+    SharePoint_Folder <- prop$Path[prop$Name==Excel_Filename]
+    Person_Modified <- prop$Modified.By[prop$Name==Excel_Filename]
+    Time_Modified <- prop$Modified[prop$Name==Excel_Filename]
   }
-  Time_Imported <- as.POSIXct(Sys.time())
+  Time_Imported <- Sys.time()
 
   ## 4  Construct Assessment field
   Assessment <- combo(list(
@@ -189,8 +185,8 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
     Fmsy, F0.1, E0.4, Bmsy, Bpa, Blim, Fref_Basis, Fref_Value,
     Current_F, Current_B, B0.33, B0.66,
     Type_Confint, Recruitment_Unit, Recruitment_Age, Recruitment_Length,
-    Stock1_Indicator, Stock1_Unit, Stock2_Indicator, Stock2_Unit, Catches_Unit,
-    Exploitation_Unit, Effort_Unit,
+    Stock1_Indicator, Stock1_Unit, Stock2_Indicator, Stock2_Unit,
+    Catches_Unit, Exploitation_Unit, Effort_Unit,
     Fbar_First_Age, Fbar_Last_Age, Fbar_First_Length, Fbar_Last_Length,
     Advice_Levels, Advice_Refpts, Advice_Quant_Status, Advice_Stock_Status,
     GSA_Names, Countries, Template_Version,
@@ -200,5 +196,9 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
   class(Metadata) <- c("simple.list", "list")
   TimeSeries <- data.frame(Assessment_ID, Summary_Table, stringsAsFactors=FALSE)
 
-  list(Metadata=Metadata, TimeSeries=TimeSeries)
+  ## 6  Convert data types
+  star <- list(Metadata=Metadata, TimeSeries=TimeSeries)
+  star <- set.classes(star)
+
+  star
 }
