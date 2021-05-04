@@ -1,6 +1,8 @@
 ---
 title: "Importing STAR templates"
-output: rmarkdown::html_vignette
+output:
+  html_vignette:
+    mathjax: null
 vignette: >
   %\VignetteIndexEntry{Importing STAR templates}
   %\VignetteEngine{knitr::rmarkdown}
