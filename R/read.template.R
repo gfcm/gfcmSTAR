@@ -43,10 +43,6 @@
 
 read.template <- function(file, ...)
 {
-  ## v <- template.version(file)
-  ## if(v == "1.0.0")
-  ##   read.template.v10(file, ...)
-
   switch(template.version(file),
          "1.0.0"=read.template.v10(file, ...))
 }
