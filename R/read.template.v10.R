@@ -85,7 +85,6 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
   Summary_Information <-
     readTable.transpose(w, "Summary", "Summary_Information")
   Summary_Table <- readTable(w, "Summary", "Summary_Table")
-  names(Summary_Table) <- Start_Case(names(Summary_Table))
   Advice_Export <- readTable(w, "Advice", "Advice_Export", useCachedValues=TRUE)
   Advice_Export[Advice_Export==""] <- NA_character_
 
@@ -175,7 +174,7 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
   Assessment <- gsub("__", "_", Assessment)  # no double underscores
   Assessment <- gsub("_$", "", Assessment)   # no trailing underscore
 
-  ## 5  Assemble list
+  ## 5  Create Metadata
   Metadata <- as.list(data.frame(
     Assessment_ID, Assessment, Scientific_Name, GSA,
     Assessment_Type, Reference_Year, Reporting_Year, Validation_Status,
@@ -195,9 +194,13 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
     Time_Modified, Time_Imported,
     stringsAsFactors=FALSE))
   class(Metadata) <- c("simple.list", "list")
-  TimeSeries <- data.frame(Assessment_ID, Summary_Table, stringsAsFactors=FALSE)
 
-  ## 6  Convert data types
+  ## 6  Create TimeSeries
+  TimeSeries <- data.frame(Assessment_ID, Summary_Table, stringsAsFactors=FALSE)
+  names(TimeSeries) <- Start_Case(names(TimeSeries))
+  TimeSeries <- TimeSeries[-grep("Effort", names(TimeSeries))]
+
+  ## 7  Convert data types
   star <- list(Metadata=Metadata, TimeSeries=TimeSeries)
   star <- set.classes(star)
 

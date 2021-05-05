@@ -10,10 +10,15 @@
 
 * Added argument 'force' in write.star().
 
-* Renamed metadata field Rec_Unit to Recruitment_Unit in read.template().
+* Renamed Metadata field Rec_Unit to Recruitment_Unit in read.template().
 
-* Added metadata fields in read.template(): SharePoint_Folder, Person_Modified,
+* Added Metadata fields in read.template(): SharePoint_Folder, Person_Modified,
   Time_Modified, Time_Imported.
+
+* Converted TimeSeries column names to Start_Case.
+
+* Removed TimeSeries columns containing Effort. In the STAR database, Effort is
+  handled as a special case of Fishing where Exploitation_Unit = Effort.
 
 * Changed write.star() so it returns TRUE or FALSE.
 
