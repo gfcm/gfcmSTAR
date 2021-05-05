@@ -1,6 +1,9 @@
 # gfcmSTAR 1.1.0 (2021-05-05)
 
-* Added function read.star.csv() to read CSV files into a STAR object.
+* Added function import.many.csv() to import many CSV files from a directory
+  tree.
+
+* Added function read.star.csv() to read a pair of CSV files into a STAR object.
 
 * Added function set.classes() to convert Metadata and TimeSeries data types.
 

@@ -19,8 +19,8 @@ import.many.templates(dir, pattern = "\\\\.xlsx?$", exclude = NULL, ...)
 A cluster (list of STAR objects).
 }
 \description{
-Import many Excel STAR templates from a directory to a cluster (list of STAR
-objects).
+Import many Excel STAR templates from a directory into a cluster (list of
+STAR objects).
 }
 \details{
 The default \code{pattern} selects all filenames ending with \file{xls} or
@@ -41,6 +41,9 @@ cluster <- import.many.templates("STAR")
 }
 \seealso{
 \code{\link{read.template}} reads an Excel STAR template into a STAR object.
+
+\code{\link{import.many.csv}} imports many STAR CSV files from a directory
+tree into a cluster.
 
 \code{\link{gfcmSTAR-package}} gives an overview of the package.
 }

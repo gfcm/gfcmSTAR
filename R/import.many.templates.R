@@ -1,7 +1,7 @@
 #' Import Many Templates
 #'
-#' Import many Excel STAR templates from a directory to a cluster (list of STAR
-#' objects).
+#' Import many Excel STAR templates from a directory into a cluster (list of
+#' STAR objects).
 #'
 #' @param dir directory name.
 #' @param pattern regular expression to select filenames to include.
@@ -23,6 +23,9 @@
 #'
 #' @seealso
 #' \code{\link{read.template}} reads an Excel STAR template into a STAR object.
+#'
+#' \code{\link{import.many.csv}} imports many STAR CSV files from a directory
+#' tree into a cluster.
 #'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'

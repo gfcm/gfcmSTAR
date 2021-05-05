@@ -24,8 +24,8 @@ read.star.csv("STAR_2019_HKE_5")
 
 }
 \seealso{
-\code{\link{read.csv}} is the underlying base function used to read the CSV
-files.
+\code{\link{import.many.csv}} imports many STAR CSV files from a directory
+tree into a cluster (list).
 
 \code{\link{read.template}} reads an Excel STAR template into a STAR object.
 
