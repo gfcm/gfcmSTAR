@@ -14,8 +14,8 @@ set.classes(star)
 STAR object with correct data types.
 }
 \description{
-Convert metadata and time series in a STAR object to match the data types in
-the STAR database.
+Convert \code{Metadata} fields and \code{TimeSeries} columns in a STAR object
+to match the data types in the STAR database.
 }
 \examples{
 \dontrun{

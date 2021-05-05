@@ -1,6 +1,6 @@
 # gfcmSTAR 1.1.0 (2021-05-05)
 
-* Added function set.classes().
+* Added function set.classes() to convert Metadata and TimeSeries data types.
 
 * Renamed import.dir() to import.many.templates().
 

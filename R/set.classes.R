@@ -1,7 +1,7 @@
 #' Set Classes
 #'
-#' Convert metadata and time series in a STAR object to match the data types in
-#' the STAR database.
+#' Convert \code{Metadata} fields and \code{TimeSeries} columns in a STAR object
+#' to match the data types in the STAR database.
 #'
 #' @param star STAR object, a list containing \code{Metadata} and
 #'        \code{TimeSeries}.
