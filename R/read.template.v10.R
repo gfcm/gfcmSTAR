@@ -85,6 +85,7 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
   Summary_Information <-
     readTable.transpose(w, "Summary", "Summary_Information")
   Summary_Table <- readTable(w, "Summary", "Summary_Table")
+  names(Summary_Table) <- Start_Case(names(Summary_Table))
   Advice_Export <- readTable(w, "Advice", "Advice_Export", useCachedValues=TRUE)
   Advice_Export[Advice_Export==""] <- NA_character_
 
