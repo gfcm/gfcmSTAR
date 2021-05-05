@@ -46,6 +46,26 @@
 #' }
 #'
 #' @note
+#' STAR objects store \code{Metadata} as class \code{c("simple.list", "list")}
+#' in order to have it display in a compact and readable format in the console.
+#' It is easy to convert to a normal list or data frame:
+#'
+#' \preformatted{
+#' star$Metadata                 # simple.list (default)
+#' unclass(star$Metadata)        # list
+#' as.data.frame(star$Metadata)  # data.frame
+#' }
+#'
+#' The main drawback of the \code{simple.list} format is that date-time objects
+#' are shown as integers in the console. This is only a minor display issue -
+#' the date-time objects are stored as \code{POSIXct} objects and are easy to
+#' access:
+#'
+#' \preformatted{
+#' star$Metadata$Time_Modified
+#' star$Metadata$Time_Imported
+#' }
+#'
 #' \code{browseVignettes("gfcmSTAR")} shows the vignettes, found in the
 #' \file{gfcmSTAR/doc} directory.
 #'
