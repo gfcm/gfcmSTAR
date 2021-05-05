@@ -90,5 +90,8 @@ CSV file.
 
 \code{\link{read.template}} reads an Excel STAR template into a STAR object.
 
+\code{\link{read.star.csv}} reads a pair of STAR CSV files into a STAR
+object.
+
 \code{\link{gfcmSTAR-package}} gives an overview of the package.
 }

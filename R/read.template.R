@@ -36,7 +36,8 @@
 #' \code{\link{read.template.v10}} reads an Excel STAR template of version 1.0
 #' into a STAR object.
 #'
-#' \code{\link{read.star.csv}} reads STAR CSV files into a STAR object.
+#' \code{\link{read.star.csv}} reads a pair of STAR CSV files into a STAR
+#' object.
 #'
 #' \code{\link{write.star.csv}} writes a STAR object to CSV files.
 #'
