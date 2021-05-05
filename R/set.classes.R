@@ -94,8 +94,8 @@ set.classes <- function(star)
   class(Metadata$SharePoint_Folder) <- "character"
   class(Metadata$Excel_Filename) <- "character"
   class(Metadata$Person_Modified) <- "character"
-  class(Metadata$Time_Modified) <- c("POSIXct", "POSIXt")
-  class(Metadata$Time_Imported) <- c("POSIXct", "POSIXt")
+  Metadata$Time_Modified <- as.POSIXct(Metadata$Time_Modified)
+  Metadata$Time_Imported <- as.POSIXct(Metadata$Time_Imported)
 
   ## 3  Handle TimeSeries
   class(TimeSeries$Assessment_ID) <- "character"
