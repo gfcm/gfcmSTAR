@@ -6,11 +6,13 @@
 
 * Renamed import.dir() to import.many.templates().
 
+* Renamed write.star() to write.star.csv().
+
 * Renamed Metadata field Rec_Unit to Recruitment_Unit in read.template().
 
 * Converted TimeSeries column names to Start_Case in read.template().
 
-* Changed write.star() so it returns TRUE or FALSE.
+* Changed write.star.csv() so it returns TRUE or FALSE.
 
 * Removed TimeSeries columns containing Effort in read.template(). In the STAR
   database, Effort is handled as a special case of Fishing where

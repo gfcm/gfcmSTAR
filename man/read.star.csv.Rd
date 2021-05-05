@@ -29,5 +29,7 @@ files.
 
 \code{\link{read.template}} reads an Excel STAR template into a STAR object.
 
+\code{\link{write.star.csv}} writes a STAR object to CSV files.
+
 \code{\link{gfcmSTAR-package}} gives an overview of the package.
 }

@@ -60,7 +60,7 @@ into a STAR object.
 
 \code{\link{read.star.csv}} reads STAR CSV files into a STAR object.
 
-\code{\link{write.star}} writes a STAR object to CSV files.
+\code{\link{write.star.csv}} writes a STAR object to CSV files.
 
 \code{\link{gfcmSTAR-package}} gives an overview of the package.
 }

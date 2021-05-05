@@ -28,5 +28,5 @@ templates or inside the `mnt/star-templates` area:
 ```{r}
 ## topdir <- file.path(star.dir, "csv")
 topdir <- "/mnt/star-templates/2021/WGSAD_Western_Mediterranean"
-sapply(cluster.ok, write.star, topdir=topdir, force=TRUE)
+sapply(cluster.ok, write.star.csv, topdir=topdir, force=TRUE)
 ```

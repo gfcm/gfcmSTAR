@@ -1,6 +1,7 @@
-#' Write STAR Object to Files
+#' Write STAR CSV
 #'
-#' Write a STAR object to CSV files.
+#' Write a STAR object to CSV files \file{metadata.csv} and
+#' \file{timeseries.csv}.
 #'
 #' @param star STAR object, a list containing \code{Metadata} and
 #'        \code{TimeSeries}.
@@ -29,8 +30,8 @@
 #' STAR objects in one top directory. For example, \preformatted{
 #' hake_4 <- read.template("STAR_2019_HKE_4.xlsx")
 #' hake_5 <- read.template("STAR_2019_HKE_5.xlsx")
-#' write.star(hake_4, topdir="csv")
-#' write.star(hake_5, topdir="csv")} will produce
+#' write.star.csv(hake_4, topdir="csv")
+#' write.star.csv(hake_5, topdir="csv")} will produce
 #' four files in the following directory structure: \preformatted{
 #' csv/
 #'     STAR_2019_HKE_4/
@@ -43,8 +44,8 @@
 #' @return \code{TRUE} if CSV file(s) were created, otherwise \code{FALSE}.
 #'
 #' @note
-#' A vignette demonstrates the use of \code{write.star} to export a list of STAR
-#' objects to CSV files:
+#' A vignette demonstrates the use of \code{write.star.csv} to export a list of
+#' STAR objects to CSV files:
 #' \preformatted{
 #' vignette("export", "gfcmSTAR")
 #' }
@@ -60,21 +61,21 @@
 #' @examples
 #' \dontrun{
 #'
-#' write.star(star)
+#' write.star.csv(star)
 #'
-#' write.star(star, dir="hake_5")
+#' write.star.csv(star, dir="hake_5")
 #'
-#' write.star(star, topdir="csv")
+#' write.star.csv(star, topdir="csv")
 #' }
 #'
 #' @importFrom utils write.csv
 #'
 #' @export
 
-write.star <- function(star, dir=TRUE, topdir=NULL, mfile="metadata.csv",
-                       tfile="timeseries.csv", quote=TRUE, row.names=FALSE,
-                       fileEncoding="UTF-8", dos=TRUE, quiet=FALSE, force=FALSE,
-                       ...)
+write.star.csv <- function(star, dir=TRUE, topdir=NULL, mfile="metadata.csv",
+                           tfile="timeseries.csv", quote=TRUE, row.names=FALSE,
+                           fileEncoding="UTF-8", dos=TRUE, quiet=FALSE,
+                           force=FALSE, ...)
 {
   ## 1  Construct path
   if(identical(dir, TRUE))
