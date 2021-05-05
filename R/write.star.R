@@ -104,9 +104,10 @@ write.star <- function(star, dir=TRUE, topdir=NULL, mfile="metadata.csv",
   metadata <- as.data.frame(star$Metadata, stringsAsFactors=FALSE)
   timeseries <- star$TimeSeries
 
-  ## 4  Write CSV files
+  ## 4  Write metadata
   success <- TRUE
   eol <- if(dos && Sys.info()[["sysname"]] != "Windows") "\r\n" else "\n"
+
   if(!quiet)
     message("Writing '", mfile, "'")
   if(file.exists(mfile) && !force)
@@ -119,6 +120,8 @@ write.star <- function(star, dir=TRUE, topdir=NULL, mfile="metadata.csv",
     write.csv(metadata, file=mfile, quote=quote, eol=eol, row.names=row.names,
               fileEncoding=fileEncoding, ...)
   }
+
+  ## 5  Write timeseries
   if(!quiet)
     message("Writing '", tfile, "'")
   if(file.exists(tfile) && !force)
