@@ -10,7 +10,7 @@
 #' @param countries countries, separated by comma and space.
 #' @param prop SharePoint properties from \code{read.properties}.
 #' @param suffix optional string passed to \code{combo} to construct a unique
-#'        \code{Assessment} field.
+#'        \code{Assessment_ID} field.
 #' @param quiet whether to supress messages.
 #'
 #' @return
@@ -26,7 +26,7 @@
 #'
 #' \code{\link{read.properties}} reads SharePoint properties from an Excel file.
 #'
-#' \code{\link{combo}} is used to construct the \code{Assessment} metadata
+#' \code{\link{combo}} is used to construct the \code{Assessment_ID} metadata
 #' field.
 #'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
@@ -39,7 +39,6 @@
 #' }
 #'
 #' @importFrom stats na.omit quantile
-#' @importFrom uuid UUIDgenerate
 #' @importFrom utils tail
 #' @importFrom XLConnect loadWorkbook readTable setMissingValue
 #'
@@ -73,7 +72,6 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
   Advice_Export[Advice_Export==""] <- NA_character_
 
   ## 3  Extract information
-  Assessment_ID <- UUIDgenerate()
   Scientific_Name <- Advice_Export$Species
   GSA <- Advice_Export$GSA
 
@@ -152,15 +150,15 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
   }
   Time_Imported <- Sys.time()
 
-  ## 4  Construct Assessment field
+  ## 4  Construct Assessment_ID
   m <- data.frame(Reference_Year, Scientific_Name, GSA, stringsAsFactors=FALSE)
-  Assessment <- combo(list(Metadata=m), "_", suffix)
-  Assessment <- gsub("__", "_", Assessment)  # no double underscores
-  Assessment <- gsub("_$", "", Assessment)   # no trailing underscore
+  Assessment_ID <- combo(list(Metadata=m), "_", suffix)
+  Assessment_ID <- gsub("__", "_", Assessment_ID)  # no double underscores
+  Assessment_ID <- gsub("_$", "", Assessment_ID)   # no trailing underscore
 
   ## 5  Create Metadata
   Metadata <- as.list(data.frame(
-    Assessment_ID, Assessment, Scientific_Name, GSA,
+    Assessment_ID, Scientific_Name, GSA,
     Assessment_Type, Reference_Year, Reporting_Year, Validation_Status,
     Year_Benchmarked, Assessment_Method, Expert_Group, Contact_Person,
     Status_Fref, Status_Btarget, Status_Bthreshold, Status_Blimit,

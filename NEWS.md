@@ -1,6 +1,13 @@
-# gfcmSTAR 1.1.1 (2021-05-07)
+# gfcmSTAR 2.0.0 (2021-05-07)
 
 * Improved read.template() to support older versions of R.
+
+* Removed Metadata field Assessment in read.template() and set.classes().
+
+* Changed Metadata field Assessment_ID from UUID to a combination of reference
+  year, species, GSA, and an optional suffix in read.template().
+
+* Removed 'uuid' package dependency.
 
 # gfcmSTAR 1.1.0 (2021-05-05)
 

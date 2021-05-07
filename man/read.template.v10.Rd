@@ -22,7 +22,7 @@ read.template.v10(file, atype = "Standard", refyear = 2019,
 \item{prop}{SharePoint properties from \code{read.properties}.}
 
 \item{suffix}{optional string passed to \code{combo} to construct a unique
-\code{Assessment} field.}
+\code{Assessment_ID} field.}
 
 \item{quiet}{whether to supress messages.}
 }
@@ -51,7 +51,7 @@ are the underlying functions used to read data from Excel STAR templates.
 
 \code{\link{read.properties}} reads SharePoint properties from an Excel file.
 
-\code{\link{combo}} is used to construct the \code{Assessment} metadata
+\code{\link{combo}} is used to construct the \code{Assessment_ID} metadata
 field.
 
 \code{\link{gfcmSTAR-package}} gives an overview of the package.

@@ -28,7 +28,6 @@ set.classes <- function(star)
 
   ## 2  Handle Metadata
   class(Metadata$Assessment_ID) <- "character"
-  class(Metadata$Assessment) <- "character"
   class(Metadata$Scientific_Name) <- "character"
   class(Metadata$GSA) <- "character"
 

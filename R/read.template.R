@@ -5,7 +5,7 @@
 #' @param file name of Excel file.
 #' @param prop SharePoint properties from \code{read.properties}.
 #' @param suffix optional string passed to \code{combo} to construct a unique
-#'        \code{Assessment} field.
+#'        \code{Assessment_ID} field.
 #' @param quiet whether to supress messages.
 #' @param \dots passed to version-specific functions, such as
 #'        \code{read.template.v10}.
@@ -18,7 +18,7 @@
 #' \code{suffix} is required when there are stock assessments that have the same
 #' Reference Year, Species, and GSA. It is used to distinguish each assessment
 #' by appending the suffix with an underscore separator to create a unique
-#' \code{Assessment} metadata field for the STAR object. See examples below.
+#' \code{Assessment_ID} metadata field for the STAR object. See examples below.
 #'
 #' @return
 #' STAR object, a list containing \code{Metadata} (simple list) and
@@ -46,7 +46,7 @@
 #'
 #' \code{\link{read.properties}} reads SharePoint properties from an Excel file.
 #'
-#' \code{\link{combo}} is used to construct the \code{Assessment} metadata
+#' \code{\link{combo}} is used to construct the \code{Assessment_ID} metadata
 #' field.
 #'
 #' \code{\link{template.version}} detects the STAR template version of an Excel
@@ -61,9 +61,9 @@
 #' star <- read.template("STAR_2019_HKE_5.xlsx")
 #'
 #' # Passing a suffix
-#' read.template("STAR_2019_HKE_5.xlsx")$Metadata$Assessment
-#' read.template("STAR_2019_HKE_5.xlsx", suffix="a4a")$Metadata$Assessment
-#' read.template("STAR_2019_HKE_5.xlsx", suffix="sam")$Metadata$Assessment
+#' read.template("STAR_2019_HKE_5.xlsx")$Metadata$Assessment_ID
+#' read.template("STAR_2019_HKE_5.xlsx", suffix="a4a")$Metadata$Assessment_ID
+#' read.template("STAR_2019_HKE_5.xlsx", suffix="sam")$Metadata$Assessment_ID
 #' read.template("STAR_2019_HKE_5.xlsx", suffix="something_special")
 #' }
 #'
