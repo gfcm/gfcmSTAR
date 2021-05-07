@@ -9,9 +9,6 @@
 #' @return STAR object with correct data types.
 #'
 #' @seealso
-#' \code{\link{class}} is the underlying base function used to set the data type
-#' of an R object.
-#'
 #' \code{\link{read.template}} uses \code{set.classes} to convert data types.
 #'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
