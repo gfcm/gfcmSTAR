@@ -1,3 +1,7 @@
+# gfcmSTAR 1.1.1 (2021-05-07)
+
+* Improved read.template() to support older versions of R.
+
 # gfcmSTAR 1.1.0 (2021-05-05)
 
 * Added function import.many.csv() to import many CSV files from a directory

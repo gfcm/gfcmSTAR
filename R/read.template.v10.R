@@ -169,8 +169,8 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
   Time_Imported <- Sys.time()
 
   ## 4  Construct Assessment field
-  Assessment <- combo(list(
-    Metadata=data.frame(Reference_Year, Scientific_Name, GSA)), "_", suffix)
+  m <- data.frame(Reference_Year, Scientific_Name, GSA, stringsAsFactors=FALSE)
+  Assessment <- combo(list(Metadata=m), "_", suffix)
   Assessment <- gsub("__", "_", Assessment)  # no double underscores
   Assessment <- gsub("_$", "", Assessment)   # no trailing underscore
 
