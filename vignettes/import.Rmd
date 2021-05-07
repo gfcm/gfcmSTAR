@@ -21,10 +21,10 @@ Load package and specify directories:
 
 ```{r}
 library(gfcmSTAR)
-star.dir <- file.path("~/git/gfcm-devops/StockAssessmentResults/uploads",
-                      "2021/WGSAD_Western_Mediterranean")
-prop.file <- file.path("~/git/gfcm-devops/StockAssessmentResults/uploads",
-                       "2021/properties/WGSAD_Western_Mediterranean.xlsx")
+## uploads <- "~/git/gfcm-devops/StockAssessmentResults/uploads/2021"
+uploads <- "~/StockAssessmentResults/uploads/2021"
+star.dir <- file.path(uploads, "WGSAD_Western_Mediterranean")
+prop.file <- file.path(uploads, "properties/WGSAD_Western_Mediterranean.xlsx")
 ```
 
 Read SharePoint properties:

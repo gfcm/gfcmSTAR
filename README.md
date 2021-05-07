@@ -15,6 +15,13 @@ library(remotes)
 install_github("gfcm/gfcmSTAR", build_vignettes=TRUE)
 ```
 
+To install the gfcmSTAR package in a site library (e.g. on the GFCM RStudio
+server), the 2nd library path should be specified:
+
+```R
+install_github("gfcm/gfcmSTAR", build_vignettes=TRUE, lib=.libPaths()[2])
+```
+
 Usage
 -----
 
