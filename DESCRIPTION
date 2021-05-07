@@ -1,5 +1,5 @@
 Package: gfcmSTAR
-Version: 1.1.1
+Version: 2.0.0
 Date: 2021-05-07
 Title: Tools to Work with GFCM Stock Assessment Results (STAR)
 Authors@R: c(person("Arni", "Magnusson", role=c("aut","cre"), email="thisisarni@gmail.com"))
