@@ -1,7 +1,7 @@
 #' Import Many Templates
 #'
-#' Import many Excel STAR templates from a directory into a cluster (list of
-#' STAR objects).
+#' Import many Excel STAR templates from a directory into a cluster (list) of
+#' STAR objects.
 #'
 #' @param dir directory name.
 #' @param pattern regular expression to select filenames to include.
@@ -12,7 +12,7 @@
 #' The default \code{pattern} selects all filenames ending with \file{xls} or
 #' \file{xlsx}.
 #'
-#' @return A cluster (list of STAR objects).
+#' @return A cluster (list) of STAR objects.
 #'
 #' @note
 #' A vignette demonstrates the use of \code{import.many.templates} to import

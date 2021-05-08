@@ -16,11 +16,11 @@ import.many.templates(dir, pattern = "\\\\.xlsx?$", exclude = NULL, ...)
 \item{\dots}{passed to \code{read.template}.}
 }
 \value{
-A cluster (list of STAR objects).
+A cluster (list) of STAR objects.
 }
 \description{
-Import many Excel STAR templates from a directory into a cluster (list of
-STAR objects).
+Import many Excel STAR templates from a directory into a cluster (list) of
+STAR objects.
 }
 \details{
 The default \code{pattern} selects all filenames ending with \file{xls} or

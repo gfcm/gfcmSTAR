@@ -1,11 +1,11 @@
 #' Import Many CSV Files
 #'
-#' Import many STAR CSV files from a directory tree into a cluster (list of STAR
-#' objects).
+#' Import many STAR CSV files from a directory tree into a cluster (list) of
+#' STAR objects.
 #'
 #' @param dir directory name.
 #'
-#' @return A cluster (list of STAR objects).
+#' @return A cluster (list) of STAR objects.
 #'
 #' @note
 #' The top directory can have any name, but the directory tree must have the

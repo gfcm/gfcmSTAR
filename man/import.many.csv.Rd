@@ -10,11 +10,11 @@ import.many.csv(dir)
 \item{dir}{directory name.}
 }
 \value{
-A cluster (list of STAR objects).
+A cluster (list) of STAR objects.
 }
 \description{
-Import many STAR CSV files from a directory tree into a cluster (list of STAR
-objects).
+Import many STAR CSV files from a directory tree into a cluster (list) of
+STAR objects.
 }
 \note{
 The top directory can have any name, but the directory tree must have the
