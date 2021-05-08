@@ -45,5 +45,7 @@ cluster <- import.many.templates("STAR")
 \code{\link{import.many.csv}} imports many STAR CSV files from a directory
 tree into a cluster.
 
+\code{\link{peek}} examines a metadata field of STAR objects.
+
 \code{\link{gfcmSTAR-package}} gives an overview of the package.
 }
