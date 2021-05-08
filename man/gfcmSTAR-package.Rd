@@ -37,6 +37,7 @@ General Fisheries Commission for the Mediterranean.
 }
 \emph{Quality control:}
 \tabular{ll}{
+  \code{\link{peek}}      \tab examine a metadata field\cr
   \code{\link{qc}}        \tab run all quality checks\cr
   \code{\link{qc.exists}} \tab file exists\cr
   \code{\link{qc.star}}   \tab file is a STAR template\cr
