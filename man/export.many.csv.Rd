@@ -4,7 +4,7 @@
 \alias{export.many.csv}
 \title{Export Many CSV Files}
 \usage{
-export.many.csv(cluster, topdir, force = FALSE, ...)
+export.many.csv(cluster, topdir, quiet = TRUE, force = FALSE, ...)
 }
 \arguments{
 \item{cluster}{list of STAR objects.}

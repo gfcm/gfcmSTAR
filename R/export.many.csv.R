@@ -32,7 +32,7 @@
 #'
 #' @export
 
-export.many.csv <- function(cluster, topdir, force=FALSE, ...)
+export.many.csv <- function(cluster, topdir, force=FALSE, quiet=TRUE, ...)
 {
-  sapply(cluster, write.star.csv, topdir=topdir, force=force, ...)
+  sapply(cluster, write.star.csv, topdir=topdir, force=force, quiet=quiet, ...)
 }
