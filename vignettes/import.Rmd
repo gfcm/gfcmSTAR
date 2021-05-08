@@ -47,11 +47,11 @@ cluster.ok <- cluster[sapply(cluster, class) != "try-error"]
 cbind(sapply(cluster.ok, class))
 ```
 
-Check that the `Assessment` fields are unique:
+Check that the `Assessment_ID` fields are unique:
 
 ```{r}
-peek <- function(star) star$Metadata$Assessment
-assessment <- sapply(cluster.ok, peek)
-cbind(assessment)
-any(duplicated(assessment))
+peek <- function(star) star$Metadata$Assessment_ID
+id <- sapply(cluster.ok, peek)
+cbind(id)
+any(duplicated(id))
 ```

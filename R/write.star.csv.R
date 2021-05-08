@@ -21,7 +21,8 @@
 #'
 #' @details
 #' The special value \code{dir = TRUE} can be used as shorthand for
-#' \code{combo(star$Metadata)}, which can produce a suitable directory name.
+#' \code{dir = star$Metadata$Assessment_ID}, which may be a suitable directory
+#' name.
 #'
 #' The special value \code{dir = FALSE} is equivalent to \code{dir = "."} which
 #' will write the CSV files into the current directory.
@@ -41,7 +42,7 @@
 #'         metadata.csv
 #'         timeseries.csv}
 #'
-#' @return \code{TRUE} if CSV file(s) were created, otherwise \code{FALSE}.
+#' @return \code{TRUE} if CSV files were created, otherwise \code{FALSE}.
 #'
 #' @note
 #' A vignette demonstrates the use of \code{write.star.csv} to export a list of
@@ -82,7 +83,7 @@ write.star.csv <- function(star, dir=TRUE, topdir=NULL, mfile="metadata.csv",
 {
   ## 1  Construct path
   if(identical(dir, TRUE))
-    dir <- star$Metadata$Assessment
+    dir <- star$Metadata$Assessment_ID
   if(identical(dir, FALSE) || is.null(dir) || is.na(dir) || dir == "")
     dir <- "."
   if(is.logical(topdir) || is.null(topdir) || is.na(topdir) || topdir == "")

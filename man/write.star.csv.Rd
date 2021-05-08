@@ -38,7 +38,7 @@ value. See details below.}
 \item{\dots}{passed to \code{write.csv}.}
 }
 \value{
-\code{TRUE} if CSV file(s) were created, otherwise \code{FALSE}.
+\code{TRUE} if CSV files were created, otherwise \code{FALSE}.
 }
 \description{
 Write a STAR object to CSV files \file{metadata.csv} and
@@ -46,7 +46,8 @@ Write a STAR object to CSV files \file{metadata.csv} and
 }
 \details{
 The special value \code{dir = TRUE} can be used as shorthand for
-\code{combo(star$Metadata)}, which can produce a suitable directory name.
+\code{dir = star$Metadata$Assessment_ID}, which may be a suitable directory
+name.
 
 The special value \code{dir = FALSE} is equivalent to \code{dir = "."} which
 will write the CSV files into the current directory.
