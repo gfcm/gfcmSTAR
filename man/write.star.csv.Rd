@@ -6,7 +6,7 @@
 \usage{
 write.star.csv(star, dir = TRUE, topdir = NULL, mfile = "metadata.csv",
   tfile = "timeseries.csv", quote = TRUE, row.names = FALSE,
-  fileEncoding = "UTF-8", dos = TRUE, quiet = FALSE, force = FALSE,
+  fileEncoding = "UTF-8", dos = TRUE, force = FALSE, quiet = FALSE,
   ...)
 }
 \arguments{
@@ -31,9 +31,9 @@ value. See details below.}
 \item{dos}{whether to ensure the resulting CSV files have Dos line endings
 (CRLF).}
 
-\item{quiet}{whether to suppress messages.}
-
 \item{force}{whether to overwrite existing files.}
+
+\item{quiet}{whether to suppress messages.}
 
 \item{\dots}{passed to \code{write.csv}.}
 }

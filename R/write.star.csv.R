@@ -15,8 +15,8 @@
 #' @param fileEncoding character encoding for output file.
 #' @param dos whether to ensure the resulting CSV files have Dos line endings
 #'        (CRLF).
-#' @param quiet whether to suppress messages.
 #' @param force whether to overwrite existing files.
+#' @param quiet whether to suppress messages.
 #' @param \dots passed to \code{write.csv}.
 #'
 #' @details
@@ -81,8 +81,8 @@
 
 write.star.csv <- function(star, dir=TRUE, topdir=NULL, mfile="metadata.csv",
                            tfile="timeseries.csv", quote=TRUE, row.names=FALSE,
-                           fileEncoding="UTF-8", dos=TRUE, quiet=FALSE,
-                           force=FALSE, ...)
+                           fileEncoding="UTF-8", dos=TRUE, force=FALSE,
+                           quiet=FALSE, ...)
 {
   ## 1  Construct path
   if(identical(dir, TRUE))
