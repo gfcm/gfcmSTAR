@@ -27,6 +27,9 @@
 #' \code{\link{import.many.templates}} imports many Excel STAR templates from a
 #' directory into a cluster (list).
 #'
+#' \code{\link{export.many.csv}} exports a cluster (list) of STAR objects to CSV
+#' files.
+#'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'
 #' @examples

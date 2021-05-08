@@ -23,7 +23,8 @@ General Fisheries Commission for the Mediterranean.
 }
 \emph{Export:}
 \tabular{ll}{
-  \code{\link{write.star.csv}} \tab write STAR object to CSV files
+  \code{\link{export.many.csv}} \tab export many STAR objects to CSV files\cr
+  \code{\link{write.star.csv}}  \tab write STAR object to CSV files
 }
 \emph{Format strings:}
 \tabular{ll}{

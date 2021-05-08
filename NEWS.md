@@ -1,5 +1,7 @@
 # gfcmSTAR 2.0.0 (2021-05-07)
 
+* Added function export.many.csv() to export many STAR objects to CSV files.
+
 * Added function peek() to examine a metadata field of STAR objects.
 
 * Improved read.template() to support older versions of R.

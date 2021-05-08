@@ -55,6 +55,9 @@
 #' \code{\link{write.csv}} is the underlying function used to write a table to a
 #' CSV file.
 #'
+#' \code{\link{export.many.csv}} exports a cluster (list) of STAR objects to CSV
+#' files.
+#'
 #' \code{\link{read.template}} reads an Excel STAR template into a STAR object.
 #'
 #' \code{\link{read.star.csv}} reads a pair of STAR CSV files into a STAR
