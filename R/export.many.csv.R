@@ -6,6 +6,7 @@
 #' @param cluster list of STAR objects.
 #' @param topdir top directory that will contain STAR subdirectories.
 #' @param force whether to overwrite existing files.
+#' @param quiet whether to suppress messages.
 #' @param \dots passed to \code{write.star.csv}.
 #'
 #' @return \code{TRUE} if CSV files were created, otherwise \code{FALSE}.

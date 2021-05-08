@@ -4,7 +4,7 @@
 \alias{export.many.csv}
 \title{Export Many CSV Files}
 \usage{
-export.many.csv(cluster, topdir, quiet = TRUE, force = FALSE, ...)
+export.many.csv(cluster, topdir, force = FALSE, quiet = TRUE, ...)
 }
 \arguments{
 \item{cluster}{list of STAR objects.}
@@ -12,6 +12,8 @@ export.many.csv(cluster, topdir, quiet = TRUE, force = FALSE, ...)
 \item{topdir}{top directory that will contain STAR subdirectories.}
 
 \item{force}{whether to overwrite existing files.}
+
+\item{quiet}{whether to suppress messages.}
 
 \item{\dots}{passed to \code{write.star.csv}.}
 }
