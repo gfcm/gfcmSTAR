@@ -8,6 +8,8 @@ Commission for the Mediterranean](http://www.fao.org/gfcm/en/).
 Installation
 ------------
 
+*Personal installation (e.g. laptop)*
+
 gfcmSTAR can be installed from GitHub using the `install_github` command:
 
 ```R
@@ -15,15 +17,18 @@ library(remotes)
 install_github("gfcm/gfcmSTAR", build_vignettes=TRUE)
 ```
 
-To install the gfcmSTAR package in a site library (e.g. on the GFCM RStudio
-server _as administrator_), the 2nd library path should be specified:
+*Site installation (e.g. GFCM RStudio Server)*
+
+General users on the GFCM RStudio Server do not need to install the package,
+since the administrator has already installed the newest version in the site
+library.
+
+To install the gfcmSTAR package in the site library, the system administrator
+specifies the 2nd library path:
 
 ```R
 install_github("gfcm/gfcmSTAR", build_vignettes=TRUE, lib=.libPaths()[2])
 ```
-
-General users on the GFCM RStudio server will then be able to use it without
-installing it.
 
 Usage
 -----
