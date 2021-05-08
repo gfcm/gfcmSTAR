@@ -1,4 +1,4 @@
-# gfcmSTAR 2.0.0 (2021-05-07)
+# gfcmSTAR 2.0.0 (2021-05-08)
 
 * Added function export.many.csv() to export many STAR objects to CSV files.
 
