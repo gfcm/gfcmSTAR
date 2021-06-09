@@ -1,3 +1,10 @@
+# gfcmSTAR 2.0.1 (2021-06-09)
+
+* Improved qc() so it can handle a single Excel STAR template file or a
+  directory containing Excel STAR templates.
+
+---
+
 # gfcmSTAR 2.0.0 (2021-05-08)
 
 * Added function export.many.csv() to export many STAR objects to CSV files.
@@ -12,6 +19,8 @@
   year, species, GSA, and an optional suffix in read.template().
 
 * Removed 'uuid' package dependency.
+
+---
 
 # gfcmSTAR 1.1.0 (2021-05-05)
 
@@ -35,6 +44,8 @@
 * Removed TimeSeries columns containing Effort in read.template(). In the STAR
   database, Effort is handled as a special case of Fishing where
   Exploitation_Unit = Effort.
+
+---
 
 # gfcmSTAR 1.0.1 (2021-05-04)
 

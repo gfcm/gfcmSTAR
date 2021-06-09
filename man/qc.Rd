@@ -4,25 +4,32 @@
 \alias{qc}
 \title{Quality Check}
 \usage{
-qc(file, stop = TRUE, quiet = FALSE)
+qc(x, stop = TRUE, quiet = FALSE)
 }
 \arguments{
-\item{file}{filename of an Excel STAR template.}
+\item{x}{filename of an Excel STAR template or a directory containing Excel
+STAR templates.}
 
 \item{stop}{whether to stop if test fails.}
 
 \item{quiet}{whether to suppress messages.}
 }
 \value{
-\code{TRUE} if all tests succeed, otherwise an error message (if
-\code{stop = TRUE}) or FALSE and a warning message (if \code{stop = FALSE}).
+Logical \code{TRUE} or \code{FALSE} indicating whether all tests succeeded,
+or a logical vector if \code{x} is a directory.
 }
 \description{
-Run all quality checks on an Excel STAR template.
+Run all quality checks on one or more Excel STAR templates.
 }
 \examples{
 \dontrun{
+
+# Filename
 qc("STAR_2019_HKE_5.xlsx")
+
+# Directory
+ok <- qc("working_group")
+ok[!ok]
 }
 
 }
