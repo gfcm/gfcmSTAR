@@ -27,6 +27,7 @@ To install the gfcmSTAR package in the site library, the system administrator
 specifies the 2nd library path:
 
 ```R
+library(remotes)
 install_github("gfcm/gfcmSTAR", build_vignettes=TRUE, lib=.libPaths()[2])
 ```
 
