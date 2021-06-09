@@ -21,7 +21,6 @@ Load package and specify directories:
 
 ```{r}
 library(gfcmSTAR)
-## uploads <- "~/git/gfcm-devops/StockAssessmentResults/uploads/2021"
 uploads <- "~/StockAssessmentResults/uploads/2021"
 star.dir <- file.path(uploads, "WGSAD_Western_Mediterranean")
 prop.file <- file.path(uploads, "properties/WGSAD_Western_Mediterranean.xlsx")
