@@ -3,11 +3,10 @@
 ## year.
 ##
 ## For example, if event is "WGSAD_Western_Mediterranean" and year is 2021, then
-## this script will look for:
-##
+## this script will look for
 ## Excel STAR templates inside
 ##   ~/StockAssessmentResults/uploads/2021/WGSAD_Western_Mediterranean
-## Excel file with SharePoint properties inside
+## and Excel file with SharePoint properties
 ##   ~/StockAssessmentResults/uploads/2021/properties/WGSAD_Western_Mediterranean.xlsx
 ##
 ## The stock assessment results are then exported to CSV files inside
@@ -18,9 +17,9 @@
 ## human review and possible intervention:
 ##
 ## 1. If any errors were raised while reading in Excel STAR templates, these may
-##    require intervention, to manually edit and correct Excel templates,
+##    require intervention to manually edit and correct Excel templates,
 ##    possibly by contacting the stock assessor. See cbind(sapply(cluster,
-##    class)) below, and the qc(directory) function can also be helpful to
+##    class)) below, and the qc(directory) functionality can be helpful to
 ##    examine errors.
 ##
 ## 2. If any duplicated Assessment_ID are encountered, then two or more Excel
@@ -28,8 +27,7 @@
 ##    the results from both Excel STAR templates should be imported into the
 ##    database, then these should be imported using read.template(...,
 ##    suffix="this") and read.template(..., suffix="that") functionality. See
-##    any(duplicated(id)), and the help page for read.template.
-
+##    any(duplicated(id)) below, and the help page for read.template.
 
 event <- "WGSAD_Western_Mediterranean"
 year <- 2021

@@ -3,6 +3,10 @@
 * Improved qc() so it can handle a single Excel STAR template file or a
   directory containing Excel STAR templates.
 
+* Added a generic import_export.R template inside the 'scripts' folder, to
+  semi-automate the STAR import and export procedure to generate CSV files for
+  the STAR database.
+
 ---
 
 # gfcmSTAR 2.0.0 (2021-05-08)
