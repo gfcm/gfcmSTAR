@@ -47,6 +47,7 @@ prop <- read.properties(prop.file)
 
 cluster <- import.many.templates(star.dir, prop=prop)
 cbind(sapply(cluster, class))
+qc(star.dir)
 
 ## Exclude STAR templates that have errors
 
