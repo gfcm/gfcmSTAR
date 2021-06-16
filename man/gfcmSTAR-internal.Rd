@@ -18,7 +18,7 @@ comma2period(x)
 
 readTable.logical(...)
 
-readTable.transpose(..., rownames = 1)
+readTable.transpose(..., rownames = 1, cols = 1)
 }
 \description{
 These functions are called by user-level functions. The functionality is
