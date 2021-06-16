@@ -5,8 +5,10 @@
 #' @export
 
 ## Read transposed table as a list
+## rownames is passed to readTable()
+## cols specifies how many columns to import
 
-readTable.transpose <- function(..., rownames=1)
+readTable.transpose <- function(..., rownames=1, cols=1)
 {
   x <- readTable(..., rownames=rownames)
   x <- as.list(as.data.frame(t(x), stringsAsFactors=FALSE))
