@@ -1,3 +1,10 @@
+# gfcmSTAR 2.0.2 (2021-06-17)
+
+* Improved read.template.v10() to support edge cases where Excel STAR templates
+  contain metadata table objects that have expanded beyond their original size.
+
+---
+
 # gfcmSTAR 2.0.1 (2021-06-09)
 
 * Improved qc() so it can handle a single Excel STAR template file or a
