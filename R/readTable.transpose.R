@@ -10,7 +10,7 @@
 
 readTable.transpose <- function(..., rownames=1, cols=1)
 {
-  x <- readTable(..., rownames=rownames)
+  x <- readTable(..., rownames=rownames)[cols]
   x <- as.list(as.data.frame(t(x), stringsAsFactors=FALSE))
   names(x) <- gsub(" |/|#|\\(|\\)", "_", names(x))  # replace ' #/()' with _
   names(x) <- gsub("[_]+", "_", names(x))  # replace __ with _
