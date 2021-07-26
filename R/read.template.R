@@ -8,7 +8,7 @@
 #'        \code{Assessment_ID} field.
 #' @param quiet whether to supress messages.
 #' @param \dots passed to version-specific functions, such as
-#'        \code{read.template.v10}.
+#'        \code{read.template.v21}.
 #'
 #' @details
 #' \code{prop} is required to provide metadata values for
@@ -26,7 +26,7 @@
 #'
 #' @note
 #' The user can either use the general \code{read.template} function or
-#' version-specific functions, such as read.template.v10, to the same effect.
+#' version-specific functions, such as read.template.v21, to the same effect.
 #'
 #' The Excel STAR templates have a version number that consists of three
 #' numbers: \emph{major.minor.patch}. The \dfn{major} version is incremented
@@ -39,6 +39,9 @@
 #' directory into a cluster (list).
 #'
 #' \code{\link{read.template.v10}} reads an Excel STAR template of version 1.0
+#' into a STAR object.
+#'
+#' \code{\link{read.template.v21}} reads an Excel STAR template of version 2.1
 #' into a STAR object.
 #'
 #' \code{\link{read.star.csv}} reads a pair of STAR CSV files into a STAR
@@ -73,5 +76,7 @@ read.template <- function(file, prop=NULL, suffix="", quiet=TRUE, ...)
 {
   switch(template.version(file),
          "1.0.0"=
-           read.template.v10(file, prop=prop, suffix=suffix, quiet=quiet, ...))
+           read.template.v10(file, prop=prop, suffix=suffix, quiet=quiet, ...),
+         "2.1.0"=
+           read.template.v21(file, prop=prop, suffix=suffix, quiet=quiet, ...))
 }

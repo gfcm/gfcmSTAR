@@ -17,7 +17,7 @@ read.template(file, prop = NULL, suffix = "", quiet = TRUE, ...)
 \item{quiet}{whether to supress messages.}
 
 \item{\dots}{passed to version-specific functions, such as
-\code{read.template.v10}.}
+\code{read.template.v21}.}
 }
 \value{
 STAR object, a list containing \code{Metadata} (simple list) and
@@ -38,7 +38,7 @@ by appending the suffix with an underscore separator to create a unique
 }
 \note{
 The user can either use the general \code{read.template} function or
-version-specific functions, such as read.template.v10, to the same effect.
+version-specific functions, such as read.template.v21, to the same effect.
 
 The Excel STAR templates have a version number that consists of three
 numbers: \emph{major.minor.patch}. The \dfn{major} version is incremented
@@ -63,6 +63,9 @@ read.template("STAR_2019_HKE_5.xlsx", suffix="something_special")
 directory into a cluster (list).
 
 \code{\link{read.template.v10}} reads an Excel STAR template of version 1.0
+into a STAR object.
+
+\code{\link{read.template.v21}} reads an Excel STAR template of version 2.1
 into a STAR object.
 
 \code{\link{read.star.csv}} reads a pair of STAR CSV files into a STAR

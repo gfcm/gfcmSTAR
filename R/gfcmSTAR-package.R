@@ -18,6 +18,7 @@
 #'   \code{\link{read.star.csv}}         \tab read a pair of CSV files\cr
 #'   \code{\link{read.template}}         \tab read STAR template\cr
 #'   \code{\link{read.template.v10}}     \tab read STAR template version 1.0\cr
+#'   \code{\link{read.template.v21}}     \tab read STAR template version 2.1\cr
 #'   \code{\link{read.properties}}       \tab read SharePoint properties\cr
 #'   \code{\link{set.classes}}           \tab convert data types\cr
 #'   \code{\link{template.version}}      \tab detect STAR template version
