@@ -53,3 +53,13 @@ gfcmSTAR is developed openly on [GitHub](https://github.com/gfcm/gfcmSTAR).
 
 Feel free to open an [issue](https://github.com/gfcm/gfcmSTAR/issues) there if
 you encounter problems or have suggestions for future versions.
+
+**Note on version numbering**
+
+The gfcmSTAR package has a three-part version number: *major.minor.patch*. These
+are incremented based on the following rules:
+
+* MAJOR version when existing user scripts will not give the same output as
+  before
+* MINOR version when there are new functions
+* PATCH version for other improvements
