@@ -2,7 +2,7 @@
 
 * Added support to read STAR templates version 2.1.
 
-* Improved read.template.v10() to support edge cases where Excel STAR templates
+* Improved read.template() to support edge cases where Excel STAR templates
   contain metadata table objects that have expanded beyond their original size.
 
 ---
