@@ -40,12 +40,14 @@
 #' }
 #' \emph{Quality control:}
 #' \tabular{ll}{
-#'   \code{\link{peek}}      \tab examine a metadata field\cr
-#'   \code{\link{qc}}        \tab run all quality checks\cr
-#'   \code{\link{qc.exists}} \tab file exists\cr
-#'   \code{\link{qc.star}}   \tab file is a STAR template\cr
-#'   \code{\link{qc.vpa}}    \tab \code{VPA_Model} is \code{Yes} or \code{No}\cr
-#'   \code{\link{qc.xlsx}}   \tab file extension is \file{xlsx}
+#'   \code{\link{peek}}        \tab examine a metadata field\cr
+#'   \code{\link{qc}}          \tab run all quality checks\cr
+#'   \code{\link{qc.exists}}   \tab file exists\cr
+#'   \code{\link{qc.xlsx}}     \tab file extension is \file{xlsx}\cr
+#'   \code{\link{qc.star}}     \tab file is a STAR template\cr
+#'   \code{\link{qc.vpa}}      \tab \code{VPA_Model} is \code{Yes} or
+#'                                  \code{No}\cr
+#'   \code{\link{qc.colnames}} \tab time series column names are intact
 #' }
 #'
 #' @note

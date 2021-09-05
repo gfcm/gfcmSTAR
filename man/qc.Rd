@@ -44,5 +44,7 @@ The checks are run in the following order:
 
 \code{\link{qc.vpa}} checks if \code{VPA_Model} is \code{Yes} or \code{No}.
 
+\code{\link{qc.colnames}} checks if time series column names are intact.
+
 \code{\link{gfcmSTAR-package}} gives an overview of the package.
 }

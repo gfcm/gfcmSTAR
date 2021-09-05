@@ -22,6 +22,8 @@
 #'
 #' \code{\link{qc.vpa}} checks if \code{VPA_Model} is \code{Yes} or \code{No}.
 #'
+#' \code{\link{qc.colnames}} checks if time series column names are intact.
+#'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'
 #' @examples
@@ -54,6 +56,7 @@ qc <- function(x, stop=TRUE, quiet=FALSE)
     s <- s && qc.xlsx(x, stop=stop, quiet=quiet)
     s <- s && qc.star(x, stop=stop, quiet=quiet)
     s <- s && qc.vpa(x, stop=stop, quiet=quiet)
+    s <- s && qc.colnames(x, stop=stop, quiet=quiet)
   }
   else
   {

@@ -1,4 +1,6 @@
-# gfcmSTAR 2.1.1 (2021-09-05)
+# gfcmSTAR 2.2.0 (2021-09-05)
+
+* Added function qc.colnames() to check if time series column names are intact.
 
 * Improved read.template() to support edge cases where Excel STAR templates
   contain time series as text instead of numbers.
