@@ -1,3 +1,10 @@
+# gfcmSTAR 2.1.1 (2021-09-05)
+
+* Improved read.template() to support edge cases where Excel STAR templates
+  contain time series as text instead of numbers.
+
+---
+
 # gfcmSTAR 2.1.0 (2021-07-26)
 
 * Added support to read STAR templates version 2.1.

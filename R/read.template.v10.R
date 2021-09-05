@@ -106,11 +106,14 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
   Blim <- if(identical(Reference_Points$Reference.Point[2],"Blim"))
             Reference_Points$Value[2] else NA
 
-  Current_F <- mean(tail(na.omit(Summary_Table$Fishing),
+  Current_F <- mean(tail(na.omit(as.numeric(Summary_Table$Fishing)),
                          if(VPA_Model) 3 else 1))
-  Current_B <- mean(tail(na.omit(Summary_Table$Stock1), if(VPA_Model) 3 else 1))
-  B0.33 <- quantile(na.omit(Summary_Table$Stock1), 0.33, names=FALSE)
-  B0.66 <- quantile(na.omit(Summary_Table$Stock1), 0.66, names=FALSE)
+  Current_B <- mean(tail(na.omit(as.numeric(Summary_Table$Stock1)),
+                         if(VPA_Model) 3 else 1))
+  B0.33 <- quantile(na.omit(as.numeric(Summary_Table$Stock1)),
+                    0.33, names=FALSE)
+  B0.66 <- quantile(na.omit(as.numeric(Summary_Table$Stock1)),
+                    0.66, names=FALSE)
 
   Type_Confint <- Summary_Information$Type_of_confidence_intervals
   Recruitment_Unit <- Summary_Information$Recruitment_Unit
