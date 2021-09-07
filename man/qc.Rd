@@ -4,15 +4,13 @@
 \alias{qc}
 \title{Quality Check}
 \usage{
-qc(x, stop = TRUE, quiet = FALSE)
+qc(x, short = FALSE, stop = TRUE, quiet = FALSE)
 }
 \arguments{
 \item{x}{filename of an Excel STAR template or a directory containing Excel
 STAR templates.}
 
-\item{stop}{whether to stop if test fails.}
-
-\item{quiet}{whether to suppress messages.}
+\item{\dots}{passed to \code{qc.*} functions.}
 }
 \value{
 Logical \code{TRUE} or \code{FALSE} indicating whether all tests succeeded,

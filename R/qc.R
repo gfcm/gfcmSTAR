@@ -4,8 +4,7 @@
 #'
 #' @param x filename of an Excel STAR template or a directory containing Excel
 #'        STAR templates.
-#' @param stop whether to stop if test fails.
-#' @param quiet whether to suppress messages.
+#' @param \dots passed to \code{qc.*} functions.
 #'
 #' @return
 #' Logical \code{TRUE} or \code{FALSE} indicating whether all tests succeeded,
@@ -39,7 +38,7 @@
 #'
 #' @export
 
-qc <- function(x, stop=TRUE, quiet=FALSE)
+qc <- function(x, short=FALSE, stop=TRUE, quiet=FALSE)
 {
   if(dir.exists(x))
   {
@@ -52,11 +51,11 @@ qc <- function(x, stop=TRUE, quiet=FALSE)
     ## Start with success TRUE and later flip it to FALSE if any test fails
     s <- TRUE
 
-    s <- s && qc.exists(x, stop=stop, quiet=quiet)
-    s <- s && qc.xlsx(x, stop=stop, quiet=quiet)
-    s <- s && qc.star(x, stop=stop, quiet=quiet)
-    s <- s && qc.vpa(x, stop=stop, quiet=quiet)
-    s <- s && qc.colnames(x, stop=stop, quiet=quiet)
+    s <- s && qc.exists(x, ...)
+    s <- s && qc.xlsx(x, ...)
+    s <- s && qc.star(x, ...)
+    s <- s && qc.vpa(x, ...)
+    s <- s && qc.colnames(x, ...)
   }
   else
   {
