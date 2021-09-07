@@ -6,6 +6,7 @@
 #' @param dir directory name.
 #' @param pattern regular expression to select filenames to include.
 #' @param exclude filenames to exclude.
+#' @param quiet whether to suppress messages.
 #' @param \dots passed to \code{read.template}.
 #'
 #' @details
@@ -38,13 +39,19 @@
 #'
 #' @export
 
-import.many.templates <- function(dir, pattern="\\.xlsx?$", exclude=NULL, ...)
+import.many.templates <- function(dir, pattern="\\.xlsx?$", exclude=NULL,
+                                  quiet=FALSE, ...)
 {
   files <- dir(dir, pattern=pattern, full.names=TRUE)
   files <- files[!(basename(files) %in% exclude)]
 
-  cluster <- lapply(files, function(file) try(read.template(file=file, ...)))
-  names(cluster) <- basename(files)
+  cluster <- list()
+  for(i in seq_along(files))
+  {
+    if(!quiet) cat("[", i, "] ", files[i], "\n", sep="")
+    cluster[i] <- try(read.template(file=files[i], ...))
+    names(cluster)[i] <- basename(files)
+  }
 
   cluster
 }

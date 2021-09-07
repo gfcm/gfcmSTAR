@@ -2,6 +2,11 @@
 
 * Added function qc.colnames() to check if time series column names are intact.
 
+* Added argument 'quiet' to import.many.templates().
+
+* Improved import.many.templates() to show current filename while processing a
+  directory.
+
 * Improved read.template() to support edge cases where Excel STAR templates
   contain time series as text instead of numbers.
 

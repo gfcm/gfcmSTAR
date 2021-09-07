@@ -4,7 +4,8 @@
 \alias{import.many.templates}
 \title{Import Many Templates}
 \usage{
-import.many.templates(dir, pattern = "\\\\.xlsx?$", exclude = NULL, ...)
+import.many.templates(dir, pattern = "\\\\.xlsx?$", exclude = NULL,
+  quiet = FALSE, ...)
 }
 \arguments{
 \item{dir}{directory name.}
@@ -12,6 +13,8 @@ import.many.templates(dir, pattern = "\\\\.xlsx?$", exclude = NULL, ...)
 \item{pattern}{regular expression to select filenames to include.}
 
 \item{exclude}{filenames to exclude.}
+
+\item{quiet}{whether to suppress messages.}
 
 \item{\dots}{passed to \code{read.template}.}
 }
