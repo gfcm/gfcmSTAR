@@ -4,7 +4,7 @@
 \alias{qc}
 \title{Quality Check}
 \usage{
-qc(x, short = FALSE, stop = TRUE, quiet = FALSE)
+qc(x, ...)
 }
 \arguments{
 \item{x}{filename of an Excel STAR template or a directory containing Excel

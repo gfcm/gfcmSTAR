@@ -38,7 +38,7 @@
 #'
 #' @export
 
-qc <- function(x, short=FALSE, stop=TRUE, quiet=FALSE)
+qc <- function(x, ...)
 {
   if(dir.exists(x))
   {
