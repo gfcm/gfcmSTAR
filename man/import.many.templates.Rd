@@ -5,7 +5,7 @@
 \title{Import Many Templates}
 \usage{
 import.many.templates(dir, pattern = "\\\\.xlsx?$", exclude = NULL,
-  quiet = FALSE, ...)
+  qc = FALSE, quiet = FALSE, ...)
 }
 \arguments{
 \item{dir}{directory name.}
@@ -13,6 +13,8 @@ import.many.templates(dir, pattern = "\\\\.xlsx?$", exclude = NULL,
 \item{pattern}{regular expression to select filenames to include.}
 
 \item{exclude}{filenames to exclude.}
+
+\item{qc}{whether to call \code{\link{qc}} on each filename.}
 
 \item{quiet}{whether to suppress messages.}
 
