@@ -3,6 +3,8 @@
 #' Assert that a file has an \file{xlsx} file extension.
 #'
 #' @param file filename of an Excel STAR template.
+#' @param short whether to show the filename in a short \code{\link{basename}}
+#'        format.
 #' @param stop whether to stop if test fails.
 #' @param quiet whether to suppress messages.
 #'
@@ -25,11 +27,12 @@
 #'
 #' @export
 
-qc.xlsx <- function(file, stop=TRUE, quiet=FALSE)
+qc.xlsx <- function(file, short=TRUE, stop=TRUE, quiet=FALSE)
 {
   ## 1  Preamble
+  filename <- if(short) basename(file) else file
   if(!quiet)
-    message("* checking '", file, "' with qc.xlsx ... ", appendLF=FALSE)
+    message("* checking '", filename, "' with qc.xlsx ... ", appendLF=FALSE)
 
   ## 2  Test
   success <- file_ext(file) == "xlsx"
@@ -38,7 +41,7 @@ qc.xlsx <- function(file, stop=TRUE, quiet=FALSE)
   if(!success)
   {
     if(!quiet) message("ERROR")
-    msg <- paste0("'", file, "' does not have file extension 'xlsx'")
+    msg <- paste0("'", filename, "' does not have file extension 'xlsx'")
     if(stop) stop(msg) else warning(msg)
   }
   else if(!quiet)

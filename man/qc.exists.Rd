@@ -4,10 +4,13 @@
 \alias{qc.exists}
 \title{File Exists}
 \usage{
-qc.exists(file, stop = TRUE, quiet = FALSE)
+qc.exists(file, short = TRUE, stop = TRUE, quiet = FALSE)
 }
 \arguments{
 \item{file}{filename of an Excel STAR template.}
+
+\item{short}{whether to show the filename in a short \code{\link{basename}}
+format.}
 
 \item{stop}{whether to stop if test fails.}
 

@@ -3,6 +3,8 @@
 #' Assert that a STAR template's time series column names are intact.
 #'
 #' @param file filename of an Excel STAR template.
+#' @param short whether to show the filename in a short \code{\link{basename}}
+#'        format.
 #' @param stop whether to stop if test fails.
 #' @param quiet whether to suppress messages.
 #'
@@ -30,11 +32,12 @@
 #'
 #' @export
 
-qc.colnames <- function(file, stop=TRUE, quiet=FALSE)
+qc.colnames <- function(file, short=TRUE, stop=TRUE, quiet=FALSE)
 {
   ## 1  Preamble
+  filename <- if(short) basename(file) else file
   if(!quiet)
-    message("* checking '", file, "' with qc.colnames ... ", appendLF=FALSE)
+    message("* checking '", filename, "' with qc.colnames ... ", appendLF=FALSE)
 
   ## 2  Test
   w <- loadWorkbook(file)

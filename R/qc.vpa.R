@@ -4,6 +4,8 @@
 #' \code{"Yes"} or \code{"No"}.
 #'
 #' @param file filename of an Excel STAR template.
+#' @param short whether to show the filename in a short \code{\link{basename}}
+#'        format.
 #' @param stop whether to stop if test fails.
 #' @param quiet whether to suppress messages.
 #'
@@ -26,11 +28,12 @@
 #'
 #' @export
 
-qc.vpa <- function(file, stop=TRUE, quiet=FALSE)
+qc.vpa <- function(file, short=TRUE, stop=TRUE, quiet=FALSE)
 {
   ## 1  Preamble
+  filename <- if(short) basename(file) else file
   if(!quiet)
-    message("* checking '", file, "' with qc.vpa ... ", appendLF=FALSE)
+    message("* checking '", filename, "' with qc.vpa ... ", appendLF=FALSE)
 
   ## 2  Test
   w <- loadWorkbook(file)
