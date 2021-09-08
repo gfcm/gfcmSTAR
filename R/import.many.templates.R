@@ -43,7 +43,7 @@
 import.many.templates <- function(dir, pattern="\\.xlsx?$", exclude=NULL,
                                   qc=FALSE, quiet=FALSE, ...)
 {
-  files <- dir(dir, pattern=pattern, full.names=TRUE)
+  files <- file.path(dir, dir(dir, pattern=pattern))
   files <- files[!(basename(files) %in% exclude)]
 
   cluster <- list()
