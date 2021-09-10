@@ -2,7 +2,9 @@
 
 * Added function qc.colnames() to check if time series column names are intact.
 
-* Added arguments 'qc' and 'quiet' to import.many.templates().
+* Added arguments 'short', 'qc', and 'quiet' to import.many.templates().
+
+* Added argument 'short' to qc.exists(), qc.star(), qc.vpa(), and qc.xlsx().
 
 * Improved import.many.templates() to show current filename while processing a
   directory.

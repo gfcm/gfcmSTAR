@@ -6,6 +6,8 @@
 #' @param dir directory name.
 #' @param pattern regular expression to select filenames to include.
 #' @param exclude filenames to exclude.
+#' @param short whether to show the filename in a short \code{\link{basename}}
+#'        format.
 #' @param qc whether to call \code{\link{qc}} on each filename.
 #' @param quiet whether to suppress messages.
 #' @param \dots passed to \code{read.template}.
@@ -41,19 +43,21 @@
 #' @export
 
 import.many.templates <- function(dir, pattern="\\.xlsx?$", exclude=NULL,
-                                  qc=FALSE, quiet=FALSE, ...)
+                                  short=TRUE, qc=FALSE, quiet=FALSE, ...)
 {
+  owarn <- options(warn=1); on.exit(options(owarn))
   files <- file.path(dir, dir(dir, pattern=pattern))
   files <- files[!(basename(files) %in% exclude)]
+  filenames <- if(short) basename(files) else files
 
   cluster <- list()
   for(i in seq_along(files))
   {
-    if(!quiet) cat("[", i, "] ", files[i], "\n", sep="")
+    if(!quiet) cat("[", i, "] ", filenames[i], "\n", sep="")
     if(qc)
-      qc(files[i], stop=FALSE, quiet=quiet)
-    cluster[i] <- try(read.template(file=files[i], ...))
-    names(cluster)[i] <- basename(files)
+      qc(files[i], short=short, stop=FALSE, quiet=quiet)
+    cluster[[i]] <- try(read.template(file=files[i], ...))
+    names(cluster)[i] <- basename(files[i])
   }
 
   cluster
