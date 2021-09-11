@@ -1,5 +1,7 @@
 # gfcmSTAR 2.2.0 (2021-09-05)
 
+* Added function identical.stars() to check if two STAR objects are identical.
+
 * Added function qc.colnames() to check if time series column names are intact.
 
 * Added arguments 'short', 'qc', and 'quiet' to import.many.templates().
