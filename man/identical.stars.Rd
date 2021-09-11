@@ -10,24 +10,32 @@ identical.stars(a, b)
 \item{a}{STAR object, a list containing \code{Metadata} and
 \code{TimeSeries}.}
 
-\item{b}{another STAR object.}
+\item{b}{another STAR object to compare.}
 }
 \value{
 \code{TRUE} or \code{FALSE}, indicating whether the objects are identical,
-disregarding the time when they were imported.
+disregarding the SharePoint and Excel properties.
 }
 \description{
 Check whether two STAR objects are identical. This comparison excludes the
-\code{Time_Imported} data field.
+SharePoint and Excel properties \code{SharePoint_Folder},
+\code{Excel_Filename}, \code{Person_Modified}, \code{Time_Modified}, and
+\code{Time_Imported}.
 }
 \note{
 When importing many STAR templates submitted by stock assessors, it can
-happen that two Excel files contain the same data. This function helps to
-identify such cases.
+happen that two Excel files contain the same stock assessment results. This
+function helps to identify such cases.
 }
 \examples{
 \dontrun{
-identical.star(star1, star2)
+
+# Are the R objects completely identical?
+identical(star1, star2)
+
+# Do the STAR objects contain the same data,
+# disregarding SharePoint and Excel properties?
+identical.stars(star1, star2)
 }
 
 }
