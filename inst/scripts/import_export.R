@@ -46,8 +46,10 @@ prop <- read.properties(prop.file)
 ## Import STAR templates
 
 cluster <- import.many.templates(star.dir, prop=prop)
+cluster <- import.many.templates(star.dir, prop=prop, qc=TRUE)
 cbind(sapply(cluster, class))
-qc(star.dir)
+errors <- sapply(cluster, class)
+cbind(errors[errors=="try-error"])
 
 ## Exclude STAR templates that have errors
 
@@ -59,6 +61,7 @@ cbind(sapply(cluster.ok, class))
 id <- peek(cluster.ok, "Assessment_ID")
 cbind(id)
 any(duplicated(id))
+
 
 ## Export into subdirectories inside the /mnt/star-templates area
 
