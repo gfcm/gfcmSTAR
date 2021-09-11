@@ -60,7 +60,8 @@ cbind(sapply(cluster.ok, class))
 
 id <- peek(cluster.ok, "Assessment_ID")
 cbind(id)
-any(duplicated(id))
+if(any(duplicated(id)))
+  if[duplicated(id)]
 
 
 ## Export into subdirectories inside the /mnt/star-templates area
