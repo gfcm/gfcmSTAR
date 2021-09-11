@@ -32,11 +32,6 @@
 #'
 #' @export
 
-file <- "~/StockAssessmentResults/uploads/2021/WGSAD_Benchmark_SOL_GSA_17/STAR_SOL_GSA17.xlsx"
-short <- TRUE
-stop <- TRUE
-quiet <- FALSE
-
 qc.colnames <- function(file, short=TRUE, stop=TRUE, quiet=FALSE)
 {
   ## 1  Preamble
