@@ -32,6 +32,11 @@
 #'
 #' @export
 
+file <- "~/StockAssessmentResults/uploads/2021/WGSAD_Benchmark_SOL_GSA_17/STAR_SOL_GSA17.xlsx"
+short <- TRUE
+stop <- TRUE
+quiet <- FALSE
+
 qc.colnames <- function(file, short=TRUE, stop=TRUE, quiet=FALSE)
 {
   ## 1  Preamble
@@ -44,7 +49,7 @@ qc.colnames <- function(file, short=TRUE, stop=TRUE, quiet=FALSE)
   x <- readWorksheet(w, 3)
   row <- which(x[,1] == "Year")
   colnames <- as.character(x[row,])
-  colnames <- colnames[-grep("Effort", colnames)]
+  colnames <- colnames[!grepl("Effort", colnames)]
 
   expected <- deparse(set.classes)
   expected <- grep("TimeSeries\\$", expected, value=TRUE)
