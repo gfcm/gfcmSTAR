@@ -9,7 +9,8 @@ read.properties(file, template = NULL, quiet = TRUE)
 \arguments{
 \item{file}{Excel file containing the SharePoint properties.}
 
-\item{template}{optional filename of an Excel STAR template.}
+\item{template}{optional filename of an Excel STAR template, to extract
+properties for a single STAR template.}
 
 \item{quiet}{whether to supress messages.}
 }

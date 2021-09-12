@@ -3,7 +3,8 @@
 #' Read SharePoint properties from an Excel file.
 #'
 #' @param file Excel file containing the SharePoint properties.
-#' @param template optional filename of an Excel STAR template.
+#' @param template optional filename of an Excel STAR template, to extract
+#'        properties for a single STAR template.
 #' @param quiet whether to supress messages.
 #'
 #' @return Data frame with SharePoint properties.
@@ -51,7 +52,7 @@ read.properties <- function(file, template=NULL, quiet=TRUE)
 
   ## 3  Extract row(s) of interest
   if(!is.null(template))
-    props <- props[props$Name == template,]
+    props <- props[props$Name == basename(template),]
 
   props
 }
