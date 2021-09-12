@@ -57,7 +57,11 @@ import.many.templates <- function(dir, pattern="\\.xlsx?$", exclude=NULL,
     if(!quiet) cat("[", i, "] ", filenames[i], "\n", sep="")
     if(qc)
       qc(files[i], short=short, stop=FALSE, quiet=quiet)
-    cluster[[i]] <- try(read.template(file=files[i], ...))
+    if(quiet)
+      cluster[[i]] <-
+        suppressWarnings(try(read.template(file=files[i], ...), silent=TRUE))
+    else
+      cluster[[i]] <- try(read.template(file=files[i], ...))
     names(cluster)[i] <- basename(files[i])
   }
 
