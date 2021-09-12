@@ -45,6 +45,7 @@
 import.many.templates <- function(dir, pattern="\\.xlsx?$", exclude=NULL,
                                   short=TRUE, qc=FALSE, quiet=FALSE, ...)
 {
+  ## Print warnings as they occur, rather than all at the end
   owarn <- options(warn=1); on.exit(options(owarn))
   files <- file.path(dir, dir(dir, pattern=pattern))
   files <- files[!(basename(files) %in% exclude)]
