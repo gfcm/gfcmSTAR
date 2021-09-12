@@ -64,7 +64,7 @@ read.template.v10 <- function(file, atype="Standard", refyear=2019,
   Advice_Table[Advice_Table==""] <- NA_character_
   VPA_Model <- readTable.logical(w, "Metadata", "VPA_Model")
   Forecast_Included <- readTable.logical(w, "Metadata", "Forecast_Included")
-  Reference_Points <- readTable(w, "Metadata", "Reference_Points")[1:3]  # 3 cols
+  Reference_Points <- readTable(w, "Metadata", "Reference_Points")[1:3]  # 3 col
   Dimensions <- readTable(w, "Metadata", "Dimensions")
   Summary_Information <-
     readTable.transpose(w, "Summary", "Summary_Information")
