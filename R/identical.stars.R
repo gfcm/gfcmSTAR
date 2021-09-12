@@ -5,9 +5,9 @@
 #' \code{Excel_Filename}, \code{Person_Modified}, \code{Time_Modified}, and
 #' \code{Time_Imported}.
 #'
-#' @param a STAR object, a list containing \code{Metadata} and
+#' @param x STAR object, a list containing \code{Metadata} and
 #'        \code{TimeSeries}.
-#' @param b another STAR object to compare.
+#' @param y another STAR object to compare.
 #'
 #' @return
 #' \code{TRUE} or \code{FALSE}, indicating whether the objects are identical,
@@ -19,8 +19,10 @@
 #' function helps to identify such cases.
 #'
 #' @seealso
-#' \code{\link{identical}} is the underlying base function used to compare the
-#' two objects.
+#' \code{\link{diff.stars}} shows differences between STAR objects.
+#'
+#' \code{\link{identical}} is the underlying function used to compare the two
+#' objects.
 #'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'
@@ -37,12 +39,12 @@
 #'
 #' @export
 
-identical.stars <- function(a, b)
+identical.stars <- function(x, y)
 {
   delete <- c("SharePoint_Folder", "Excel_Filename", "Person_Modified",
               "Time_Modified", "Time_Imported")
-  a$Metadata[delete] <- NULL
-  b$Metadata[delete] <- NULL
+  x$Metadata[delete] <- NULL
+  y$Metadata[delete] <- NULL
 
-  identical(a, b)
+  identical(x, y)
 }

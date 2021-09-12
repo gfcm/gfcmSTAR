@@ -39,6 +39,7 @@ General Fisheries Commission for the Mediterranean.
 }
 \emph{Quality control:}
 \tabular{ll}{
+  \code{\link{diff.stars}}      \tab show differences between STAR objects\cr
   \code{\link{identical.stars}} \tab check if STAR objects are identical\cr
   \code{\link{peek}}            \tab examine a metadata field\cr
   \code{\link{qc}}              \tab run all quality checks\cr

@@ -1,6 +1,6 @@
 # gfcmSTAR 2.2.0 (2021-09-05)
 
-* Added function identical.stars() to check if two STAR objects are identical.
+* Added function diff.stars() and identical.stars() to compare STAR objects.
 
 * Added function qc.colnames() to check if time series column names are intact.
 

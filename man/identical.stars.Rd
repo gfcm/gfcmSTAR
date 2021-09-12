@@ -4,13 +4,13 @@
 \alias{identical.stars}
 \title{Identical STARs}
 \usage{
-identical.stars(a, b)
+identical.stars(x, y)
 }
 \arguments{
-\item{a}{STAR object, a list containing \code{Metadata} and
+\item{x}{STAR object, a list containing \code{Metadata} and
 \code{TimeSeries}.}
 
-\item{b}{another STAR object to compare.}
+\item{y}{another STAR object to compare.}
 }
 \value{
 \code{TRUE} or \code{FALSE}, indicating whether the objects are identical,
@@ -40,8 +40,10 @@ identical.stars(star1, star2)
 
 }
 \seealso{
-\code{\link{identical}} is the underlying base function used to compare the
-two objects.
+\code{\link{diff.stars}} shows differences between STAR objects.
+
+\code{\link{identical}} is the underlying function used to compare the two
+objects.
 
 \code{\link{gfcmSTAR-package}} gives an overview of the package.
 }
