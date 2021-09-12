@@ -7,18 +7,18 @@
 identical.stars(x, y)
 }
 \arguments{
-\item{x}{STAR object, a list containing \code{Metadata} and
-\code{TimeSeries}.}
+\item{x}{STAR template filename or STAR object, a list containing
+\code{Metadata} and \code{TimeSeries}.}
 
-\item{y}{another STAR object to compare.}
+\item{y}{another STAR template/object to compare.}
 }
 \value{
 \code{TRUE} or \code{FALSE}, indicating whether the objects are identical,
 disregarding the SharePoint and Excel properties.
 }
 \description{
-Check whether two STAR objects are identical. This comparison excludes the
-SharePoint and Excel properties \code{SharePoint_Folder},
+Check whether two STAR templates/objects are identical. This comparison
+excludes the SharePoint and Excel properties \code{SharePoint_Folder},
 \code{Excel_Filename}, \code{Person_Modified}, \code{Time_Modified}, and
 \code{Time_Imported}.
 }
@@ -36,11 +36,14 @@ identical(star1, star2)
 # Do the STAR objects contain the same data,
 # disregarding SharePoint and Excel properties?
 identical.stars(star1, star2)
+
+# Work directly with files
+identical.stars("STAR_1.xlsx", "STAR_2.xlsx")
 }
 
 }
 \seealso{
-\code{\link{diff.stars}} shows differences between STAR objects.
+\code{\link{diff.stars}} shows differences between STAR templates/objects.
 
 \code{\link{identical}} is the underlying function used to compare the two
 objects.

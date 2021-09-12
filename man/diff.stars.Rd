@@ -7,10 +7,10 @@
 \method{diff}{stars}(x, y, full = FALSE, width = 20, ...)
 }
 \arguments{
-\item{x}{STAR object, a list containing \code{Metadata} and
-\code{TimeSeries}.}
+\item{x}{STAR template filename or STAR object, a list containing
+\code{Metadata} and \code{TimeSeries}.}
 
-\item{y}{another STAR object to compare.}
+\item{y}{another STAR template/object to compare.}
 
 \item{full}{whether to also show the parts that are similar in both.}
 
@@ -23,16 +23,17 @@ A list of data frames showing the differences, or \code{NULL} if the STAR
 objects are identical.
 }
 \description{
-Show the differences between two STAR objects.
+Show the differences between two STAR templates/objects.
 }
 \examples{
 \dontrun{
 diff.stars(star1, star2)
+diff.stars("STAR_1.xlsx", "STAR_2.xlsx")
 }
 
 }
 \seealso{
-\code{\link{identical.stars}} checks if STAR objects are identical.
+\code{\link{identical.stars}} checks if STAR templates/objects are identical.
 
 \code{\link{identical}} is the underlying function used to compare each data
 element.

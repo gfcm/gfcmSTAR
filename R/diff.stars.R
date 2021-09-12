@@ -1,10 +1,10 @@
 #' Diff STARs
 #'
-#' Show the differences between two STAR objects.
+#' Show the differences between two STAR templates/objects.
 #'
-#' @param x STAR object, a list containing \code{Metadata} and
-#'        \code{TimeSeries}.
-#' @param y another STAR object to compare.
+#' @param x STAR template filename or STAR object, a list containing
+#'        \code{Metadata} and \code{TimeSeries}.
+#' @param y another STAR template/object to compare.
 #' @param full whether to also show the parts that are similar in both.
 #' @param width maximum column width in output.
 #' @param \dots passed to \code{identical}.
@@ -14,7 +14,7 @@
 #' objects are identical.
 #'
 #' @seealso
-#' \code{\link{identical.stars}} checks if STAR objects are identical.
+#' \code{\link{identical.stars}} checks if STAR templates/objects are identical.
 #'
 #' \code{\link{identical}} is the underlying function used to compare each data
 #' element.
@@ -24,6 +24,7 @@
 #' @examples
 #' \dontrun{
 #' diff.stars(star1, star2)
+#' diff.stars("STAR_1.xlsx", "STAR_2.xlsx")
 #' }
 #'
 #' @export
@@ -31,7 +32,27 @@
 
 diff.stars <- function(x, y, full=FALSE, width=20, ...)
 {
-  ## 1  Functions
+  ## Handle possible filenames, create a short column label
+  if(is.character(x))
+  {
+    x.name <- basename(x)
+    x <- read.template(x)
+  }
+  else
+  {
+    x.name <- tail(as.character(substitute(x)), 1)
+  }
+  if(is.character(y))
+  {
+    y.name <- basename(y)
+    y <- read.template(y)
+  }
+  else
+  {
+    y.name <- tail(as.character(substitute(y)), 1)
+  }
+
+  ## Functions
   same <- function(element, part)  # check if two list elements are identical
   {
     identical(x[[part]][[element]], y[[part]][[element]], ...)
@@ -54,7 +75,7 @@ diff.stars <- function(x, y, full=FALSE, width=20, ...)
       y
   }
 
-  ## 2  Compare elements of Metadata and TimeSeries
+  ## Compare elements of Metadata and TimeSeries
   metadata.names <- union(names(x$Metadata), names(y$Metadata))
   Metadata <- data.frame(
     Same=sapply(metadata.names, same, part="Metadata"),
@@ -65,12 +86,10 @@ diff.stars <- function(x, y, full=FALSE, width=20, ...)
     Same=sapply(timeseries.names, same, part="TimeSeries"),
     x=sapply(x$TimeSeries, fmt, width=width),
     y=sapply(y$TimeSeries, fmt, width=width))
-  x.name <- tail(as.character(substitute(x)), 1)
-  y.name <- tail(as.character(substitute(y)), 1)
   names(Metadata)[2:3] <- c(x.name, y.name)
   names(TimeSeries)[2:3] <- c(x.name, y.name)
 
-  ## 3  Prepare output
+  ## Prepare output
   if(full)
   {
     out <- list(Metadata=Metadata, TimeSeries=TimeSeries)
