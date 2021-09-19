@@ -4,12 +4,13 @@
 \alias{peek}
 \title{Peek}
 \usage{
-peek(x, field)
+peek(x, field = "Assessment_ID")
 }
 \arguments{
-\item{x}{STAR object or a cluster (list) of STAR objects.}
+\item{x}{STAR object or a cluster (list) of STAR objects. Alternatively,
+\code{x} can be an Excel STAR template filename or directory name.}
 
-\item{field}{a metadata field, such as "Assessment_ID".}
+\item{field}{a metadata field, by default "Assessment_ID".}
 }
 \value{
 Metadata field from STAR object(s).
@@ -24,9 +25,14 @@ objects after importing many STAR templates. See example below.
 \examples{
 \dontrun{
 
-peek(star, "Assessment_ID")
+peek(star)
+peek(star, "Scientific_Name")
+peek(star, "Status_Fref")
 
-peek(cluster, "Assessment_ID")
+peek(star)         # object
+peek(cluster)      # cluster
+peek("STAR.xlsx")  # file
+peek("folder")     # dir
 }
 
 }

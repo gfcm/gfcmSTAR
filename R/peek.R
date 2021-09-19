@@ -2,8 +2,9 @@
 #'
 #' Examine a metadata field of STAR objects.
 #'
-#' @param x STAR object or a cluster (list) of STAR objects.
-#' @param field a metadata field, such as "Assessment_ID".
+#' @param x STAR object or a cluster (list) of STAR objects. Alternatively,
+#'          \code{x} can be an Excel STAR template filename or directory name.
+#' @param field a metadata field, by default "Assessment_ID".
 #'
 #' @return Metadata field from STAR object(s).
 #'
@@ -20,17 +21,31 @@
 #' @examples
 #' \dontrun{
 #'
-#' peek(star, "Assessment_ID")
+#' peek(star)
+#' peek(star, "Scientific_Name")
+#' peek(star, "Status_Fref")
 #'
-#' peek(cluster, "Assessment_ID")
+#' peek(star)         # object
+#' peek(cluster)      # cluster
+#' peek("STAR.xlsx")  # file
+#' peek("folder")     # dir
 #' }
 #'
 #' @export
 
-peek <- function(x, field)
+peek <- function(x, field="Assessment_ID")
 {
-  if(any(names(x) == "Metadata"))
-    x$Metadata[[field]]
-  else
+  ## Read directory or file
+  if(is.character(x) && dir.exists(x))
+    x <- import.many.templates(x, quiet=TRUE)
+  if(is.character(x) && file.exists(x))
+    x <- read.template(x)
+
+  ## Handle cluster or star
+  if(is.list(x) && any(names(x[[1]])=="Metadata"))  # cluster
     sapply(x, peek, field=field)
+  else if(is.list(x) && any(names(x)=="Metadata"))  # star
+    x$Metadata[[field]]
+  else  # x was not a directory, file, cluster, or star
+    NA
 }

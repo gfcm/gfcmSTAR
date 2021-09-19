@@ -12,6 +12,9 @@
 * Improved import.many.templates() to show current filename while processing a
   directory.
 
+* Improved peek() to handle files and directories, in addition to STAR objects
+  and clusters. The default value of 'field' is now "Assessment_ID".
+
 * Improved read.template() to support edge cases where Excel STAR templates
   contain time series as text instead of numbers.
 

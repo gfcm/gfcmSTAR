@@ -58,7 +58,7 @@ cbind(sapply(cluster.ok, class))
 
 ## Check that the Assessment_ID fields are unique
 
-id <- peek(cluster.ok, "Assessment_ID")
+id <- peek(cluster.ok)
 cbind(id)
 if(any(duplicated(id)))
   id[duplicated(id)]
