@@ -3,7 +3,8 @@
 * Added function diff.stars() and identical.stars() to compare STAR
   templates/objects.
 
-* Added function qc.colnames() to check if time series column names are intact.
+* Added functions qc.colnames() and qc.numbers() to check if time series column
+  names are intact and that time series are numbers and not strings.
 
 * Added arguments 'short', 'qc', and 'quiet' to import.many.templates().
 

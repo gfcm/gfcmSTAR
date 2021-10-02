@@ -23,6 +23,8 @@
 #'
 #' \code{\link{qc.colnames}} checks if time series column names are intact.
 #'
+#' \code{\link{qc.numbers}} checks if time series are numbers and not strings.
+#'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'
 #' @examples
@@ -56,6 +58,7 @@ qc <- function(x, ...)
     s <- s && qc.star(x, ...)
     s <- s && qc.vpa(x, ...)
     s <- s && qc.colnames(x, ...)
+    s <- s && qc.numbers(x, ...)
   }
   else
   {

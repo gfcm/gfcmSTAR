@@ -47,7 +47,8 @@ General Fisheries Commission for the Mediterranean.
   \code{\link{qc.xlsx}}         \tab file extension is \file{xlsx}\cr
   \code{\link{qc.star}}         \tab file is a STAR template\cr
   \code{\link{qc.vpa}}    \tab \code{VPA_Model} is \code{Yes} or \code{No}\cr
-  \code{\link{qc.colnames}}     \tab time series column names are intact
+  \code{\link{qc.colnames}}     \tab time series column names are intact\cr
+  \code{\link{qc.numbers}}      \tab time series are numbers and not strings
 }
 }
 \note{
