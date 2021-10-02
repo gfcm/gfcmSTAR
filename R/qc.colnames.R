@@ -1,4 +1,4 @@
-#' Column Names
+#' Time Series Column Names
 #'
 #' Assert that a STAR template's time series column names are intact.
 #'

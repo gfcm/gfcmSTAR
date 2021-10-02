@@ -2,7 +2,7 @@
 % Please edit documentation in R/qc.colnames.R
 \name{qc.colnames}
 \alias{qc.colnames}
-\title{Column Names}
+\title{Time Series Column Names}
 \usage{
 qc.colnames(file, short = TRUE, stop = TRUE, quiet = FALSE)
 }
