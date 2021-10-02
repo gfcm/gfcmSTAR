@@ -2,6 +2,7 @@
 
 S3method(diff,stars)
 export(Start_Case)
+export(append.id)
 export(basic.time)
 export(combo)
 export(comma2period)

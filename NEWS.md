@@ -3,6 +3,9 @@
 * Added function diff.stars() and identical.stars() to compare STAR
   templates/objects.
 
+* Added function append.id() to modify the Assessment_ID of an existing STAR
+  object.
+
 * Added functions qc.colnames() and qc.numbers() to check if time series column
   names are intact and that time series are numbers and not strings.
 

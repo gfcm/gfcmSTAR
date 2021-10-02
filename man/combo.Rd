@@ -36,6 +36,9 @@ combo(star, "_", star$Metadata$Assessment_Method)
 
 }
 \seealso{
+\code{\link{append.id}} modifies the \code{Assessment_ID} of an existing STAR
+object.
+
 \code{\link{lookup.species}} is a data frame containing species codes and
 names.
 

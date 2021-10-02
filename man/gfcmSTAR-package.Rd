@@ -27,8 +27,9 @@ General Fisheries Commission for the Mediterranean.
   \code{\link{export.many.csv}} \tab export many STAR objects to CSV files\cr
   \code{\link{write.star.csv}}  \tab write STAR object to CSV files
 }
-\emph{Format strings:}
+\emph{Manipulate strings:}
 \tabular{ll}{
+  \code{\link{append.id}} \tab modify existing \code{Assessment_ID}\cr
   \code{\link{combo}}     \tab combine reference year, species, and GSA\cr
   \code{\link{gsa.names}} \tab convert GSA codes to full GSA names
 }
