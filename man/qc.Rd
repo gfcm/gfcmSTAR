@@ -4,13 +4,18 @@
 \alias{qc}
 \title{Quality Check}
 \usage{
-qc(x, ...)
+qc(x, short = TRUE, stop = TRUE, quiet = FALSE)
 }
 \arguments{
 \item{x}{filename of an Excel STAR template or a directory containing Excel
 STAR templates.}
 
-\item{\dots}{passed to \code{qc.*} functions.}
+\item{short}{whether to show filenames in a short \code{\link{basename}}
+format.}
+
+\item{stop}{whether to stop if any test fails.}
+
+\item{quiet}{whether to suppress messages.}
 }
 \value{
 Logical \code{TRUE} or \code{FALSE} indicating whether all tests succeeded,
@@ -18,6 +23,10 @@ or a logical vector if \code{x} is a directory.
 }
 \description{
 Run all quality checks on one or more Excel STAR templates.
+}
+\details{
+If \code{x} is a directory, \code{stop} is set to \code{FALSE} unless the
+user passes an explicit \code{stop = TRUE}.
 }
 \examples{
 \dontrun{

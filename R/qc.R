@@ -4,7 +4,14 @@
 #'
 #' @param x filename of an Excel STAR template or a directory containing Excel
 #'        STAR templates.
-#' @param \dots passed to \code{qc.*} functions.
+#' @param short whether to show filenames in a short \code{\link{basename}}
+#'        format.
+#' @param stop whether to stop if any test fails.
+#' @param quiet whether to suppress messages.
+#'
+#' @details
+#' If \code{x} is a directory, \code{stop} is set to \code{FALSE} unless the
+#' user passes an explicit \code{stop = TRUE}.
 #'
 #' @return
 #' Logical \code{TRUE} or \code{FALSE} indicating whether all tests succeeded,
@@ -40,25 +47,35 @@
 #'
 #' @export
 
-qc <- function(x, ...)
+qc <- function(x, short=TRUE, stop=TRUE, quiet=FALSE)
 {
+  ## Print warnings as they occur, rather than all at the end
+  owarn <- options(warn=1); on.exit(options(owarn))
+
   if(dir.exists(x))
   {
+    stop <- if(missing(stop)) FALSE else stop
     files <- dir(x, pattern="\\.xlsx?$", full.names=TRUE)
-    s <- suppressWarnings(sapply(files, qc, stop=FALSE, quiet=FALSE))
-    names(s) <- basename(names(s))
+    filenames <- if(short) basename(files) else files
+    s <- rep(NA, length(filenames))
+    for(i in seq_along(filenames))
+    {
+      if(!quiet) cat("[", i, "] ", filenames[i], "\n", sep="")
+      s[i] <- qc(files[i], short=short, stop=stop, quiet=quiet)
+    }
+    names(s) <- basename(files)
   }
   else if(file.exists(x))
   {
     ## Start with success TRUE and later flip it to FALSE if any test fails
     s <- TRUE
 
-    s <- s && qc.exists(x, ...)
-    s <- s && qc.xlsx(x, ...)
-    s <- s && qc.star(x, ...)
-    s <- s && qc.vpa(x, ...)
-    s <- s && qc.colnames(x, ...)
-    s <- s && qc.numbers(x, ...)
+    s <- s && qc.exists(x, short=short, stop=stop, quiet=quiet)
+    s <- s && qc.xlsx(x, short=short, stop=stop, quiet=quiet)
+    s <- s && qc.star(x, short=short, stop=stop, quiet=quiet)
+    s <- s && qc.vpa(x, short=short, stop=stop, quiet=quiet)
+    s <- s && qc.colnames(x, short=short, stop=stop, quiet=quiet)
+    s <- s && qc.numbers(x, short=short, stop=stop, quiet=quiet)
   }
   else
   {

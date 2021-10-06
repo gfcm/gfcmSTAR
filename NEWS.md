@@ -13,8 +13,8 @@
 
 * Added argument 'short' to qc.exists(), qc.star(), qc.vpa(), and qc.xlsx().
 
-* Improved import.many.templates() to show current filename while processing a
-  directory.
+* Improved import.many.templates() and qc() to show current filename while
+  processing a directory.
 
 * Improved peek() to handle files and directories, in addition to STAR objects
   and clusters. The default value of 'field' is now "Assessment_ID".
