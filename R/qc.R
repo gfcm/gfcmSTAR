@@ -28,9 +28,10 @@
 #'
 #' \code{\link{qc.vpa}} checks if \code{VPA_Model} is \code{Yes} or \code{No}.
 #'
-#' \code{\link{qc.colnames}} checks if time series column names are intact.
+#' \code{\link{qc.ts.names}} checks if time series column names are intact.
 #'
-#' \code{\link{qc.numbers}} checks if time series are numbers and not strings.
+#' \code{\link{qc.ts.numbers}} checks if time series are numbers and not
+#' strings.
 #'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'
@@ -74,8 +75,8 @@ qc <- function(x, short=TRUE, stop=TRUE, quiet=FALSE)
     s <- s && qc.xlsx(x, short=short, stop=stop, quiet=quiet)
     s <- s && qc.star(x, short=short, stop=stop, quiet=quiet)
     s <- s && qc.vpa(x, short=short, stop=stop, quiet=quiet)
-    s <- s && qc.colnames(x, short=short, stop=stop, quiet=quiet)
-    s <- s && qc.numbers(x, short=short, stop=stop, quiet=quiet)
+    s <- s && qc.ts.names(x, short=short, stop=stop, quiet=quiet)
+    s <- s && qc.ts.numbers(x, short=short, stop=stop, quiet=quiet)
   }
   else
   {

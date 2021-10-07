@@ -25,7 +25,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' qc.numbers("STAR_2019_HKE_5.xlsx")
+#' qc.ts.numbers("STAR_2019_HKE_5.xlsx")
 #' }
 #'
 #' @importFrom XLConnect readTable
@@ -33,12 +33,13 @@
 #'
 #' @export
 
-qc.numbers <- function(file, short=TRUE, stop=TRUE, quiet=FALSE)
+qc.ts.numbers <- function(file, short=TRUE, stop=TRUE, quiet=FALSE)
 {
   ## 1  Preamble
   filename <- if(short) basename(file) else file
   if(!quiet)
-    message("* checking '", filename, "' with qc.numbers ... ", appendLF=FALSE)
+    message("* checking '", filename, "' with qc.ts.numbers ... ",
+            appendLF=FALSE)
 
   ## 2  Test
   w <- loadWorkbook(file)

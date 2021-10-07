@@ -63,8 +63,21 @@ cbind(id)
 if(any(duplicated(id)))
   id[duplicated(id)]
 
+################################################################################
+## Actions specific to this script
 
-## Export into subdirectories inside the /mnt/star-templates area
+## Remove entries that are not STAR templates
+## cluster.ok$"star_template.xlsx" <- NULL
+
+## Give multiple analyses of same stock distinct Assessment_ID names
+## s1 <- cluster.ok$"star_ANE_GSA06 ref2019_model1.xlsx"
+## s2 <- cluster.ok$"star_ANE_GSA06 ref2019_model2.xlsx"
+## diff.stars(s1, s2)
+## cluster.ok$"star_ANE_GSA06 ref2019_model1.xlsx" <- append.id(s1, "a4a_spict")
+## cluster.ok$"star_ANE_GSA06 ref2019_model2.xlsx" <- append.id(s2, "a4a")
+
+################################################################################
+## Export into subdirectories inside /mnt/star-templates
 
 topdir <- file.path("/mnt/star-templates", year, event)
 export.many.csv(cluster.ok, topdir=topdir, force=TRUE)

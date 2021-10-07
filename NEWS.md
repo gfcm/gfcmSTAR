@@ -1,4 +1,4 @@
-# gfcmSTAR 2.2.0 (2021-09-05)
+# gfcmSTAR 2.2.0 (2021-10-07)
 
 * Added function diff.stars() and identical.stars() to compare STAR
   templates/objects.
@@ -6,8 +6,8 @@
 * Added function append.id() to modify the Assessment_ID of an existing STAR
   object.
 
-* Added functions qc.colnames() and qc.numbers() to check if time series column
-  names are intact and that time series are numbers and not strings.
+* Added functions qc.ts.names() and qc.ts.numbers() to check if time series
+  column names are intact, and that time series are numbers and not strings.
 
 * Added arguments 'short', 'qc', and 'quiet' to import.many.templates().
 

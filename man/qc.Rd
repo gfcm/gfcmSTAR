@@ -51,9 +51,10 @@ The checks are run in the following order:
 
 \code{\link{qc.vpa}} checks if \code{VPA_Model} is \code{Yes} or \code{No}.
 
-\code{\link{qc.colnames}} checks if time series column names are intact.
+\code{\link{qc.ts.names}} checks if time series column names are intact.
 
-\code{\link{qc.numbers}} checks if time series are numbers and not strings.
+\code{\link{qc.ts.numbers}} checks if time series are numbers and not
+strings.
 
 \code{\link{gfcmSTAR-package}} gives an overview of the package.
 }

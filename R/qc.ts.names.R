@@ -1,4 +1,4 @@
-#' Time Series Column Names
+#' Time Series Names
 #'
 #' Assert that a STAR template's time series column names are intact.
 #'
@@ -25,19 +25,19 @@
 #'
 #' @examples
 #' \dontrun{
-#' qc.colnames("STAR_2019_HKE_5.xlsx")
+#' qc.ts.names("STAR_2019_HKE_5.xlsx")
 #' }
 #'
 #' @importFrom XLConnect readTable
 #'
 #' @export
 
-qc.colnames <- function(file, short=TRUE, stop=TRUE, quiet=FALSE)
+qc.ts.names <- function(file, short=TRUE, stop=TRUE, quiet=FALSE)
 {
   ## 1  Preamble
   filename <- if(short) basename(file) else file
   if(!quiet)
-    message("* checking '", filename, "' with qc.colnames ... ", appendLF=FALSE)
+    message("* checking '", filename, "' with qc.ts.names ... ", appendLF=FALSE)
 
   ## 2  Test
   w <- loadWorkbook(file)
