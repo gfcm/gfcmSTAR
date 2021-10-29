@@ -80,12 +80,14 @@ diff.stars <- function(x, y, full=FALSE, width=20, ...)
   Metadata <- data.frame(
     Same=sapply(metadata.names, same, part="Metadata"),
     x=sapply(x$Metadata, fmt, width=width),
-    y=sapply(y$Metadata, fmt, width=width))
+    y=sapply(y$Metadata, fmt, width=width),
+    stringsAsFactors=FALSE)
   timeseries.names <- union(names(x$TimeSeries), names(y$TimeSeries))
   TimeSeries <- data.frame(
     Same=sapply(timeseries.names, same, part="TimeSeries"),
     x=sapply(x$TimeSeries, fmt, width=width),
-    y=sapply(y$TimeSeries, fmt, width=width))
+    y=sapply(y$TimeSeries, fmt, width=width),
+    stringsAsFactors=FALSE)
   names(Metadata)[2:3] <- c(x.name, y.name)
   names(TimeSeries)[2:3] <- c(x.name, y.name)
 

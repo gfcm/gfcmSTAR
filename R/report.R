@@ -54,16 +54,21 @@ report <- function(cluster, cluster.ok, qc.vector)
   n.qc <- sum(!qc.vector)
   Count <- list(Import=data.frame(
                   N=c(n.files, n.imported, n.failed, n.removed),
-                  Group=c("files", "imported", "failed", "removed")),
-                QC=data.frame(N=n.qc, Group="Errors detected by QC"))
+                  Group=c("files", "imported", "failed", "removed"),
+                  stringsAsFactors=FALSE),
+                QC=data.frame(N=n.qc, Group="Errors detected by QC"),
+                stringsAsFactors=FALSE)
 
   fname.error <- names(cluster)[sapply(cluster, class) == "try-error"]
   fname.removed <- setdiff(names(cluster),
                            union(names(cluster.ok), fname.error))
   fname.qc <- names(qc.vector)[!qc.vector]
-  Filenames <- list(Error=data.frame(" "=fname.error, check.names=FALSE),
-                    Removed=data.frame(" "=fname.removed, check.names=FALSE),
-                    QC=data.frame(" "=fname.qc, check.names=FALSE))
+  Filenames <- list(Error=data.frame(" "=fname.error, check.names=FALSE,
+                                     stringsAsFactors=FALSE),
+                    Removed=data.frame(" "=fname.removed, check.names=FALSE,
+                                       stringsAsFactors=FALSE),
+                    QC=data.frame(" "=fname.qc, check.names=FALSE,
+                                  stringsAsFactors=FALSE))
 
   list(Count=Count, Filenames=Filenames)
 }
