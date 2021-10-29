@@ -50,6 +50,7 @@ cluster <- import.many.templates(star.dir, prop=prop, qc=TRUE)
 cbind(sapply(cluster, class))
 errors <- sapply(cluster, class)
 cbind(errors[errors=="try-error"])
+qc.vector <- qc(star.dir, quiet=TRUE)
 
 ## Exclude STAR templates that have errors
 
@@ -77,6 +78,15 @@ if(any(duplicated(id)))
 ## cluster.ok$"star_ANE_GSA06 ref2019_model2.xlsx" <- append.id(s2, "a4a")
 
 ################################################################################
+
+## Overall summary
+
+rep <- report(cluster, cluster.ok, qc.vector)
+cat("\n\n\n*** Count\n")
+print(rep$Count, right=FALSE, row.names=FALSE)
+cat("\n\n\n*** Filenames\n")
+print(rep$Filenames, right=FALSE, row.names=FALSE)
+
 ## Export into subdirectories inside /mnt/star-templates
 
 topdir <- file.path("/mnt/star-templates", year, event)
