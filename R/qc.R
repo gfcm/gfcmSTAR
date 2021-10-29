@@ -33,6 +33,8 @@
 #' \code{\link{qc.ts.numbers}} checks if time series are numbers and not
 #' strings.
 #'
+#' \code{\link{report}} reports files successfully imported.
+#'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'
 #' @examples
