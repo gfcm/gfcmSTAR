@@ -9,7 +9,7 @@
 #'        for final import into the STAR database.
 #' @param qc.vector a logical vector, output from \code{qc}.
 #'
-#' @return List containing file \code{count} and \code{filenames}.
+#' @return List containing file \code{Count} and \code{Filenames}.
 #'
 #' @seealso
 #' \code{\link{import.many.templates}} imports many Excel STAR templates from a
