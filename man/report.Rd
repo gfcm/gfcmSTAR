@@ -16,11 +16,32 @@ for final import into the STAR database.}
 \item{qc.vector}{a logical vector, output from \code{qc}.}
 }
 \value{
-List containing file \code{Count} and \code{Filenames}.
+Nested list with top elements \code{Count} and \code{Filenames}.
 }
 \description{
 Show a summary report after importing and quality checking a directory of
 STAR templates.
+}
+\note{
+The full set of Excel templates included in the report consists of all the
+STAR objects in \code{cluster}. They can be divided into three categories:
+\itemize{
+\item Imported. The STAR objects found in \code{cluster.ok}.
+\item Failed. Files that \code{read.template} could not import.
+\item Removed. Files that were manually removed by administrator, because
+      they were duplicate templates, empty templates, etc.
+}
+
+The report also includes a count of files that had errors detected by the
+\code{qc} suite of quality checks. The QC errors are independent of whether
+\code{read.template} was able to import or not. The purpose of the QC is to
+raise a flag where stock assessors may have made a mistake when submitting
+their STAR templates.
+
+In addition to file counts, the report also includes the specific filenames
+that had errors, were removed, or had QC issues. This list is useful for STAR
+administrators to bring into focus any STAR templates that were not
+successfully imported.
 }
 \examples{
 \dontrun{
