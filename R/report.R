@@ -56,8 +56,8 @@ report <- function(cluster, cluster.ok, qc.vector)
                   N=c(n.files, n.imported, n.failed, n.removed),
                   Group=c("files", "imported", "failed", "removed"),
                   stringsAsFactors=FALSE),
-                QC=data.frame(N=n.qc, Group="Errors detected by QC"),
-                stringsAsFactors=FALSE)
+                QC=data.frame(N=n.qc, Group="Errors detected by QC",
+                              stringsAsFactors=FALSE))
 
   fname.error <- names(cluster)[sapply(cluster, class) == "try-error"]
   fname.removed <- setdiff(names(cluster),
