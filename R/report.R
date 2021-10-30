@@ -70,5 +70,20 @@ report <- function(cluster, cluster.ok, qc.vector)
                     QC=data.frame(" "=fname.qc, check.names=FALSE,
                                   stringsAsFactors=FALSE))
 
-  list(Count=Count, Filenames=Filenames)
+  out <- list(Count=Count, Filenames=Filenames)
+  class(out) <- "report"
+  out
+}
+
+#' @rdname gfcmSTAR-internal
+#'
+#' @export
+#' @export print.report
+
+print.report <- function(x, ...)
+{
+  cat("*** Count\n\n")
+  print(x$Count, right=FALSE, row.names=FALSE)
+  cat("\n*** Filenames\n\n")
+  print(x$Filenames, right=FALSE, row.names=FALSE)
 }
