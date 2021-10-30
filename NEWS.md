@@ -1,4 +1,4 @@
-# gfcmSTAR 2.2.0 (2021-10-07)
+# gfcmSTAR 2.2.0 (2021-10-30)
 
 * Added function append.id() to modify the Assessment_ID of an existing STAR
   object.

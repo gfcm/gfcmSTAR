@@ -81,11 +81,7 @@ if(any(duplicated(id)))
 
 ## Overall summary
 
-rep <- report(cluster, cluster.ok, qc.vector)
-cat("\n\n\n*** Count\n")
-print(rep$Count, right=FALSE, row.names=FALSE)
-cat("\n\n\n*** Filenames\n")
-print(rep$Filenames, right=FALSE, row.names=FALSE)
+report(cluster, cluster.ok, qc.vector)
 
 ## Export into subdirectories inside /mnt/star-templates
 
