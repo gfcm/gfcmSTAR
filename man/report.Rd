@@ -16,7 +16,7 @@ for final import into the STAR database.}
 \item{qc.vector}{a logical vector, output from \code{qc}.}
 }
 \value{
-List containing file \code{count} and \code{filenames}.
+List containing file \code{Count} and \code{Filenames}.
 }
 \description{
 Show a summary report after importing and quality checking a directory of
