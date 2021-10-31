@@ -19,7 +19,8 @@ format.}
 }
 \value{
 String indicating which test did not succeed, or a vector of strings if
-\code{x} is a directory. A value of \code{""} means all tests succeeded.
+\code{x} is a directory. A value of \code{""} means all tests succeeded for
+that file.
 }
 \description{
 Run all quality checks on one or more Excel STAR templates.
