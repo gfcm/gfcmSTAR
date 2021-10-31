@@ -22,7 +22,7 @@
 #' }
 #'
 #' The report also includes a count of files that had errors detected by the
-#' \code{qc} suite of quality checks. The QC errors are independent of whether
+#' \code{qc} suite of quality checks. The QC issues are independent of whether
 #' \code{read.template} was able to import or not. The purpose of the QC is to
 #' raise a flag where stock assessors may have made a mistake when submitting
 #' their STAR templates.
@@ -68,28 +68,53 @@
 
 report <- function(cluster, cluster.ok, qc.vector)
 {
-  n.files <- length(cluster)
-  n.imported <- length(cluster.ok)
-  n.failed <- sum(sapply(cluster, class) == "try-error")
-  n.removed <- n.files - n.imported - n.failed
-  n.qc <- sum(!qc.vector)
-  Count <- list(Import=data.frame(
-                  N=c(n.files, n.imported, n.failed, n.removed),
-                  Group=c("files", "imported", "failed", "removed"),
-                  stringsAsFactors=FALSE),
-                QC=data.frame(N=n.qc, Group="Errors detected by QC",
-                              stringsAsFactors=FALSE))
+  qc.vector <- qc.vector[qc.vector != ""]
 
-  fname.error <- names(cluster)[sapply(cluster, class) == "try-error"]
-  fname.removed <- setdiff(names(cluster),
-                           union(names(cluster.ok), fname.error))
-  fname.qc <- names(qc.vector)[!qc.vector]
-  Filenames <- list(Error=data.frame(" "=fname.error, check.names=FALSE,
-                                     stringsAsFactors=FALSE),
-                    Removed=data.frame(" "=fname.removed, check.names=FALSE,
-                                       stringsAsFactors=FALSE),
-                    QC=data.frame(" "=fname.qc, check.names=FALSE,
-                                  stringsAsFactors=FALSE))
+  ## Filenames
+  f.all <- names(cluster)
+  f.imported <- names(cluster.ok)
+  f.failed <- f.all[sapply(cluster, class) == "try-error"]
+  f.removed <- setdiff(f.all, union(f.imported, f.failed))
+  f.qc <- names(qc.vector)
+
+  ## Count
+  n.all <- length(f.all)
+  n.imported <- length(f.imported)
+  n.failed <- length(f.failed)
+  n.removed <- length(f.removed)
+  n.qc <- length(qc.vector)
+
+  ## Which
+  w.failed <- paste(which(f.all %in% f.failed), collapse=", ")
+  w.removed <- paste(which(f.all %in% f.removed), collapse=", ")
+  w.qc <- paste(which(f.all %in% f.qc), collapse=", ")
+
+  ## Error message
+  e.failed <- as.character(cluster[f.failed])
+  e.failed <- gsub("\\n$", "", e.failed)
+
+  ## Construct list: Count
+  Count <- list()
+  Count$Import <- data.frame(
+    N=c(n.all, n.imported, n.failed, n.removed),
+    Group=c("files", "imported", "failed", "removed"),
+    Which=c("", "", w.failed, w.removed), stringsAsFactors=FALSE)
+  Count$QC <- data.frame(N=n.qc, Group="issues", Which=w.qc,
+                         stringsAsFactors=FALSE)
+
+  ## Construct list: Filenames
+  Filenames <- list()
+  Filenames$Failed <- data.frame(File=f.failed, Error=e.failed,
+                                 row.names=which(f.all %in% f.failed),
+                                 stringsAsFactors=FALSE)
+
+  Filenames$Removed <- data.frame(File=f.removed,
+                                  row.names=which(f.all %in% f.removed),
+                                  stringsAsFactors=FALSE)
+
+  Filenames$QC <- data.frame(File=f.qc, Test=qc.vector,
+                             row.names=which(f.all %in% f.qc),
+                             stringsAsFactors=FALSE)
 
   out <- list(Count=Count, Filenames=Filenames)
   class(out) <- "report"
@@ -101,10 +126,51 @@ report <- function(cluster, cluster.ok, qc.vector)
 #' @export
 #' @export print.report
 
-print.report <- function(x, ...)
+print.report <- function(x, nchar=23, ...)
 {
+  arrow <- function(d)  # data.frame, put arrow before last column entries
+  {
+    last <- ncol(d)
+    d[[last]] <- paste("=>", d[[last]])
+    d
+  }
+  bracket <- function(d)  # data.frame, convert row names to [1] format
+  {
+    row.names(d) <- format(paste0("[", row.names(d), "]"), justify="right")
+    d
+  }
+  empty <- function(d)  # data.frame, replace column names with blank space
+  {
+    names(d) <- rep("", ncol(d))
+    d
+  }
+  paren <- function(d)  # data.frame, put parentheses around last column entries
+  {
+    last <- ncol(d)
+    d[[last]] <- ifelse(d[[last]] == "", "", paste0("(", d[[last]], ")"))
+    d
+  }
+
+  x$Filenames$Failed$Error <- substring(x$Filenames$Failed$Error, 1, nchar)
+
+  x$Filenames$Failed <- arrow(x$Filenames$Failed)
+  x$Filenames$QC <- arrow(x$Filenames$QC)
+
+  x$Filenames$Failed <- bracket(x$Filenames$Failed)
+  x$Filenames$Removed <- bracket(x$Filenames$Removed)
+  x$Filenames$QC <- bracket(x$Filenames$QC)
+
+  x$Count$Import <- empty(x$Count$Import)
+  x$Count$QC <- empty(x$Count$QC)
+  x$Filenames$Failed <- empty(x$Filenames$Failed)
+  x$Filenames$Removed <- empty(x$Filenames$Removed)
+  x$Filenames$QC <- empty(x$Filenames$QC)
+
+  x$Count$Import <- paren(x$Count$Import)
+  x$Count$QC <- paren(x$Count$QC)
+
   cat("*** Count\n\n")
   print(x$Count, right=FALSE, row.names=FALSE)
   cat("\n*** Filenames\n\n")
-  print(x$Filenames, right=FALSE, row.names=FALSE)
+  print(x$Filenames, right=FALSE)
 }

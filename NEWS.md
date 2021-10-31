@@ -1,6 +1,10 @@
 # gfcmSTAR 2.2.1 (2021-10-31)
 
-* Changed qc() so it returns a descriptive string instead of TRUE or FALSE.
+* Improved report() to specify which error messages and QC issues stem from
+  which file. The output now includes file numbers to make it easier to visually
+  keep track of filenames, import errors, and QC issues.
+
+* Improved qc() so it returns a descriptive string instead of TRUE or FALSE.
 
 ---
 

@@ -33,7 +33,7 @@ STAR objects in \code{cluster}. They can be divided into three categories:
 }
 
 The report also includes a count of files that had errors detected by the
-\code{qc} suite of quality checks. The QC errors are independent of whether
+\code{qc} suite of quality checks. The QC issues are independent of whether
 \code{read.template} was able to import or not. The purpose of the QC is to
 raise a flag where stock assessors may have made a mistake when submitting
 their STAR templates.
