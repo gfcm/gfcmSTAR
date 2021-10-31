@@ -14,8 +14,8 @@
 #' user passes an explicit \code{stop = TRUE}.
 #'
 #' @return
-#' Logical \code{TRUE} or \code{FALSE} indicating whether all tests succeeded,
-#' or a logical vector if \code{x} is a directory.
+#' String indicating which test did not succeed, or a vector of strings if
+#' \code{x} is a directory. A value of \code{""} means all tests succeeded.
 #'
 #' @seealso
 #' The checks are run in the following order:
@@ -60,7 +60,7 @@ qc <- function(x, short=TRUE, stop=TRUE, quiet=FALSE)
     stop <- if(missing(stop)) FALSE else stop
     files <- dir(x, pattern="\\.xlsx?$", full.names=TRUE)
     filenames <- if(short) basename(files) else files
-    s <- rep(NA, length(filenames))
+    s <- rep(NA_character_, length(filenames))
     for(i in seq_along(filenames))
     {
       if(!quiet) cat("[", i, "] ", filenames[i], "\n", sep="")
@@ -70,15 +70,19 @@ qc <- function(x, short=TRUE, stop=TRUE, quiet=FALSE)
   }
   else if(file.exists(x))
   {
-    ## Start with success TRUE and later flip it to FALSE if any test fails
-    s <- TRUE
-
-    s <- s && qc.exists(x, short=short, stop=stop, quiet=quiet)
-    s <- s && qc.xlsx(x, short=short, stop=stop, quiet=quiet)
-    s <- s && qc.star(x, short=short, stop=stop, quiet=quiet)
-    s <- s && qc.vpa(x, short=short, stop=stop, quiet=quiet)
-    s <- s && qc.ts.names(x, short=short, stop=stop, quiet=quiet)
-    s <- s && qc.ts.numbers(x, short=short, stop=stop, quiet=quiet)
+    s <- ""
+    if(s == "" && !qc.exists(x, short=short, stop=stop, quiet=quiet))
+      s <- "exists"
+    if(s == "" && !qc.xlsx(x, short=short, stop=stop, quiet=quiet))
+      s <- "xlsx"
+    if(s == "" && !qc.star(x, short=short, stop=stop, quiet=quiet))
+      s <- "star"
+    if(s == "" && !qc.vpa(x, short=short, stop=stop, quiet=quiet))
+      s <- "vpa"
+    if(s == "" && !qc.ts.names(x, short=short, stop=stop, quiet=quiet))
+      s <- "ts.names"
+    if(s == "" && !qc.ts.numbers(x, short=short, stop=stop, quiet=quiet))
+      s <- "ts.numbers"
   }
   else
   {

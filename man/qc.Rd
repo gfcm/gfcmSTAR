@@ -18,8 +18,8 @@ format.}
 \item{quiet}{whether to suppress messages.}
 }
 \value{
-Logical \code{TRUE} or \code{FALSE} indicating whether all tests succeeded,
-or a logical vector if \code{x} is a directory.
+String indicating which test did not succeed, or a vector of strings if
+\code{x} is a directory. A value of \code{""} means all tests succeeded.
 }
 \description{
 Run all quality checks on one or more Excel STAR templates.
