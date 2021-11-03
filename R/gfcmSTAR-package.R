@@ -79,13 +79,13 @@
 #' A fully annotated script to import and export a large collection of STARs is
 #' found here:
 #'
-#' \href{https://github.com/gfcm/gfcmSTAR/blob/master/inst/scripts/import_export.R}{import_export.R}
+#' \href{https://github.com/gfcm/gfcmSTAR/blob/master/inst/scripts/import.R}{import.R}
 #'
 #' It demonstrates administrative procedures to quality check and handle STAR
 #' templates that may contain errors. This script can also be found on the local
 #' hard drive:
 #'
-#' \preformatted{system.file("scripts/import_export.R", package="gfcmSTAR")}
+#' \preformatted{system.file("scripts/import.R", package="gfcmSTAR")}
 #'
 #' @author Arni Magnusson.
 #'

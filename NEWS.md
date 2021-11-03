@@ -2,8 +2,10 @@
 
 * Improved report() to handle empty data frames.
 
-* Removed vignettes which have been superseded by the import_export.R script,
-  now linked from the package help page.
+* Renamed import_export.R script to import.R.
+
+* Removed vignettes which have been superseded by the import.R script, now
+  linked from the package help page.
 
 ---
 
