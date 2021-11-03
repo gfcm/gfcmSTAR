@@ -130,13 +130,19 @@ print.report <- function(x, nchar=23, ...)
 {
   arrow <- function(d)  # data.frame, put arrow before last column entries
   {
-    last <- ncol(d)
-    d[[last]] <- paste("=>", d[[last]])
+    if(nrow(d) > 0)
+    {
+      last <- ncol(d)
+      d[[last]] <- paste("=>", d[[last]])
+    }
     d
   }
   bracket <- function(d)  # data.frame, convert row names to [1] format
   {
-    row.names(d) <- format(paste0("[", row.names(d), "]"), justify="right")
+    if(nrow(d) > 0)
+    {
+      row.names(d) <- format(paste0("[", row.names(d), "]"), justify="right")
+    }
     d
   }
   empty <- function(d)  # data.frame, replace column names with blank space
@@ -151,24 +157,33 @@ print.report <- function(x, nchar=23, ...)
     d
   }
 
+  ## Shorten error messages
   x$Filenames$Failed$Error <- substring(x$Filenames$Failed$Error, 1, nchar)
 
+  ## Format with arrows, brackets, empty names, and parentheses
   x$Filenames$Failed <- arrow(x$Filenames$Failed)
   x$Filenames$QC <- arrow(x$Filenames$QC)
-
   x$Filenames$Failed <- bracket(x$Filenames$Failed)
   x$Filenames$Removed <- bracket(x$Filenames$Removed)
   x$Filenames$QC <- bracket(x$Filenames$QC)
-
   x$Count$Import <- empty(x$Count$Import)
   x$Count$QC <- empty(x$Count$QC)
   x$Filenames$Failed <- empty(x$Filenames$Failed)
   x$Filenames$Removed <- empty(x$Filenames$Removed)
   x$Filenames$QC <- empty(x$Filenames$QC)
-
   x$Count$Import <- paren(x$Count$Import)
   x$Count$QC <- paren(x$Count$QC)
 
+  ## Replace empty data frame with "None"
+  none <- structure(list("None"), class="data.frame", names="", row.names="")
+  if(nrow(x$Filenames$Failed) == 0)
+    x$Filenames$Failed <- none
+  if(nrow(x$Filenames$Removed) == 0)
+    x$Filenames$Removed <- none
+  if(nrow(x$Filenames$QC) == 0)
+    x$Filenames$QC <- none
+
+  ## Print
   cat("*** Count\n\n")
   print(x$Count, right=FALSE, row.names=FALSE)
   cat("\n*** Filenames\n\n")

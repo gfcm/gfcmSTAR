@@ -1,3 +1,9 @@
+# gfcmSTAR 2.2.2 (2021-11-03)
+
+* Improved report() to handle empty data frames.
+
+---
+
 # gfcmSTAR 2.2.1 (2021-10-31)
 
 * Improved report() to specify which error messages and QC issues stem from
