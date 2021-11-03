@@ -2,6 +2,9 @@
 
 * Improved report() to handle empty data frames.
 
+* Removed vignettes which have been superseded by the import_export.R script,
+  now linked from the package help page.
+
 ---
 
 # gfcmSTAR 2.2.1 (2021-10-31)

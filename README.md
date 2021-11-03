@@ -14,7 +14,7 @@ gfcmSTAR can be installed from GitHub using the `install_github` command:
 
 ```R
 library(remotes)
-install_github("gfcm/gfcmSTAR", build_vignettes=TRUE)
+install_github("gfcm/gfcmSTAR")
 ```
 
 **Site installation (e.g. GFCM RStudio Server)**
@@ -28,7 +28,7 @@ specifies the 2nd library path:
 
 ```R
 library(remotes)
-install_github("gfcm/gfcmSTAR", build_vignettes=TRUE, lib=.libPaths()[2])
+install_github("gfcm/gfcmSTAR", lib=.libPaths()[2])
 ```
 
 Usage

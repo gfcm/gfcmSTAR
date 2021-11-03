@@ -4,7 +4,6 @@ Date: 2021-11-03
 Title: Tools to Work with GFCM Stock Assessment Results (STAR)
 Authors@R: c(person("Arni", "Magnusson", role=c("aut","cre"), email="thisisarni@gmail.com"))
 Imports: stats, tools, utils, XLConnect
-Suggests: rmarkdown, knitr
 LazyData: yes
 Description: Tools that support the Stock Assessment Results (STAR) framework of
   the General Fisheries Commission for the Mediterranean.
@@ -13,4 +12,3 @@ URL: https://github.com/gfcm/star, https://github.com/gfcm/gfcmSTAR
 Encoding: UTF-8
 RoxygenNote: 7.1.2
 Roxygen: list(old_usage=TRUE)
-VignetteBuilder: knitr

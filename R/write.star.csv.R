@@ -44,13 +44,6 @@
 #'
 #' @return \code{TRUE} if CSV files were created, otherwise \code{FALSE}.
 #'
-#' @note
-#' A vignette demonstrates the use of \code{write.star.csv} to export a list of
-#' STAR objects to CSV files:
-#' \preformatted{
-#' vignette("export", "gfcmSTAR")
-#' }
-#'
 #' @seealso
 #' \code{\link{write.csv}} is the underlying function used to write a table to a
 #' CSV file.
