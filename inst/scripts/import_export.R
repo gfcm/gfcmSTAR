@@ -2,15 +2,14 @@
 ## event (stock assessment working group, benchmark workshop, or the like) and
 ## year.
 ##
-## For example, if event is "WGSAD_Western_Mediterranean" and year is 2021, then
-## this script will look for
-## Excel STAR templates inside
-##   ~/StockAssessmentResults/uploads/2021/WGSAD_Western_Mediterranean
+## For example, if event is "WGSASP_General" and year is 2021, then this script
+## will look for Excel STAR templates inside
+##   ~/StockAssessmentResults/uploads/2021/WGSASP_General
 ## and Excel file with SharePoint properties
-##   ~/StockAssessmentResults/uploads/2021/properties/WGSAD_Western_Mediterranean.xlsx
+##   ~/StockAssessmentResults/uploads/2021/properties/WGSASP_General.xlsx
 ##
 ## The stock assessment results are then exported to CSV files inside
-##   /mnt/star-templates/2021/WGSAD_Western_Mediterranean
+##   /mnt/star-templates/2021/WGSASP_General
 ##
 ## The purpose of this script is to semi-automate the STAR import and export
 ## procedure to generate CSV files for the STAR database. Two steps require a
@@ -29,7 +28,7 @@
 ##    suffix="this") and read.template(..., suffix="that") functionality. See
 ##    any(duplicated(id)) below, and the help page for read.template.
 
-event <- "WGSAD_Western_Mediterranean"
+event <- "WGSASP_General"
 year <- 2021
 
 ## Load package and specify directories
@@ -67,15 +66,21 @@ if(any(duplicated(id)))
 ################################################################################
 ## Actions specific to this script
 
-## Remove entries that are not STAR templates
-## cluster.ok$"star_template.xlsx" <- NULL
+## Remove star_template, draft version of STAR_PIL_17_18
 
-## Give multiple analyses of same stock distinct Assessment_ID names
-## s1 <- cluster.ok$"star_ANE_GSA06 ref2019_model1.xlsx"
-## s2 <- cluster.ok$"star_ANE_GSA06 ref2019_model2.xlsx"
-## diff.stars(s1, s2)
-## cluster.ok$"star_ANE_GSA06 ref2019_model1.xlsx" <- append.id(s1, "a4a_spict")
-## cluster.ok$"star_ANE_GSA06 ref2019_model2.xlsx" <- append.id(s2, "a4a")
+cluster.ok$"star_template.xlsx" <- NULL
+
+## Remove STAR_PIL_17_18.xlsx, strings prevent calculation of stock status
+
+cluster.ok$"STAR_PIL_17_18.xlsx" <- NULL
+
+## Give two analyses of STAR_2019_ANE_6 distinct names
+
+s1 <- cluster.ok$"star_ANE_GSA06 ref2019_model1.xlsx"
+s2 <- cluster.ok$"star_ANE_GSA06 ref2019_model2.xlsx"
+diff.stars(s1, s2)
+cluster.ok$"star_ANE_GSA06 ref2019_model1.xlsx" <- append.id(s1, "a4a_spict")
+cluster.ok$"star_ANE_GSA06 ref2019_model2.xlsx" <- append.id(s2, "a4a")
 
 ################################################################################
 
