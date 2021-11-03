@@ -76,7 +76,6 @@
 #' }
 #'
 #' @section Script:
-#'
 #' A fully annotated script to import and export a large collection of STARs is
 #' found here:
 #'

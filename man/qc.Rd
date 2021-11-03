@@ -29,6 +29,10 @@ Run all quality checks on one or more Excel STAR templates.
 If \code{x} is a directory, \code{stop} is set to \code{FALSE} unless the
 user passes an explicit \code{stop = TRUE}.
 }
+\note{
+A generic script to quality check many STAR templates is covered in the
+'Script' section of the \link{gfcmSTAR-package} help page.
+}
 \examples{
 \dontrun{
 

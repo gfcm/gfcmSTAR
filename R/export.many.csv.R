@@ -12,11 +12,8 @@
 #' @return \code{TRUE} if CSV files were created, otherwise \code{FALSE}.
 #'
 #' @note
-#' A vignette demonstrates the use of \code{export.many.csv} to export a cluster
-#' (list) of STAR objects to CSV files:
-#' \preformatted{
-#' vignette("export", "gfcmSTAR")
-#' }
+#' A generic script to export many CSV files is covered in the 'Script' section
+#' of the \link{gfcmSTAR-package} help page.
 #'
 #' @seealso
 #' \code{\link{write.star.csv}} writes a STAR object to CSV files.

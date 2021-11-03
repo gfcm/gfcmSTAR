@@ -25,11 +25,8 @@ Export a cluster (list) of STAR objects to CSV files \file{metadata.csv} and
 \file{timeseries.csv}.
 }
 \note{
-A vignette demonstrates the use of \code{export.many.csv} to export a cluster
-(list) of STAR objects to CSV files:
-\preformatted{
-vignette("export", "gfcmSTAR")
-}
+A generic script to export many CSV files is covered in the 'Script' section
+of the \link{gfcmSTAR-package} help page.
 }
 \examples{
 \dontrun{

@@ -18,6 +18,10 @@
 #' \code{x} is a directory. A value of \code{""} means all tests succeeded for
 #' that file.
 #'
+#' @note
+#' A generic script to quality check many STAR templates is covered in the
+#' 'Script' section of the \link{gfcmSTAR-package} help page.
+#'
 #' @seealso
 #' The checks are run in the following order:
 #'

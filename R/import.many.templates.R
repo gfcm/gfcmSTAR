@@ -19,11 +19,8 @@
 #' @return A cluster (list) of STAR objects.
 #'
 #' @note
-#' A vignette demonstrates the use of \code{import.many.templates} to import
-#' STAR templates:
-#' \preformatted{
-#' vignette("import", "gfcmSTAR")
-#' }
+#' A generic script to import many templates is covered in the 'Script' section
+#' of the \link{gfcmSTAR-package} help page.
 #'
 #' @seealso
 #' \code{\link{read.template}} reads an Excel STAR template into a STAR object.
