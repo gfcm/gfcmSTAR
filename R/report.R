@@ -17,7 +17,7 @@
 #' \itemize{
 #' \item Imported. The STAR objects found in \code{cluster.ok}.
 #' \item Failed. Files that \code{read.template} could not import.
-#' \item Removed. Files that were manually removed by administrator, because
+#' \item Removed. Files that were manually removed by the administrator, because
 #'       they were duplicate templates, empty templates, etc.
 #' }
 #'
@@ -31,6 +31,15 @@
 #' that had errors, were removed, or had QC issues. This list is useful for STAR
 #' administrators to bring into focus any STAR templates that were not
 #' successfully imported.
+#'
+#' @section Print Method:
+#'
+#' When displaying a \code{report} object, error messages from filenames that
+#' failed to import are truncated to 23 characters by default. This makes the
+#' report easy to read from the console. To show full error messages, pass a
+#' large value of \code{nchar} to the \code{print} method:
+#' \preformatted{rep <- report(cluster, cluster.ok, qc.vector)
+#' print(rep, nchar=999)}
 #'
 #' @seealso
 #' \code{\link{import.many.templates}} imports many Excel STAR templates from a
@@ -107,11 +116,9 @@ report <- function(cluster, cluster.ok, qc.vector)
   Filenames$Failed <- data.frame(File=f.failed, Error=e.failed,
                                  row.names=which(f.all %in% f.failed),
                                  stringsAsFactors=FALSE)
-
   Filenames$Removed <- data.frame(File=f.removed,
                                   row.names=which(f.all %in% f.removed),
                                   stringsAsFactors=FALSE)
-
   Filenames$QC <- data.frame(File=f.qc, Test=qc.vector,
                              row.names=which(f.all %in% f.qc),
                              stringsAsFactors=FALSE)
