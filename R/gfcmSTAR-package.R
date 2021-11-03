@@ -75,8 +75,18 @@
 #' star$Metadata$Time_Imported
 #' }
 #'
-#' \code{browseVignettes("gfcmSTAR")} shows the vignettes, found in the
-#' \file{gfcmSTAR/doc} directory.
+#' @section Script:
+#'
+#' A fully annotated script to import and export a large collection of STARs is
+#' found here:
+#'
+#' \href{https://github.com/gfcm/gfcmSTAR/blob/master/inst/scripts/import_export.R}{import_export.R}
+#'
+#' It demonstrates administrative procedures to quality check and handle STAR
+#' templates that may contain errors. This script can also be found on the local
+#' hard drive:
+#'
+#' \preformatted{system.file("scripts/import_export.R", package="gfcmSTAR")}
 #'
 #' @author Arni Magnusson.
 #'
