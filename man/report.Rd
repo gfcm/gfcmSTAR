@@ -50,6 +50,7 @@ When displaying a \code{report} object, error messages from filenames that
 failed to import are truncated to 23 characters by default. This makes the
 report easy to read from the console. To show full error messages, pass a
 large value of \code{nchar} to the \code{print} method:
+
 \preformatted{rep <- report(cluster, cluster.ok, qc.vector)
 print(rep, nchar=999)}
 }
