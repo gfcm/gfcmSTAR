@@ -45,7 +45,6 @@ successfully imported.
 }
 \section{Print Method}{
 
-
 When displaying a \code{report} object, error messages from filenames that
 failed to import are truncated to 23 characters by default. This makes the
 report easy to read from the console. To show full error messages, pass a
