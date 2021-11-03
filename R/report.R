@@ -32,7 +32,7 @@
 #' administrators to bring into focus any STAR templates that were not
 #' successfully imported.
 #'
-#' @section Print Method:
+#' @section Print and Write Methods:
 #' When displaying a \code{report} object, error messages from filenames that
 #' failed to import are truncated to 23 characters by default. This makes the
 #' report easy to read from the console. To show full error messages, pass a
@@ -40,6 +40,10 @@
 #'
 #' \preformatted{rep <- report(cluster, cluster.ok, qc.vector)
 #' print(rep, nchar=999)}
+#'
+#' The \code{write.report} function writes the report to a text file:
+#'
+#' \preformatted{write.report(rep)}
 #'
 #' @seealso
 #' \code{\link{import.many.templates}} imports many Excel STAR templates from a
@@ -132,9 +136,8 @@ report <- function(cluster, cluster.ok, qc.vector)
 #' @rdname gfcmSTAR-internal
 #'
 #' @export
-#' @export print.report
 
-print.report <- function(x, nchar=23, ...)
+cat.report <- function(x, nchar=23)
 {
   arrow <- function(d)  # data.frame, put arrow before last column entries
   {
@@ -198,4 +201,42 @@ print.report <- function(x, nchar=23, ...)
   print(x$Count, right=FALSE, row.names=FALSE)
   cat("\n*** Filenames\n\n")
   print(x$Filenames, right=FALSE)
+}
+
+#' @rdname gfcmSTAR-internal
+#'
+#' @importFrom utils capture.output
+#'
+#' @export
+#' @export print.report
+
+print.report <- function(x, nchar=23, ...)
+{
+  txt <- capture.output(cat.report(x, nchar=nchar))
+
+  ## Remove traling horizontal space
+  txt <- trimws(txt, "right")
+
+  ## Remove lots of vertical space
+  txt <- txt[txt != ""]
+
+  ## Add minimal vertical space
+  txt[txt == "*** Count"] <- "\n*** Count\n"
+  txt[txt == "*** Filenames"] <- "\n*** Filenames\n"
+  txt[txt == "$QC"] <- "\n$QC"
+  txt[txt == "$Removed"] <- "\n$Removed"
+
+  cat(txt, sep="\n")
+}
+
+#' @rdname gfcmSTAR-internal
+#'
+#' @importFrom utils capture.output
+#'
+#' @export
+
+write.report <- function(x, file, nchar=23)
+{
+  txt <- capture.output(print(x, nchar=nchar))
+  writeLines(txt, file)
 }

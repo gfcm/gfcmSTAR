@@ -43,7 +43,7 @@ that had errors, were removed, or had QC issues. This list is useful for STAR
 administrators to bring into focus any STAR templates that were not
 successfully imported.
 }
-\section{Print Method}{
+\section{Print and Write Methods}{
 
 When displaying a \code{report} object, error messages from filenames that
 failed to import are truncated to 23 characters by default. This makes the
@@ -52,6 +52,10 @@ large value of \code{nchar} to the \code{print} method:
 
 \preformatted{rep <- report(cluster, cluster.ok, qc.vector)
 print(rep, nchar=999)}
+
+The \code{write.report} function writes the report to a text file:
+
+\preformatted{write.report(rep)}
 }
 
 \examples{
