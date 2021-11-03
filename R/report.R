@@ -125,6 +125,7 @@ report <- function(cluster, cluster.ok, qc.vector)
 
   out <- list(Count=Count, Filenames=Filenames)
   class(out) <- "report"
+  attr(out, "timestamp") <- Sys.time()
   out
 }
 
@@ -191,6 +192,8 @@ print.report <- function(x, nchar=23, ...)
     x$Filenames$QC <- none
 
   ## Print
+  timestamp <- format(attr(x, "timestamp"), "%a %d %b %Y - %H:%M:%S")
+  cat("Report generated ", timestamp, "\n\n\n", sep="")
   cat("*** Count\n\n")
   print(x$Count, right=FALSE, row.names=FALSE)
   cat("\n*** Filenames\n\n")
