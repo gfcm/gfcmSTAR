@@ -1,6 +1,6 @@
 Package: gfcmSTAR
-Version: 2.2.2
-Date: 2021-11-03
+Version: 2.3.0
+Date: 2021-11-04
 Title: Tools to Work with GFCM Stock Assessment Results (STAR)
 Authors@R: c(person("Arni", "Magnusson", role=c("aut","cre"), email="thisisarni@gmail.com"))
 Imports: stats, tools, utils, XLConnect

@@ -32,7 +32,7 @@
 #' administrators to bring into focus any STAR templates that were not
 #' successfully imported.
 #'
-#' @section Print and Write Methods:
+#' @section Print Method:
 #' When displaying a \code{report} object, error messages from filenames that
 #' failed to import are truncated to 23 characters by default. This makes the
 #' report easy to read from the console. To show full error messages, pass a
@@ -41,11 +41,9 @@
 #' \preformatted{rep <- report(cluster, cluster.ok, qc.vector)
 #' print(rep, nchar=999)}
 #'
-#' The \code{write.report} function writes the report to a text file:
-#'
-#' \preformatted{write.report(rep)}
-#'
 #' @seealso
+#' \code{\link{write.report}} writes a report object to a text file.
+#'
 #' \code{\link{import.many.templates}} imports many Excel STAR templates from a
 #' directory into a cluster (list).
 #'
@@ -227,16 +225,4 @@ print.report <- function(x, nchar=23, ...)
   txt[txt == "$Removed"] <- "\n$Removed"
 
   cat(txt, sep="\n")
-}
-
-#' @rdname gfcmSTAR-internal
-#'
-#' @importFrom utils capture.output
-#'
-#' @export
-
-write.report <- function(x, file, nchar=23)
-{
-  txt <- capture.output(print(x, nchar=nchar))
-  writeLines(txt, file)
 }

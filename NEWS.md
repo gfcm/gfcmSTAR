@@ -1,4 +1,6 @@
-# gfcmSTAR 2.2.2 (2021-11-03)
+# gfcmSTAR 2.3.0 (2021-11-04)
+
+* Added function write.report().
 
 * Improved report() to handle empty data frames.
 

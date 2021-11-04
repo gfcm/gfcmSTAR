@@ -51,7 +51,8 @@
 #'   \code{\link{qc.vpa}}    \tab \code{VPA_Model} is \code{Yes} or \code{No}\cr
 #'   \code{\link{qc.ts.names}}     \tab time series column names are intact\cr
 #'   \code{\link{qc.ts.numbers}} \tab time series are numbers and not strings\cr
-#'   \code{\link{report}}          \tab report files successfully imported
+#'   \code{\link{report}}          \tab report files successfully imported\cr
+#'   \code{link{write.repott}}     \tab write a report object to a text file
 #' }
 #'
 #' @note

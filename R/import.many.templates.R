@@ -30,7 +30,7 @@
 #'
 #' \code{\link{peek}} examines a metadata field of STAR objects.
 #'
-#' \code{\link{report}} reports files successfully imported.
+#' \code{\link{report}} reports which files successfully were imported.
 #'
 #' \code{\link{gfcmSTAR-package}} gives an overview of the package.
 #'

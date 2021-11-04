@@ -11,7 +11,6 @@
 \alias{readTable.transpose}
 \alias{cat.report}
 \alias{print.report}
-\alias{write.report}
 \title{Various gfcmSTAR Helper Functions}
 \usage{
 Start_Case(x)
@@ -27,8 +26,6 @@ readTable.transpose(..., rownames = 1, cols = 1)
 cat.report(x, nchar = 23)
 
 \method{print}{report}(x, nchar = 23, ...)
-
-write.report(x, file, nchar = 23)
 }
 \description{
 These functions are called by user-level functions. The functionality is
