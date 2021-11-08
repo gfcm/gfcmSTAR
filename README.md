@@ -41,6 +41,19 @@ library(gfcmSTAR)
 ?gfcmSTAR
 ```
 
+A fully annotated script to import and export a large collection of STARs is
+found here:
+
+[import.R](inst/scripts/import.R)
+
+It demonstrates administrative procedures to quality check and handle STAR
+templates that may contain errors. This script can also be found on the local
+hard drive:
+
+```R
+system.file("scripts/import.R", package="gfcmSTAR")
+```
+
 References
 ----------
 
