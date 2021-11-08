@@ -1,4 +1,4 @@
-# gfcmSTAR 2.3.0 (2021-11-04)
+# gfcmSTAR 2.3.0 (2021-11-08)
 
 * Added function write.report().
 
