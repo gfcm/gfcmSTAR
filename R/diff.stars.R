@@ -30,6 +30,17 @@
 #' @export
 #' @export diff.stars
 
+## Implementation note:
+##
+## The function name diff.stars() is good for describing its purpose and
+## behavior, although it confuses both 'R CMD check' and roxygen2. Like the
+## 'diff' shell command, diff.stars() returns nothing if the objects are the
+## same.
+##
+## We export as S3 method to get a clean R CMD check. It is more important to
+## suppress unnecessary noise from R CMD check than to be right about whether
+## diff.stars() is an S3 method or not.
+
 diff.stars <- function(x, y, full=FALSE, width=20, ...)
 {
   ## Handle possible filenames, create a short column label
